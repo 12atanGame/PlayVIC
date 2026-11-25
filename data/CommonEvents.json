@@ -28537,7 +28537,7 @@
                 "code": 655,
                 "indent": 1,
                 "parameters": [
-                    "const apiKey = \"GEMINI_API_KEY\"; "
+                    "const apiKey = GEMINI_API_KEY; "
                 ]
             },
             {
@@ -29955,7 +29955,7 @@
                 "code": 655,
                 "indent": 1,
                 "parameters": [
-                    "const apiKey = \"GEMINI_API_KEY\"; "
+                    "const apiKey = GEMINI_API_KEY; "
                 ]
             },
             {
