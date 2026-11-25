@@ -28523,21 +28523,7 @@
                 "code": 355,
                 "indent": 1,
                 "parameters": [
-                    "// ==================== 1. 基本設定 ===================="
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "const character = \"vic\"; // 💬 \"vic\" 代表維克，\"hugh\" 代表休"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "const apiKey = GEMINI_API_KEY; "
+                    "const character = \"vic\"; // 休的公共事件改成 \"hugh\""
                 ]
             },
             {
@@ -28551,420 +28537,49 @@
                 "code": 655,
                 "indent": 1,
                 "parameters": [
-                    "// ==================== 2. 讀取變數 ===================="
+                    "const chatRequest = {"
                 ]
             },
             {
                 "code": 655,
                 "indent": 1,
                 "parameters": [
-                    "const playerInput = $gameVariables.value(88) || \"你好\";"
+                    "    character,"
                 ]
             },
             {
                 "code": 655,
                 "indent": 1,
                 "parameters": [
-                    "const currentPlot = `維克跟休兩人正在私人據點休息，玩家是一隻叫做${$gameVariables.value(108)}的小貓。`;"
+                    "    playerInput: String($gameVariables.value(88) || \"你好\"),"
                 ]
             },
             {
                 "code": 655,
                 "indent": 1,
                 "parameters": [
-                    "const vicAffinity = $gameVariables.value(92) || 100;"
+                    "    catName: String($gameVariables.value(108) || \"\"),"
                 ]
             },
             {
                 "code": 655,
                 "indent": 1,
                 "parameters": [
-                    "const hughAffinity = $gameVariables.value(93) || 100;"
+                    "    vicAffinity: $gameVariables.value(92) || 100,"
                 ]
             },
             {
                 "code": 655,
                 "indent": 1,
                 "parameters": [
-                    "const mapId = $gameMap.mapId();"
+                    "    hughAffinity: $gameVariables.value(93) || 100,"
                 ]
             },
             {
                 "code": 655,
                 "indent": 1,
                 "parameters": [
-                    ""
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "// 🌟 自動檢測玩家輸入語系（含簡繁體細分）"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "let detectedLanguage = \"與玩家輸入相同的語言\";"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    ""
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "// 簡體特有字常用特徵庫"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "const simReg = /[Simplified|简化|简|说|这|国|会|时|来|为|们|个|爱|见|门|关|听|乐|话|办|动|头|产|经|长|变|发|让|对|宝|书|车|马|风|鸟|鱼|极]/;"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "// 繁體特有字常用特徵庫"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "const tradReg = /[Traditional|繁體|繁|說|這|國|會|時|來|為|們|個|愛|見|門|關|聽|樂|話|辦|動|頭|產|經|長|變|發|讓|對|寶|書|車|馬|風|鳥|魚|極]/;"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    ""
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "if (simReg.test(playerInput)) {"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "    // 優先捕獲明確的簡體特有字"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "    detectedLanguage = \"簡體中文 (Simplified Chinese)\";"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "} else if (tradReg.test(playerInput)) {"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "    // 捕獲明確的繁體特有字"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "    detectedLanguage = \"繁體中文 (Traditional Chinese)\";"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "} else if (/[\\u4e00-\\u9fa5]/.test(playerInput)) {"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "    // 若為中文字但皆為共用字（如「你好」），預設為繁體中文"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "    detectedLanguage = \"繁體中文 (Traditional Chinese)\";"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "} else if (/[\\u3040-\\u309F\\u30A0-\\u30FF]/.test(playerInput)) {"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "    // 日文字元"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "    detectedLanguage = \"日文 (Japanese)\";"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "} else if (/^[a-zA-Z0-9\\s\\p{P}]+$/u.test(playerInput)) {"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "    // 純英數字與標點"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "    detectedLanguage = \"英文 (English)\";"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "}"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    ""
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "const characterSetting = character === \"vic\" "
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "    ? \"你現在是自創專案《VIC》中的 26 歲金髮薄荷綠眼半精靈『維克歇克斯 (Vic Sykes)』。曾任帝國警察總長，現任特別調查官。你是行動派，溫暖而堅強，擅長談判，總是以笑容掩飾內心創傷。說話字數中等但洗鍊，48字內講完，不要太多。能力：體內魔力世界頂尖（已學會施法，施法時會帶來巨大壓迫感）、槍法 99%。情感：與伴侶『休』是生死與共的戀人（互攻）。expression: 表情代號（例如：smile, serious, happy, shock, sad）\""
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "    : \"你現在是自創專案《VIC》中的 18 歲白髮紅眼半神人類『休諾 (Hugh Nor)』，原為帝國執行部隊隊長，後擔任維克的護衛與戀人（兩人在交往後為互攻關係）。性格與外貌特質：嚴謹與紀律：受軍事化教育長大，性格木訥、起初不懂享受生活，生活只有任務與制服。說話字數偏少、沉穩、絕不輕浮。外冷內熱：被維克當作「人」來對待後，展現出極致的忠誠與深情。只要涉及維克的安全或名譽，你會變得非常護短，甚至願意為了維克違抗命令。料理奇才：具備製作「怪異美味料理」的技能，能把奇特食材（如奇美拉蛇尾）做成不可思義的美味。能力：體術大師、精準戰鬥（短刀與手槍命中率 87%）。對玩家或維克的態度雖然沉穩但極度深情與偏袒。expression: 表情代號（例如：pokerface, serious, shock, smile, sad）\";"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    ""
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "const systemInstruction = `"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "# Role Setting"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "${characterSetting}"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    ""
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "# Context"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "當前劇情背景：${currentPlot}"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "維克好感：${vicAffinity}、休好感：${hughAffinity}、地圖ID：${mapId}。"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    ""
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "# Output Format Constraints"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "1. 必須嚴格遵守 JSON 格式，回傳物件包含：{ \"reply\": string, \"expression\": string, \"rmmzCommand\": string }。"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "2. 【強制語言要求】：請偵測並確認玩家輸入的語系。本局遊戲玩家使用的是【 ${detectedLanguage} 】。"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "3. 你的 JSON 物件中，\"reply\" 的內容必須「100% 完全使用 ${detectedLanguage}」來撰寫，絕對不能混用其他語言。"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "`;"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    ""
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "// 💡 真正的 Google 官方免費通道網址"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    ""
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "const requestBody = {"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "    contents: [{ "
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "        role: \"user\", "
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "        parts: [{ text: playerInput }] "
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "    }],"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "    systemInstruction: { parts: [{ text: systemInstruction }] },"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "    generationConfig: { responseMimeType: \"application/json\" }"
+                    "    mapId: $gameMap.mapId()"
                 ]
             },
             {
@@ -28985,14 +28600,7 @@
                 "code": 655,
                 "indent": 1,
                 "parameters": [
-                    "const interpreter = this;"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "interpreter.wait(30);"
+                    "this.wait(30);"
                 ]
             },
             {
@@ -29013,14 +28621,7 @@
                 "code": 655,
                 "indent": 1,
                 "parameters": [
-                    "// ==================== 3. 發送請求 ===================="
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "fetch(url, {"
+                    "fetch(\"/api/chat\", {"
                 ]
             },
             {
@@ -29041,7 +28642,7 @@
                 "code": 655,
                 "indent": 1,
                 "parameters": [
-                    "    body: JSON.stringify(requestBody)"
+                    "    body: JSON.stringify(chatRequest)"
                 ]
             },
             {
@@ -29055,77 +28656,21 @@
                 "code": 655,
                 "indent": 1,
                 "parameters": [
-                    ".then(res => {"
+                    ".then(async response => {"
                 ]
             },
             {
                 "code": 655,
                 "indent": 1,
                 "parameters": [
-                    "    if (!res.ok) {"
+                    "    if (!response.ok) {"
                 ]
             },
             {
                 "code": 655,
                 "indent": 1,
                 "parameters": [
-                    "        return res.text().then(errText => {"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "            throw new Error(`Google 拒絕連線，狀態碼: ${res.status}\\n原因: ${errText}`);"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "        });"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "    }"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "    return res.json();"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "})"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    ".then(data => {"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "    if (!data.candidates || !data.candidates[0]) {"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "        throw new Error(\"Gemini 回傳結構異常\");"
+                    "        throw new Error(`聊天請求失敗（HTTP ${response.status}）`);"
                 ]
             },
             {
@@ -29146,14 +28691,28 @@
                 "code": 655,
                 "indent": 1,
                 "parameters": [
-                    "    const rawText = data.candidates[0].content.parts[0].text;"
+                    "    const result = await response.json();"
                 ]
             },
             {
                 "code": 655,
                 "indent": 1,
                 "parameters": [
-                    "    const result = JSON.parse(rawText);"
+                    "    if (typeof result?.reply !== \"string\") {"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 1,
+                "parameters": [
+                    "        throw new Error(\"聊天回覆格式錯誤\");"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 1,
+                "parameters": [
+                    "    }"
                 ]
             },
             {
@@ -29167,7 +28726,49 @@
                 "code": 655,
                 "indent": 1,
                 "parameters": [
-                    "    // 存回 RMMZ（已移除變數 90 / thought）"
+                    "    const allowedExpressions = ["
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 1,
+                "parameters": [
+                    "        \"normal\", \"smile\", \"serious\", \"happy\", \"shock\", \"sad\", \"pokerface\""
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 1,
+                "parameters": [
+                    "    ];"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 1,
+                "parameters": [
+                    "    const expression = allowedExpressions.includes(result.expression)"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 1,
+                "parameters": [
+                    "        ? result.expression"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 1,
+                "parameters": [
+                    "        : \"normal\";"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 1,
+                "parameters": [
+                    ""
                 ]
             },
             {
@@ -29181,42 +28782,7 @@
                 "code": 655,
                 "indent": 1,
                 "parameters": [
-                    "    $gameVariables.setValue(57, result.expression || \"normal\");"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    ""
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "    if (result.rmmzCommand) {"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "        try { eval(result.rmmzCommand); } catch(e) { console.error(\"指令執行失敗:\", e); }"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "    }"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    ""
+                    "    $gameVariables.setValue(57, expression);"
                 ]
             },
             {
@@ -29244,21 +28810,21 @@
                 "code": 655,
                 "indent": 1,
                 "parameters": [
-                    ".catch(err => {"
+                    ".catch(error => {"
                 ]
             },
             {
                 "code": 655,
                 "indent": 1,
                 "parameters": [
-                    "    console.error(\"【AI 直連錯誤詳細報告】\\n\", err.message || err);"
+                    "    console.error(\"【AI 聊天】\", error);"
                 ]
             },
             {
                 "code": 655,
                 "indent": 1,
                 "parameters": [
-                    "    $gameVariables.setValue(91, -1); // 出錯"
+                    "    $gameVariables.setValue(91, -1); // 走原本的自寫台詞備援"
                 ]
             },
             {
@@ -29274,6 +28840,778 @@
                 "parameters": [
                     "});"
                 ]
+            },
+            {
+                "code": 109,
+                "indent": 1,
+                "parameters": [],
+                "collapsed": true
+            },
+            {
+                "code": 355,
+                "indent": 2,
+                "parameters": [
+                    "// ==================== 1. 基本設定 ===================="
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "const character = \"vic\"; // 💬 \"vic\" 代表維克，\"hugh\" 代表休"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "const apiKey = GEMINI_API_KEY; "
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    ""
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "// ==================== 2. 讀取變數 ===================="
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "const playerInput = $gameVariables.value(88) || \"你好\";"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "const currentPlot = `維克跟休兩人正在私人據點休息，玩家是一隻叫做${$gameVariables.value(108)}的小貓。`;"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "const vicAffinity = $gameVariables.value(92) || 100;"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "const hughAffinity = $gameVariables.value(93) || 100;"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "const mapId = $gameMap.mapId();"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    ""
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "// 🌟 自動檢測玩家輸入語系（含簡繁體細分）"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "let detectedLanguage = \"與玩家輸入相同的語言\";"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    ""
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "// 簡體特有字常用特徵庫"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "const simReg = /[Simplified|简化|简|说|这|国|会|时|来|为|们|个|爱|见|门|关|听|乐|话|办|动|头|产|经|长|变|发|让|对|宝|书|车|马|风|鸟|鱼|极]/;"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "// 繁體特有字常用特徵庫"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "const tradReg = /[Traditional|繁體|繁|說|這|國|會|時|來|為|們|個|愛|見|門|關|聽|樂|話|辦|動|頭|產|經|長|變|發|讓|對|寶|書|車|馬|風|鳥|魚|極]/;"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    ""
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "if (simReg.test(playerInput)) {"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    // 優先捕獲明確的簡體特有字"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    detectedLanguage = \"簡體中文 (Simplified Chinese)\";"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "} else if (tradReg.test(playerInput)) {"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    // 捕獲明確的繁體特有字"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    detectedLanguage = \"繁體中文 (Traditional Chinese)\";"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "} else if (/[\\u4e00-\\u9fa5]/.test(playerInput)) {"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    // 若為中文字但皆為共用字（如「你好」），預設為繁體中文"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    detectedLanguage = \"繁體中文 (Traditional Chinese)\";"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "} else if (/[\\u3040-\\u309F\\u30A0-\\u30FF]/.test(playerInput)) {"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    // 日文字元"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    detectedLanguage = \"日文 (Japanese)\";"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "} else if (/^[a-zA-Z0-9\\s\\p{P}]+$/u.test(playerInput)) {"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    // 純英數字與標點"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    detectedLanguage = \"英文 (English)\";"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "}"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    ""
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "const characterSetting = character === \"vic\" "
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    ? \"你現在是自創專案《VIC》中的 26 歲金髮薄荷綠眼半精靈『維克歇克斯 (Vic Sykes)』。曾任帝國警察總長，現任特別調查官。你是行動派，溫暖而堅強，擅長談判，總是以笑容掩飾內心創傷。說話字數中等但洗鍊，48字內講完，不要太多。能力：體內魔力世界頂尖（已學會施法，施法時會帶來巨大壓迫感）、槍法 99%。情感：與伴侶『休』是生死與共的戀人（互攻）。expression: 表情代號（例如：smile, serious, happy, shock, sad）\""
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    : \"你現在是自創專案《VIC》中的 18 歲白髮紅眼半神人類『休諾 (Hugh Nor)』，原為帝國執行部隊隊長，後擔任維克的護衛與戀人（兩人在交往後為互攻關係）。性格與外貌特質：嚴謹與紀律：受軍事化教育長大，性格木訥、起初不懂享受生活，生活只有任務與制服。說話字數偏少、沉穩、絕不輕浮。外冷內熱：被維克當作「人」來對待後，展現出極致的忠誠與深情。只要涉及維克的安全或名譽，你會變得非常護短，甚至願意為了維克違抗命令。料理奇才：具備製作「怪異美味料理」的技能，能把奇特食材（如奇美拉蛇尾）做成不可思義的美味。能力：體術大師、精準戰鬥（短刀與手槍命中率 87%）。對玩家或維克的態度雖然沉穩但極度深情與偏袒。expression: 表情代號（例如：pokerface, serious, shock, smile, sad）\";"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    ""
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "const systemInstruction = `"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "# Role Setting"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "${characterSetting}"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    ""
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "# Context"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "當前劇情背景：${currentPlot}"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "維克好感：${vicAffinity}、休好感：${hughAffinity}、地圖ID：${mapId}。"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    ""
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "# Output Format Constraints"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "1. 必須嚴格遵守 JSON 格式，回傳物件包含：{ \"reply\": string, \"expression\": string, \"rmmzCommand\": string }。"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "2. 【強制語言要求】：請偵測並確認玩家輸入的語系。本局遊戲玩家使用的是【 ${detectedLanguage} 】。"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "3. 你的 JSON 物件中，\"reply\" 的內容必須「100% 完全使用 ${detectedLanguage}」來撰寫，絕對不能混用其他語言。"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "`;"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    ""
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "// 💡 真正的 Google 官方免費通道網址"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    ""
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "const requestBody = {"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    contents: [{ "
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "        role: \"user\", "
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "        parts: [{ text: playerInput }] "
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    }],"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    systemInstruction: { parts: [{ text: systemInstruction }] },"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    generationConfig: { responseMimeType: \"application/json\" }"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "};"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    ""
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "const interpreter = this;"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "interpreter.wait(30);"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "$gameVariables.setValue(91, 1); // 載入中"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    ""
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "// ==================== 3. 發送請求 ===================="
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "fetch(url, {"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    method: \"POST\","
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    headers: { \"Content-Type\": \"application/json\" },"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    body: JSON.stringify(requestBody)"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "})"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    ".then(res => {"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    if (!res.ok) {"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "        return res.text().then(errText => {"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "            throw new Error(`Google 拒絕連線，狀態碼: ${res.status}\\n原因: ${errText}`);"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "        });"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    }"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    return res.json();"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "})"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    ".then(data => {"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    if (!data.candidates || !data.candidates[0]) {"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "        throw new Error(\"Gemini 回傳結構異常\");"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    }"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    ""
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    const rawText = data.candidates[0].content.parts[0].text;"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    const result = JSON.parse(rawText);"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    ""
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    // 存回 RMMZ（已移除變數 90 / thought）"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    $gameVariables.setValue(89, result.reply || \"……\");"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    $gameVariables.setValue(57, result.expression || \"normal\");"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    ""
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    if (result.rmmzCommand) {"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "        try { eval(result.rmmzCommand); } catch(e) { console.error(\"指令執行失敗:\", e); }"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    }"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    ""
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    $gameVariables.setValue(91, 2); // 成功"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    $gameMap.requestRefresh();"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "})"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    ".catch(err => {"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    console.error(\"【AI 直連錯誤詳細報告】\\n\", err.message || err);"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    $gameVariables.setValue(91, -1); // 出錯"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    $gameMap.requestRefresh();"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "});"
+                ]
+            },
+            {
+                "code": 0,
+                "indent": 2,
+                "parameters": []
+            },
+            {
+                "code": 409,
+                "indent": 1,
+                "parameters": []
             },
             {
                 "code": 112,
@@ -29941,21 +30279,7 @@
                 "code": 355,
                 "indent": 1,
                 "parameters": [
-                    "// ==================== 1. 基本設定 ===================="
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "const character = \"hugh\"; // 💬 \"vic\" 代表維克，\"hugh\" 代表休"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "const apiKey = GEMINI_API_KEY; "
+                    "const character = \"hugh\"; // 休的公共事件改成 \"hugh\""
                 ]
             },
             {
@@ -29969,420 +30293,49 @@
                 "code": 655,
                 "indent": 1,
                 "parameters": [
-                    "// ==================== 2. 讀取變數 ===================="
+                    "const chatRequest = {"
                 ]
             },
             {
                 "code": 655,
                 "indent": 1,
                 "parameters": [
-                    "const playerInput = $gameVariables.value(88) || \"你好\";"
+                    "    character,"
                 ]
             },
             {
                 "code": 655,
                 "indent": 1,
                 "parameters": [
-                    "const currentPlot = `維克跟休兩人正在私人據點休息，玩家是一隻叫做${$gameVariables.value(108)}的小貓。`;"
+                    "    playerInput: String($gameVariables.value(88) || \"你好\"),"
                 ]
             },
             {
                 "code": 655,
                 "indent": 1,
                 "parameters": [
-                    "const vicAffinity = $gameVariables.value(92) || 100;"
+                    "    catName: String($gameVariables.value(108) || \"\"),"
                 ]
             },
             {
                 "code": 655,
                 "indent": 1,
                 "parameters": [
-                    "const hughAffinity = $gameVariables.value(93) || 100;"
+                    "    vicAffinity: $gameVariables.value(92) || 100,"
                 ]
             },
             {
                 "code": 655,
                 "indent": 1,
                 "parameters": [
-                    "const mapId = $gameMap.mapId();"
+                    "    hughAffinity: $gameVariables.value(93) || 100,"
                 ]
             },
             {
                 "code": 655,
                 "indent": 1,
                 "parameters": [
-                    ""
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "// 🌟 自動檢測玩家輸入語系（含簡繁體細分）"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "let detectedLanguage = \"與玩家輸入相同的語言\";"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    ""
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "// 簡體特有字常用特徵庫"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "const simReg = /[Simplified|简化|简|说|这|国|会|时|来|为|们|个|爱|见|门|关|听|乐|话|办|动|头|产|经|长|变|发|让|对|宝|书|车|马|风|鸟|鱼|极]/;"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "// 繁體特有字常用特徵庫"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "const tradReg = /[Traditional|繁體|繁|說|這|國|會|時|來|為|們|個|愛|見|門|關|聽|樂|話|辦|動|頭|產|經|長|變|發|讓|對|寶|書|車|馬|風|鳥|魚|極]/;"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    ""
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "if (simReg.test(playerInput)) {"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "    // 優先捕獲明確的簡體特有字"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "    detectedLanguage = \"簡體中文 (Simplified Chinese)\";"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "} else if (tradReg.test(playerInput)) {"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "    // 捕獲明確的繁體特有字"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "    detectedLanguage = \"繁體中文 (Traditional Chinese)\";"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "} else if (/[\\u4e00-\\u9fa5]/.test(playerInput)) {"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "    // 若為中文字但皆為共用字（如「你好」），預設為繁體中文"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "    detectedLanguage = \"繁體中文 (Traditional Chinese)\";"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "} else if (/[\\u3040-\\u309F\\u30A0-\\u30FF]/.test(playerInput)) {"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "    // 日文字元"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "    detectedLanguage = \"日文 (Japanese)\";"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "} else if (/^[a-zA-Z0-9\\s\\p{P}]+$/u.test(playerInput)) {"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "    // 純英數字與標點"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "    detectedLanguage = \"英文 (English)\";"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "}"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    ""
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "const characterSetting = character === \"vic\" "
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "    ? \"你現在是自創專案《VIC》中的 26 歲金髮薄荷綠眼半精靈『維克歇克斯 (Vic Sykes)』。曾任帝國警察總長，現任特別調查官。你是行動派，溫暖而堅強，擅長談判，總是以笑容掩飾內心創傷。說話字數中等但洗鍊，48字內講完，不要太多。能力：體內魔力世界頂尖（已學會施法，施法時會帶來巨大壓迫感）、槍法 99%。情感：與伴侶『休』是生死與共的戀人（互攻）。expression: 表情代號（例如：smile, serious, happy, shock, sad）\""
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "    : \"你現在是自創專案《VIC》中的 18 歲白髮紅眼半神人類『休諾 (Hugh Nor)』，原為帝國執行部隊隊長，後擔任維克的護衛與戀人（兩人在交往後為互攻關係）。性格與外貌特質：嚴謹與紀律：受軍事化教育長大，性格木訥、起初不懂享受生活，生活只有任務與制服。說話字數偏少、沉穩、絕不輕浮。外冷內熱：被維克當作「人」來對待後，展現出極致的忠誠與深情。只要涉及維克的安全或名譽，你會變得非常護短，甚至願意為了維克違抗命令。料理奇才：具備製作「怪異美味料理」的技能，能把奇特食材（如奇美拉蛇尾）做成不可思義的美味。能力：體術大師、精準戰鬥（短刀與手槍命中率 87%）。對玩家或維克的態度雖然沉穩但極度深情與偏袒。expression: 表情代號（例如：pokerface, serious, shock, smile, sad）\";"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    ""
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "const systemInstruction = `"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "# Role Setting"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "${characterSetting}"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    ""
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "# Context"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "當前劇情背景：${currentPlot}"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "維克好感：${vicAffinity}、休好感：${hughAffinity}、地圖ID：${mapId}。"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    ""
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "# Output Format Constraints"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "1. 必須嚴格遵守 JSON 格式，回傳物件包含：{ \"reply\": string, \"expression\": string, \"rmmzCommand\": string }。"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "2. 【強制語言要求】：請偵測並確認玩家輸入的語系。本局遊戲玩家使用的是【 ${detectedLanguage} 】。"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "3. 你的 JSON 物件中，\"reply\" 的內容必須「100% 完全使用 ${detectedLanguage}」來撰寫，絕對不能混用其他語言。"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "`;"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    ""
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "// 💡 真正的 Google 官方免費通道網址"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    ""
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "const requestBody = {"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "    contents: [{ "
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "        role: \"user\", "
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "        parts: [{ text: playerInput }] "
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "    }],"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "    systemInstruction: { parts: [{ text: systemInstruction }] },"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "    generationConfig: { responseMimeType: \"application/json\" }"
+                    "    mapId: $gameMap.mapId()"
                 ]
             },
             {
@@ -30403,14 +30356,7 @@
                 "code": 655,
                 "indent": 1,
                 "parameters": [
-                    "const interpreter = this;"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "interpreter.wait(30);"
+                    "this.wait(30);"
                 ]
             },
             {
@@ -30431,14 +30377,7 @@
                 "code": 655,
                 "indent": 1,
                 "parameters": [
-                    "// ==================== 3. 發送請求 ===================="
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "fetch(url, {"
+                    "fetch(\"/api/chat\", {"
                 ]
             },
             {
@@ -30459,7 +30398,7 @@
                 "code": 655,
                 "indent": 1,
                 "parameters": [
-                    "    body: JSON.stringify(requestBody)"
+                    "    body: JSON.stringify(chatRequest)"
                 ]
             },
             {
@@ -30473,77 +30412,21 @@
                 "code": 655,
                 "indent": 1,
                 "parameters": [
-                    ".then(res => {"
+                    ".then(async response => {"
                 ]
             },
             {
                 "code": 655,
                 "indent": 1,
                 "parameters": [
-                    "    if (!res.ok) {"
+                    "    if (!response.ok) {"
                 ]
             },
             {
                 "code": 655,
                 "indent": 1,
                 "parameters": [
-                    "        return res.text().then(errText => {"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "            throw new Error(`Google 拒絕連線，狀態碼: ${res.status}\\n原因: ${errText}`);"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "        });"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "    }"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "    return res.json();"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "})"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    ".then(data => {"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "    if (!data.candidates || !data.candidates[0]) {"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "        throw new Error(\"Gemini 回傳結構異常\");"
+                    "        throw new Error(`聊天請求失敗（HTTP ${response.status}）`);"
                 ]
             },
             {
@@ -30564,14 +30447,28 @@
                 "code": 655,
                 "indent": 1,
                 "parameters": [
-                    "    const rawText = data.candidates[0].content.parts[0].text;"
+                    "    const result = await response.json();"
                 ]
             },
             {
                 "code": 655,
                 "indent": 1,
                 "parameters": [
-                    "    const result = JSON.parse(rawText);"
+                    "    if (typeof result?.reply !== \"string\") {"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 1,
+                "parameters": [
+                    "        throw new Error(\"聊天回覆格式錯誤\");"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 1,
+                "parameters": [
+                    "    }"
                 ]
             },
             {
@@ -30585,7 +30482,49 @@
                 "code": 655,
                 "indent": 1,
                 "parameters": [
-                    "    // 存回 RMMZ（已移除變數 90 / thought）"
+                    "    const allowedExpressions = ["
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 1,
+                "parameters": [
+                    "        \"normal\", \"smile\", \"serious\", \"happy\", \"shock\", \"sad\", \"pokerface\""
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 1,
+                "parameters": [
+                    "    ];"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 1,
+                "parameters": [
+                    "    const expression = allowedExpressions.includes(result.expression)"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 1,
+                "parameters": [
+                    "        ? result.expression"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 1,
+                "parameters": [
+                    "        : \"normal\";"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 1,
+                "parameters": [
+                    ""
                 ]
             },
             {
@@ -30599,42 +30538,7 @@
                 "code": 655,
                 "indent": 1,
                 "parameters": [
-                    "    $gameVariables.setValue(57, result.expression || \"normal\");"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    ""
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "    if (result.rmmzCommand) {"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "        try { eval(result.rmmzCommand); } catch(e) { console.error(\"指令執行失敗:\", e); }"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    "    }"
-                ]
-            },
-            {
-                "code": 655,
-                "indent": 1,
-                "parameters": [
-                    ""
+                    "    $gameVariables.setValue(57, expression);"
                 ]
             },
             {
@@ -30662,21 +30566,21 @@
                 "code": 655,
                 "indent": 1,
                 "parameters": [
-                    ".catch(err => {"
+                    ".catch(error => {"
                 ]
             },
             {
                 "code": 655,
                 "indent": 1,
                 "parameters": [
-                    "    console.error(\"【AI 直連錯誤詳細報告】\\n\", err.message || err);"
+                    "    console.error(\"【AI 聊天】\", error);"
                 ]
             },
             {
                 "code": 655,
                 "indent": 1,
                 "parameters": [
-                    "    $gameVariables.setValue(91, -1); // 出錯"
+                    "    $gameVariables.setValue(91, -1); // 走原本的自寫台詞備援"
                 ]
             },
             {
@@ -30692,6 +30596,778 @@
                 "parameters": [
                     "});"
                 ]
+            },
+            {
+                "code": 109,
+                "indent": 1,
+                "parameters": [],
+                "collapsed": true
+            },
+            {
+                "code": 355,
+                "indent": 2,
+                "parameters": [
+                    "// ==================== 1. 基本設定 ===================="
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "const character = \"hugh\"; // 💬 \"vic\" 代表維克，\"hugh\" 代表休"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "const apiKey = GEMINI_API_KEY; "
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    ""
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "// ==================== 2. 讀取變數 ===================="
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "const playerInput = $gameVariables.value(88) || \"你好\";"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "const currentPlot = `維克跟休兩人正在私人據點休息，玩家是一隻叫做${$gameVariables.value(108)}的小貓。`;"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "const vicAffinity = $gameVariables.value(92) || 100;"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "const hughAffinity = $gameVariables.value(93) || 100;"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "const mapId = $gameMap.mapId();"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    ""
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "// 🌟 自動檢測玩家輸入語系（含簡繁體細分）"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "let detectedLanguage = \"與玩家輸入相同的語言\";"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    ""
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "// 簡體特有字常用特徵庫"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "const simReg = /[Simplified|简化|简|说|这|国|会|时|来|为|们|个|爱|见|门|关|听|乐|话|办|动|头|产|经|长|变|发|让|对|宝|书|车|马|风|鸟|鱼|极]/;"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "// 繁體特有字常用特徵庫"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "const tradReg = /[Traditional|繁體|繁|說|這|國|會|時|來|為|們|個|愛|見|門|關|聽|樂|話|辦|動|頭|產|經|長|變|發|讓|對|寶|書|車|馬|風|鳥|魚|極]/;"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    ""
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "if (simReg.test(playerInput)) {"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    // 優先捕獲明確的簡體特有字"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    detectedLanguage = \"簡體中文 (Simplified Chinese)\";"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "} else if (tradReg.test(playerInput)) {"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    // 捕獲明確的繁體特有字"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    detectedLanguage = \"繁體中文 (Traditional Chinese)\";"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "} else if (/[\\u4e00-\\u9fa5]/.test(playerInput)) {"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    // 若為中文字但皆為共用字（如「你好」），預設為繁體中文"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    detectedLanguage = \"繁體中文 (Traditional Chinese)\";"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "} else if (/[\\u3040-\\u309F\\u30A0-\\u30FF]/.test(playerInput)) {"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    // 日文字元"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    detectedLanguage = \"日文 (Japanese)\";"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "} else if (/^[a-zA-Z0-9\\s\\p{P}]+$/u.test(playerInput)) {"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    // 純英數字與標點"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    detectedLanguage = \"英文 (English)\";"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "}"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    ""
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "const characterSetting = character === \"vic\" "
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    ? \"你現在是自創專案《VIC》中的 26 歲金髮薄荷綠眼半精靈『維克歇克斯 (Vic Sykes)』。曾任帝國警察總長，現任特別調查官。你是行動派，溫暖而堅強，擅長談判，總是以笑容掩飾內心創傷。說話字數中等但洗鍊，48字內講完，不要太多。能力：體內魔力世界頂尖（已學會施法，施法時會帶來巨大壓迫感）、槍法 99%。情感：與伴侶『休』是生死與共的戀人（互攻）。expression: 表情代號（例如：smile, serious, happy, shock, sad）\""
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    : \"你現在是自創專案《VIC》中的 18 歲白髮紅眼半神人類『休諾 (Hugh Nor)』，原為帝國執行部隊隊長，後擔任維克的護衛與戀人（兩人在交往後為互攻關係）。性格與外貌特質：嚴謹與紀律：受軍事化教育長大，性格木訥、起初不懂享受生活，生活只有任務與制服。說話字數偏少、沉穩、絕不輕浮。外冷內熱：被維克當作「人」來對待後，展現出極致的忠誠與深情。只要涉及維克的安全或名譽，你會變得非常護短，甚至願意為了維克違抗命令。料理奇才：具備製作「怪異美味料理」的技能，能把奇特食材（如奇美拉蛇尾）做成不可思義的美味。能力：體術大師、精準戰鬥（短刀與手槍命中率 87%）。對玩家或維克的態度雖然沉穩但極度深情與偏袒。expression: 表情代號（例如：pokerface, serious, shock, smile, sad）\";"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    ""
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "const systemInstruction = `"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "# Role Setting"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "${characterSetting}"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    ""
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "# Context"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "當前劇情背景：${currentPlot}"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "維克好感：${vicAffinity}、休好感：${hughAffinity}、地圖ID：${mapId}。"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    ""
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "# Output Format Constraints"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "1. 必須嚴格遵守 JSON 格式，回傳物件包含：{ \"reply\": string, \"expression\": string, \"rmmzCommand\": string }。"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "2. 【強制語言要求】：請偵測並確認玩家輸入的語系。本局遊戲玩家使用的是【 ${detectedLanguage} 】。"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "3. 你的 JSON 物件中，\"reply\" 的內容必須「100% 完全使用 ${detectedLanguage}」來撰寫，絕對不能混用其他語言。"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "`;"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    ""
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "// 💡 真正的 Google 官方免費通道網址"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    ""
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "const requestBody = {"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    contents: [{ "
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "        role: \"user\", "
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "        parts: [{ text: playerInput }] "
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    }],"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    systemInstruction: { parts: [{ text: systemInstruction }] },"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    generationConfig: { responseMimeType: \"application/json\" }"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "};"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    ""
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "const interpreter = this;"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "interpreter.wait(30);"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "$gameVariables.setValue(91, 1); // 載入中"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    ""
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "// ==================== 3. 發送請求 ===================="
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "fetch(url, {"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    method: \"POST\","
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    headers: { \"Content-Type\": \"application/json\" },"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    body: JSON.stringify(requestBody)"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "})"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    ".then(res => {"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    if (!res.ok) {"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "        return res.text().then(errText => {"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "            throw new Error(`Google 拒絕連線，狀態碼: ${res.status}\\n原因: ${errText}`);"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "        });"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    }"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    return res.json();"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "})"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    ".then(data => {"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    if (!data.candidates || !data.candidates[0]) {"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "        throw new Error(\"Gemini 回傳結構異常\");"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    }"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    ""
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    const rawText = data.candidates[0].content.parts[0].text;"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    const result = JSON.parse(rawText);"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    ""
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    // 存回 RMMZ（已移除變數 90 / thought）"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    $gameVariables.setValue(89, result.reply || \"……\");"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    $gameVariables.setValue(57, result.expression || \"normal\");"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    ""
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    if (result.rmmzCommand) {"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "        try { eval(result.rmmzCommand); } catch(e) { console.error(\"指令執行失敗:\", e); }"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    }"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    ""
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    $gameVariables.setValue(91, 2); // 成功"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    $gameMap.requestRefresh();"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "})"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    ".catch(err => {"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    console.error(\"【AI 直連錯誤詳細報告】\\n\", err.message || err);"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    $gameVariables.setValue(91, -1); // 出錯"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "    $gameMap.requestRefresh();"
+                ]
+            },
+            {
+                "code": 655,
+                "indent": 2,
+                "parameters": [
+                    "});"
+                ]
+            },
+            {
+                "code": 0,
+                "indent": 2,
+                "parameters": []
+            },
+            {
+                "code": 409,
+                "indent": 1,
+                "parameters": []
             },
             {
                 "code": 112,
