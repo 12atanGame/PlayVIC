@@ -1,0 +1,309 @@
+Key	Chinese(Traditional)	Chinese(Simplified)	English	Japanese
+	系統			［再請聖傑校對］
+Sys1	等級	等级	Level	レベル
+Sys2	最大 HP	最大 HP	Max HP	最大HP
+Sys3	最大 MP	最大 MP	Max MP	最大MP
+Sys4	攻擊	攻击	Attack	攻撃力
+Sys5	防禦	防禦	Defense	防御力
+Sys6	魔法攻擊	魔法攻击	Magic Attack	魔法攻撃
+Sys7	魔法防禦	魔法防禦	Magic Defense	魔法防御
+Sys8	敏捷度	敏捷度	Agility	敏捷性
+Sys9	運氣	运气	Luck	運
+Sys10	命中	命中	Hit Rate	命中率
+Sys11	閃避	闪避	Evasion	回避率
+Sys12	經驗值	经验值	EXP	経験値
+Sys13	戰鬥	战斗	Battle	戦闘
+Sys14	逃跑	逃跑	Escape	逃走
+Sys15	攻擊	攻击	Attack	攻撃
+Sys16	防禦	防禦	Guard	防御
+Sys17	道具	道具	Item	アイテム
+Sys18	技能	技能	Skill	スキル
+Sys19	裝備	装备	Equip	装備
+Sys20	狀態	状态	Status	ステータス
+Sys21	隊形	队形	Formation	隊列
+Sys22	選項	选项	Options	オプション
+Sys23	保存	保存	Save	セーブ
+Sys24	遊戲結束	游戏结束	Game End / Quit Game	ゲーム終了
+Sys25	武器	武器	Weapons	武器
+Sys26	盔甲	盔甲	Armor	防具
+Sys27	關鍵	关键	Key Items	キーアイテム
+Sys28	裝備	装备	Equip	装備
+Sys29	最佳裝備	最佳装备	Optimize	最強装備
+Sys30	清除	清除	Clear / Remove All	はずす
+Sys31	購買	购买	Buy	購入
+Sys32	出售	出售	Sell	売却
+Sys33	開始	开始	New Game	開始
+Sys34	讀檔	读档	Load Game	ロード
+Sys35	回到標題	回到标题	To Title / Return to Title	タイトルへ戻る
+Sys36	取消	取消	Cancel	キャンセル
+Sys37	始終衝刺	始终冲刺	Always Dash	常にダッシュ
+Sys38	記憶命令	记忆命令	Command Remember	コマンド記憶
+Sys39	觸控UI	触控UI	Touch UI	タッチUI
+Sys40	BGM 音量	BGM 音量	BGM Volume	BGM音量
+Sys41	BGS 音量	BGS 音量	BGS Volume	BGS音量
+Sys42	ME 音量	ME 音量	ME Volume	ME音量
+Sys43	SE 音量	SE 音量	SE Volume	SE音量
+Sys44	所持數量	所持数量	Possession	所持数
+Sys45	當前 %1	当前 %1	Current %1	現在の%1
+Sys46	至下一個 %1	至下一个 %1	To Next %1	次の%1まで
+Sys47	保存到哪個檔案？	保存到哪个档案？	Save to which file?	どのファイルにセーブしますか？
+Sys48	讀取哪個檔案？	读取哪个档案？	Load which file?	どのファイルをロードしますか？
+Sys49	檔案	档案	File	ファイル
+Sys50	自動存檔	自动存档	Autosave	オートセーブ
+Sys51	特別調查官	特别调查官	Special Investigator	特別調査官
+Sys52	維克的護衛	维克的护卫	Vic’s Guard	ヴィクの護衛
+Sys53	番茄	番茄	Tomato	トマト
+Sys54	[食材]一顆紅番茄。	[食材]一颗红番茄。	[Ingredient] A red, ripe tomato.	【食材】赤いトマト1個。
+Sys55	起司	起司	Cheese	チーズ
+Sys56	[食材]維克特別喜歡的食材。	[食材]维克特别喜欢的食材。	[Ingredient] An ingredient especially favored by Vic.	【食材】ヴィクが特に好む食材。
+Sys57	龍蛋	龙蛋	Dragon Egg	ドラゴンの卵
+Sys58	[食材]休喜歡的食材。	[食材]休喜欢的食材。	[Ingredient] An ingredient Hugh likes.	【食材】ヒューが好む食材。
+Sys59	[料理]黑暗料理	[料理]黑暗料理	[Dish] Dark Cuisine	【料理】闇料理
+Sys60	聞者喪心，見者落淚。	闻者丧心，见者落泪。	Those who smell it lose hope; those who see it shed tears.	聞けば心を失い、見れば涙を流す。
+Sys61	[料理]番茄炒蛋	[料理]番茄炒蛋	[Dish] Tomato Scramble	【料理】トマト炒め卵
+Sys62	[料理]起司龍蛋	[料理]起司龙蛋	[Dish] Cheese Dragon Egg	【料理】チーズドラゴン卵
+Sys63	親手製作的禮物， 如果送給他的話……	亲手製作的礼物， 如果送给他的话……	"A handmade gift.If you give it to him…"	「手作りのプレゼント、 もし彼に渡したら……」
+Sys64	[種子]番茄	[种子]番茄	[Seed] Tomato	【種子】トマト
+Sys65	魔法改造的番茄種子， 種下後過一天可以採收4個。	魔法改造的番茄种子， 种下后过一天可以採收4个。	"A magically modified tomato seed.Plant it, and after one day you can harvest four."	「魔法で改造されたトマトの種。 植えると翌日に4個収穫できる。」
+Sys66	文字速度	文字速度	Text Speed	文字表示速度
+Language	文字語言	文字语言	Language	言語
+Sys67	筆記	笔记	Notes	メモ
+Sys68	隨手紀錄的筆記， 筆畫相當工整。	随手纪录的笔记， 笔画相当工整。	Casual notes. The handwriting is surprisingly neat.	走り書きのメモ。 字は意外と整っている。
+				
+	公共事件			
+COMMON_1	第一章節	第一章节	Chapter I	第1章
+COMMON_2	第二章節	第二章节	Chapter II	第2章
+COMMON_3	第三章節	第三章节	Chapter III	第3章
+COMMON_4	特別故事	特别故事	Special Story	特別な物語
+COMMON_5	闔上書本	阖上书本	Close Book	本を閉じる
+COMMON_6	回到目錄	回到目录	Back to Menu	目次に戻る
+COMMON_7	寫下日記	写下日记	Write Diary	日記を書く
+COMMON_8	更換角色	更换角色	Change Character	キャラを切り替える
+COMMON_9	查看物品	查看物品	Check Items	アイテムを見る
+COMMON_10	選項設定	选项设定	Options	オプション設定
+COMMON_11	回到遊戲	回到游戏	Return to Game	ゲームに戻る
+COMMON_12	換成維克	换成维克	Switch to Vic	ヴィクに交代
+COMMON_13	換成休諾	换成休诺	Switch to Hugh	ヒューに交代
+COMMON_14	觀看模式	观看模式	View Mode	閲覧モード
+COMMON_15	角色卡住	角色卡住	Character Stuck	キャラが動けない
+COMMON_16	維克的別針空間	维克的别针空间	Vic’s Pin Space	ヴィクのブローチ空間
+COMMON_17	休的袖口中收藏	休的袖口中收藏	Hugh’s Cuff Collection	ヒューの袖口の隠し物
+COMMON_18	維克。 怎麼了嗎？\!	维克。 怎麽了吗？\!	"Vic. What’s wrong?!"	「ヴィク。 どうしたの？!」
+COMMON_19	對話	对话	Dialogue	会話
+COMMON_20	送禮	送礼	Gift	プレゼント
+COMMON_21	摸摸	摸摸	Pat	なでる
+COMMON_22	色色	色色	Intimate	えっち
+COMMON_23	沒事	没事	It’s nothing.	何でもない
+COMMON_24	……謝謝你。	……谢谢你。	…Thank you.	……ありがとう。
+COMMON_25	！…… 謝謝你。	！…… 谢谢你。	"!… Thank you."	「！…… ありがとう。」
+COMMON_26	……\.還不是時候。	……\.还不是时候。	….Not the right time yet.	…….まだその時ではない。
+COMMON_27	休的好感度達到100以上 並且看完正劇故事全部章節	休的好感度达到100以上 并且看完正剧故事全部章节	"Hugh’s affection reaches 100 or higher and all main story chapters have been viewed."	「ヒューの好感度が100以上、 さらに本編の全章を読了」
+COMMON_28	不要。	不要。	No.	いらない。
+COMMON_29	休。 找我什麼事？\!	休。 找我什麽事？\!	"Hugh. What do you want from me?!"	「ヒュー。 何の用だ？!」
+COMMON_30	……你確定你考過 特級廚師證照？	……你确定你考过 特级厨师证照？	"…Are you sure you actually passed the Master Chef certification?"	「……本当に 特級料理人免許を持ってるの？」
+COMMON_31	謝謝。	谢谢。	Thanks.	ありがとう。
+COMMON_32	你怎麼知道我喜歡！？ 謝謝！	你怎麽知道我喜欢！？ 谢谢！	"How did you know I liked this!? Thanks!"	「どうして俺の好みを知ってる！？ ありがとう！」
+COMMON_33	老實說，我也想……	老实说，我也想……	Honestly, I also want to…	正直、俺も……。
+COMMON_34	維克的好感度達到100以上 並且看完正劇故事全部章節	维克的好感度达到100以上 并且看完正剧故事全部章节	"Vic’s affection reaches 100 or higher and all main story chapters have been viewed."	「ヴィクの好感度が100以上、 さらに本編の全章を読了」
+COMMON_35	你有什麼毛病？	你有什麽毛病？	What’s wrong with you?	何考えてんだ？
+COMMON_36	……（什麼情況！？）	……（什麽情况！？）	…(What the hell!?)	……（どういう状況！？）
+COMMON_37	查看維克的狀態	查看维克的状态	Check Vic’s status	ヴィクのステータスを見る
+COMMON_38	6月9日出生，半精靈。 平常像隻笑面貓貓。 聰明，毒舌卻溫柔。	6月9日出生，半精灵。 平常像隻笑面猫猫。 聪明，毒舌却温柔。	"Born June 9, half-elf. Usually smiles like a mischievous cat. Clever, sharp-tongued yet gentle."	「6月9日生まれ、ハーフエルフ。 普段は笑顔の猫みたい。 賢く、毒舌だが優しい。」
+COMMON_39	目前對休的好感：\V[2]%	目前对休的好感：\V[2]%	Current affection for Hugh: \V[2]%	現在のヒューへの好感度：\V[2]%
+COMMON_40	……（怎麼回事！？）	……（怎麽回事！？）	…(What’s going on!?)	……（どういうこと！？）
+COMMON_41	查看休的狀態	查看休的状态	Check Hugh’s status	ヒューのステータスを見る
+COMMON_42	11月1日出生，天人族。 平常像隻冷面狼犬。 忠誠、沉默卻可靠。	11月1日出生，天人族。 平常像隻冷面狼犬。 忠诚、沉默却可靠。	"Born November 1, Celestian. Usually like a cold wolfhound. Loyal, silent yet reliable."	「11月1日生まれ、天人族。 普段は冷たい狼のよう。 忠実で、寡黙だが頼れる。」
+COMMON_43	目前對維克的好感：\V[3]%	目前对维克的好感：\V[3]%	Current affection for Vic: \V[3]%	現在のヴィクへの好感度：\V[3]%
+COMMON_44	我在睡覺…… 勿擾，呼……	我在睡觉…… 勿扰，呼……	"I’m sleeping… Do not disturb. Zzz…"	「寝てるから…… 邪魔するな、すぅ……」
+COMMON_45	部下們做得不錯嘛…… 難得只要蓋章就可以了。	部下们做得不错嘛…… 难得只要盖章就可以了。	"The subordinates did well… For once, I just need to stamp the papers."	「部下たち、よくやったな…… 珍しく判子を押すだけで済むとは。」
+COMMON_46	這次做得不錯。	这次做得不错。	Well done this time.	今回はよくやったな。
+COMMON_47	挺好吃的～	挺好吃的～	Pretty tasty~	結構うまい～
+COMMON_48	……（我要緊盯著他。）	……（我要紧盯着他。）	…(I need to keep a close eye on him.)	……（しっかり監視しよう。）
+COMMON_49	……（料理好開心。）	……（料理好开心。）	…(Cooking is so fun.)	……（料理楽しい。）
+COMMON_50	……（好吃。）	……（好吃。）	…(Delicious.)	……（美味しい。）
+COMMON_51	生日快樂。	生日快乐。	Happy Birthday.	誕生日おめでとう。
+COMMON_52	耶，快樂。	耶，快乐。	Yay, happy.	いえーい、おめでと。
+COMMON_53	......	......	......	......
+COMMON_54	我開心到不知道要說什麼了...... 謝謝你。	我开心到不知道要说什麽了...... 谢谢你。	"I’m so happy I don’t even know what to say… Thank you."	「嬉しすぎて言葉が出ない…… ありがとう。」
+COMMON_55	你在哼歌，好像心情很好？	你在哼歌，好像心情很好？	You’re humming. Seems you’re in a good mood?	鼻歌を歌ってるね、ご機嫌そう？
+COMMON_56	對呀，不用面對能塞滿山谷的公文， 超開心的～	对呀，不用面对能塞满山谷的公文， 超开心的～	"Yeah, not having to face paperwork that could fill a valley is the best～"	「そうだよ、山谷を埋めるほどの書類と 向き合わなくていいんだもん、最高～」
+COMMON_57	……你哼的是哪首歌？	……你哼的是哪首歌？	…Which song are you humming?	……何を口ずさんでるの？
+COMMON_58	一首叫做《勝者哀歌》的民間小調， 講述在過去的東部城邦， 鬥技場比賽中發生的慘案。	一首叫做《胜者哀歌》的民间小调， 讲述在过去的东部城邦， 斗技场比赛中发生的惨案。	"A folk ballad called Lament of the Victor, about a tragedy during arena matches in the eastern city-states."	「《勝者哀歌》っていう民謡だよ。 昔の東部都市国家で、 闘技場の惨劇を語る歌。」
+COMMON_59	你指的是血紅寶石事件？ 因為陽光照在冠軍配戴著的寶石， 導致全城的人失控自相殘殺……	你指的是血红宝石事件？ 因为阳光照在冠军配戴着的宝石， 导致全城的人失控自相残杀……	"You mean the Blood Ruby Incident? When sunlight struck the champion’s gem, the whole city went mad and killed each other…"	「『血紅宝石事件』のことか？ 太陽光が優勝者の宝石に反射して、 街全体が狂乱して殺し合いになった……」
+COMMON_60	對呀～	对呀～	That’s right～	そうそう～
+COMMON_61	……你的品味有點特別。	……你的品味有点特别。	…You’ve got some peculiar taste.	……趣味ちょっと変わってるね。
+COMMON_62	生日快樂啊～	生日快乐啊～	Happy Birthday～	誕生日おめでとう～
+COMMON_63	……你記得我的生日。	……你记得我的生日。	…You remembered my birthday.	……俺の誕生日、覚えてたんだ。
+COMMON_64	我向來過目不忘。	我向来过目不忘。	I never forget.	俺は記憶力いいからな。
+COMMON_65	……謝謝。	……谢谢。	…Thanks.	……ありがとう。
+COMMON_66	你平常有什麼興趣？	你平常有什麽兴趣？	What hobbies do you usually have?	普段はどんな趣味がある？
+COMMON_67	……\|料理。\! 我喜歡做點吃的。	……\|料理。\! 我喜欢做点吃的。	"…\|Cooking.\! I like making food."	「……\|料理。\! 何か作るのが好きなんだ。」
+COMMON_68	嗯？…… 安德烈總理的執行部隊隊長， 做的料理……會不會有毒啊？	嗯？…… 安德烈总理的执行部队队长， 做的料理……会不会有毒啊？	"Huh?… The Prime Minister’s Execution Corps captain cooking… won’t it be poisoned?"	「ん？…… 安德烈総理の執行部隊隊長が作る料理…… 毒でも入ってないか？」
+COMMON_69	……食安問題倒是不用擔心， 我有考過帝國特級廚師執照。 下次多做一份請你吃，要試嗎？	……食安问题倒是不用担心， 我有考过帝国特级厨师执照。 下次多做一份请你吃，要试吗？	"…No need to worry about food safety. I did earn the Empire’s Master Chef license. Next time I’ll make extra for you—want to try?"	「……食の安全は心配いらない。 帝国特級料理人免許を持ってるからな。 今度多めに作ってやる、試すか？」
+COMMON_70	行啊！就這麼說定了。	行啊！就这麽说定了。	Sure! It’s a deal.	いいね！約束だよ。
+COMMON_71	播種	播种	Sowing Seeds	種まき
+COMMON_72	色色開啟條件	色色开启条件	Unlock condition (H-scene)	イベント解放条件（えっち）
+COMMON_73	你為什麼一直跟著我？	你为什麽一直跟着我？	Why are you following me around?	どうしてずっとついてくるんだ？
+COMMON_74	我必須看緊你。	我必须看紧你。	I have to keep an eye on you.	君を監視する必要がある。
+COMMON_75	你這樣很礙事， 可不可以現在滾開？	你这样很碍事， 可不可以现在滚开？	You're in the way. Could you get lost right now?	邪魔なんだけど。 今すぐどっか行ってくれない？
+COMMON_76	……好， 在據點裡面的話，可以。	……好， 在据点里面的话，可以。	…Fine. If we're inside the base, then okay.	……わかった。 拠点の中だけなら、離れる。
+COMMON_77	下一頁	下一页	Next Page	次のページ
+COMMON_78	上一頁	上一页	Previous Page	前のページ
+COMMON_79	……	……	……	……
+COMMON_80	叫他滾開	叫他滚开	Tell him to get lost	追い払う
+COMMON_81	還是算了	还是算了	Never mind	やっぱりやめる
+COMMON_82	（還不到很礙事，先這樣吧。）	（还不到很碍事，先这样吧。）	(It’s not that annoying yet. Let’s leave it for now.)	（まだそこまで邪魔じゃない。今はこのままでいいか。）
+COMMON_83	叫他回來	叫他回来	Call him back	呼び戻す
+COMMON_84	過來。	过来。	Come here.	こっちに来て。
+COMMON_85	……不是你要我滾開的嗎？	……不是你要我滚开的吗？	…Weren’t you the one who told me to get lost?	……追い払えって言ったのは、君じゃなかったか？
+COMMON_86	……我想你啦～	……我想你啦～	…I missed you~	……会いたかった～
+COMMON_87	……好。	……好。	…Okay.	……わかった。
+COMMON_88	（竟然笑了……）	（竟然笑了……）	(He actually smiled…)	（……笑った？）
+COMMON_89	哈啾！	哈啾！	Achoo!	ハクション！
+COMMON_90	著涼了嗎？ 我這裡有剛煮好的桔茶。	着凉了吗？ 我这里有刚煮好的桔茶。	Did you catch a cold? I just brewed some tangerine tea.	風邪ひいたのか？ ちょうど橘茶を淹れたところだ。
+COMMON_91	嗯嗯，我來喝幾口……	嗯嗯，我来喝几口……	Yeah… I’ll have a few sips.	うん……少し飲む。
+COMMON_92	啊…溫暖多了，謝謝。	啊…温暖多了，谢谢。	Ah… that’s much warmer. Thanks.	あ……だいぶ温まった。ありがとう。
+COMMON_93	等等我也幫忙先暖好被子。	等等我也帮忙先暖好被子。	I’ll warm up the bed for you too.	じゃあ、先に布団も温めておく。
+COMMON_94	嗯嗯，等等來抱抱～	嗯嗯，等等来抱抱～	Yeah, we can cuddle later~	うん、あとで抱き合おう～
+COMMON_95	嗯……	嗯……	Yeah…	うん……
+COMMON_96	今天好冷啊……	今天好冷啊……	It’s really cold today…	今日は本当に寒いな……
+COMMON_97	是啊。	是啊。	Yeah.	ああ。
+COMMON_98	這種時候就很想窩在被窩裡一睡不醒。	这种时候就很想窝在被窝里一睡不醒。	Days like this make me want to stay in bed and never wake up.	こういう日は、布団にくるまってそのまま眠り続けたくなる。
+COMMON_99	「一睡不醒」……是心裡有事？	「一睡不醒」……是心里有事？	“Never wake up”… Is something on your mind?	「眠り続ける」……何か考え事か？
+COMMON_100	沒什麼，只是要思考的事情實在太多了。	没什麽，只是要思考的事情实在太多了。	Nothing much. There’s just too much to think about.	いや、ただ考えることが多すぎてな。
+COMMON_101	你的大腦能同時並行六道思緒。 看來這是真的？	你的大脑能同时并行六道思绪。 看来这是真的？	Your brain can run six streams of thought at once. So it’s really true?	君の脳は同時に六つの思考を並行処理できる。 本当らしいな？
+COMMON_102	這是真的。 你是聽安德烈總理說的嗎？ 我記得我只有跟他說過。	这是真的。 你是听安德烈总理说的吗？ 我记得我只有跟他说过。	That’s true. Did you hear it from Prime Minister Andre? I remember only telling him.	本当だ。 安德烈（アンドレ）首相から聞いたのか？ 確か、話したのは彼だけだったはずだ。
+COMMON_103	是的。	是的。	Yes.	そうだ。
+COMMON_104	操作說明	操作说明	Controls	操作説明
+COMMON_105	目前進度	目前进度	Current Progress	現在の進行状況
+COMMON_106	滑鼠左鍵：移動。 滑鼠右鍵：選單。 滑鼠中鍵：切換隊友。 CTRL鍵：跳過對話。	滑鼠左键：移动。 滑鼠右键：选单。 滑鼠中键：切换队友。 CTRL键：跳过对话。	Left Click: Move. Right Click: Menu. Middle Click: Switch Party Member. CTRL: Skip Dialogue.	左クリック：移動。 右クリック：メニュー。 中央クリック：仲間切り替え。 CTRLキー：会話スキップ。
+COMMON_107	確定	确定	Confirm	決定
+COMMON_108	看來安德烈真的很信任你。	看来安德烈真的很信任你。	It seems Andre really trusts you.	どうやら安德烈首相は、本当に君を信頼しているようだ。
+				
+				
+	地圖對話			
+MAPMSG_1	維克。	维克。	Vic.	ヴィク。
+MAPMSG_2	休， 我們一起加油吧。 不然你也沒別的事好做。	休， 我们一起加油吧。 不然你也没别的事好做。	"Hugh, let’s work hard together. It’s not like you’ve got anything else to do."	ヒュー、   一緒に頑張ろう。   他にやることもないだろうし。
+MAPMSG_3	維克，今天一樣買起司嗎？	维克，今天一样买起司吗？	Vic, buying cheese again today?	ヴィク、今日もチーズ買うの？
+MAPMSG_4	嗯，我就看看。	嗯，我就看看。	Mm, I’ll just take a look.	うん、ちょっと見てみるだけ。
+MAPMSG_5	休，今天也買起司嗎？	休，今天也买起司吗？	Hugh, buying cheese again today?	ヒュー、今日もチーズ買うの？
+MAPMSG_6	你也喜歡起司？	你也喜欢起司？	You like cheese too?	君もチーズ好きなの？
+MAPMSG_7	呃、我…… （總不能說是因為你喜歡起司 我才買的吧！啊啊……）	呃、我…… （总不能说是因为你喜欢起司 我才买的吧！啊啊……）	"Uh, I… (Can’t say it’s because you like cheese that I’m buying it! Agh…)"	えっ、俺……   （まさか君が好きだから買ってるなんて   言えないだろ！ああ……）
+MAPMSG_8	維克，我順便整理這邊哦？	维克，我顺便整理这边哦？	Vic, mind if I tidy this up?	ヴィク、ついでにこっち片付けていい？
+MAPMSG_9	等等等…不要清理這裡！ 我的推理痕跡會亂掉的！	等等等…不要清理这里！ 我的推理痕迹会乱掉的！	"Wait wait—don’t clean here! It’ll mess up my deduction traces!"	ちょちょちょっ…そこは掃除しないで！   俺の推理の痕跡が消えちゃう！
+MAPMSG_10	午安，維克。 我等等下樓做點吃的。	午安，维克。 我等等下楼做点吃的。	"Good afternoon, Vic. I’ll head downstairs to cook later."	こんにちは、ヴィク。   このあと下に行って料理するよ。
+MAPMSG_11	太好了！愛你～	太好了！爱你～	Great! Love you～	やった！愛してる～！
+MAPMSG_12	等等想做什麼呢？	等等想做什麽呢？	What do you feel like doing later?	このあと何したい？
+MAPMSG_13	好的，我記住了。	好的，我记住了。	Okay, I’ll remember.	分かった、覚えておくね。
+MAPMSG_14	哼哼哼……	哼哼哼……	Hm hm hm…	ふんふんふ～ん……
+MAPMSG_15	（維克在哼歌，好像心情很好？）	（维克在哼歌，好像心情很好？）	(Vic is humming. Seems in good spirits.)	（ヴィクが鼻歌を歌ってる、ご機嫌そう？）
+MAPMSG_16	料理大成功！	料理大成功！	Cooking—Perfect!	料理大成功！
+MAPMSG_17	料理成功！	料理成功！	Cooking—Success!	料理成功！
+MAPMSG_18	料理·失敗了……	料理·失败了……	Cooking—Failed…	料理、失敗した……
+MAPMSG_19	雖然看起來像是寶箱， 但我其實是音樂盒。 來吧，點歌吧！	虽然看起来像是宝箱， 但我其实是音乐盒。 来吧，点歌吧！	"Although I look like a treasure chest, I’m actually a music box. Go on, request a song!"	宝箱みたいに見えるけど、   実はオルゴールなんだ。   さあ、リクエストして！
+MAPMSG_20	……（說我品味奇怪， 休的品味才怪吧！）	……（说我品味奇怪， 休的品味才怪吧！）	"…(Calling my taste weird— Hugh’s taste is the strange one!)"	……（俺の趣味が変って言うけど、   ヒューの趣味の方が変だろ！）
+MAPMSG_21	今晚我想來點……	今晚我想来点……	Tonight I feel like having…	今夜はちょっと……
+MAPMSG_22	來吧，點歌吧！	来吧，点歌吧！	Come on, pick a song!	さあ、リクエストして！
+MAPMSG_23	……	……	……	……
+MAPMSG_24	音樂A	音乐A	Music A	音楽A
+MAPMSG_25	音樂B	音乐B	Music B	音楽B
+MAPMSG_26	音樂C	音乐C	Music C	音楽C
+MAPMSG_27	音樂D	音乐D	Music D	音楽D
+MAPMSG_28	閉嘴	闭嘴	Shut up	黙れ
+MAPMSG_29	取消	取消	Cancel	キャンセル
+MAPMSG_30	嗚嗚嗚嗚嗚……	呜呜呜呜呜……	Uuuuuhhh…	うぅぅぅぅぅ……
+MAPMSG_31	1天以後可收成。	1天以后可收成。	Harvestable in 1 day.	1日後に収穫可能。
+MAPMSG_32	早安，	早安，	Good morning.	おはよう、
+MAPMSG_33	午安，	午安，	Good afternoon.	こんにちは、
+MAPMSG_34	晚安，	晚安，	Good evening.	こんばんは、
+MAPMSG_35	你還沒睡？	你还没睡？	You’re still awake?	まだ寝てないの？
+MAPMSG_36	（維克出門調查了。）	（维克出门调查了。）	(Vic went out to investigate.)	（ヴィクは調査に出かけた。）
+MAPMSG_37	（休跟著維克出門調查了。）	（休跟着维克出门调查了。）	(Hugh followed Vic to investigate.)	（ヒューはヴィクについて調査に出かけた。）
+MAPMSG_38	\\VC目前沒有可製作的料理。	\\VC目前没有可製作的料理。	\\VC currently has no dishes that can be prepared.	\\VCは現在、調理できる料理がありません。
+MAPMSG_39	料理結果	料理结果	Cooking Result	調理結果
+MAPMSG_40	刀工：按下滑鼠左鍵 / Enter / Space 落刀	刀工：按下滑鼠左键 / Enter / Space 落刀	Knife Timing: Click Left Mouse / Enter / Space to cut	包丁操作：マウス左クリック / Enter / Space で切る
+MAPMSG_41	剩餘刀數：	剩馀刀数：	Remaining Cuts:	残りのカット回数：
+MAPMSG_42	番茄炒蛋	番茄炒蛋	Tomato Scrambled Eggs	トマトと卵の炒め物
+MAPMSG_43	起司龍蛋	起司龙蛋	Cheese Dragon Egg	チーズドラゴンエッグ
+MAPMSG_44	這寶箱太吵了， 還是叫他安靜一會。	这宝箱太吵了， 还是叫他安静一会。	This chest is way too noisy. Better make it quiet for a while.	この宝箱、うるさすぎる。 しばらく大人しくさせよう。
+MAPMSG_45	同居第一天， 看來需要磨合一下。	同居第一天， 看来需要磨合一下。	Day one of living together. Looks like we’ll need some time to adjust.	同居初日。 どうやら少し慣らしが必要みたいだ。
+MAPMSG_46	一起料理的日常， 偶爾放鬆一下也不錯。	一起料理的日常， 偶尔放松一下也不错。	Everyday moments of cooking together. It’s nice to relax once in a while.	一緒に料理する日常。 たまには肩の力を抜くのも悪くない。
+MAPMSG_47	這次要去哪裡調查呢？ 不想再面對公文了。	这次要去哪里调查呢？ 不想再面对公文了。	Where should we investigate next? I really don’t want to face paperwork again.	次はどこを調査しようか？ もう書類仕事は勘弁してほしい。
+MAPMSG_48	夜晚就是我思緒最清醒的時候… 誰都別想叫我睡覺！	夜晚就是我思绪最清醒的时候… 谁都别想叫我睡觉！	Night is when my mind is the clearest… Don’t even think about telling me to sleep!	夜こそ、思考が一番冴える時間だ…… 誰にも寝ろなんて言わせない！
+				
+				
+				
+	地圖名稱			
+MAP_1	私人據點	私人据点	Private Hideout	プライベート拠点
+MAP_2	據點廚房	据点厨房	Hideout Kitchen	拠点のキッチン
+MAP_3	維克房間	维克房间	Vic’s Room	ヴィクの部屋
+MAP_4	休的房間	休的房间	Hugh’s Room	ヒューの部屋
+MAP_5	據點外面	据点外面	Outside the Hideout	拠点の外
+MAP_6	星街河岸	星街河岸	Starry Street Riverside	星街の河岸
+MAP_7	自有農地	自有农地	Private Farmland	自作農地
+				
+	人名			
+VIC	維克	维克	Vic	ヴィク
+VIC_SYKES	維克．歇克斯	维克．歇克斯	Vic Sykes	ヴィク・サイクス
+VIC_THINK	維克的思緒	维克的思绪	Vic’s Thoughts	ヴィクの思考
+HUGH	休	休	Hugh	ヒュー
+HUGH_NOR	休．諾	休．诺	Hugh Nor	ヒュー・ノール
+ANDRE	安德烈	安德烈	Andre	アンドレ
+AN_P	安德烈總理	安德烈总理	Prime Minister Andre	アンドレ総理
+CHAI	柴可夫司機	柴可夫司机	Chaikov the Ride Master	チャイコフ運転手
+CHAICHAI	柴柴	柴柴	ChaiChai	チャイチャイ
+SARA	莎拉	莎拉	Sara	サラ
+NORMAL_SYKES	諾莫．歇克斯	诺莫．歇克斯	Normal Sykes	ノモ・サイクス
+MERET	梅爾特	梅尔特	Meret	メルト
+MER_P	梅爾特公爵	梅尔特公爵	Duke Melt	メルト公爵
+CRAIG	克雷格	克雷格	Craig	クレイグ
+BRO_CRAIG	克雷格大哥	克雷格大哥	Big Brother Craig	クレイグ兄貴
+				
+S_1_1	1-1【調職】	1-1【调职】	1-1 [Transfer]	1-1【異動】
+S_1_1_1	維克．歇克斯，帝國警察總長。 僅僅上任三個月，他辦案的 速度與天賦已經讓人津津樂道──	维克．歇克斯，帝国警察总长。 仅仅上任三个月，他办案的 速度与天赋已经让人津津乐道──	Vic Sykes, Chief of the Imperial Police.In only three months, his speed and talent in solving cases were already the talk of the city—	ヴィク・サイクス、帝国警察総長。   わずか就任三か月で、彼の捜査の   速さと才能は早くも評判となっていた──
+S_1_1_2	……當然，也包括他完全 不碰桌上公文的糟糕名聲。	……当然，也包括他完全 不碰桌上公文的糟糕名声。	…Of course, so was his terrible reputation for never touching paperwork.	……もちろん、机の上の書類には   まったく手を付けない悪名も含めて。
+S_1_1_3	（……誰會想坐在這裡看紙堆啊。 現場調查才有意思吧。）	（……谁会想坐在这里看纸堆啊。 现场调查才有意思吧。）	(…Who wants to sit here staring at piles of paper? Fieldwork is what matters.)	（……誰がこんな紙の山を見たいんだ。   現場調査の方がよっぽど面白いだろ。）
+S_1_1_4	結果，沒多久他就被調職了。	结果，没多久他就被调职了。	Soon enough, he was reassigned.	その結果、間もなく彼は異動となった。
+S_1_1_5	從警察總長…… 變成特別調查官。	从警察总长…… 变成特别调查官。	From Chief of Police… to Special Investigator.	警察総長から……   特別調査官へ。
+S_1_1_6	維克，從今天起你改任特別調查官， 專門處理特殊案件。	维克，从今天起你改任特别调查官， 专门处理特殊案件。	Vic, from today you’re a Special Investigator, handling special cases.	ヴィク、今日から特別調査官に任命する。   特殊な案件を専門に扱ってもらう。
+S_1_1_7	隨便啦。 只要別再逼我坐辦公桌。	随便啦。 只要别再逼我坐办公桌。	Whatever. As long as you don’t make me sit at a desk again.	どうでもいいよ。   机に縛りつけられなければね。
+S_1_1_8	還有──為了安全， 我指派一名護衛給你。	还有──为了安全， 我指派一名护卫给你。	And—for safety, I’m assigning you a bodyguard.	それから──安全のために、   護衛を一人つける。
+S_1_1_9	那人名叫休．諾， 安德烈總理的執行部隊隊長── 也是帝國皇室的直系王子。	那人名叫休．诺， 安德烈总理的执行部队队长── 也是帝国皇室的直系王子。	His name is Hugh Nor, Captain of Andre’s Execution Unit— and a direct prince of the Imperial family.	その名はヒュー・ノール。   アンドレ総理の執行部隊隊長──   そして帝国皇室の直系王子だ。
+S_1_1_10	我叫休．諾， 我會負責保護你的安全。	我叫休．诺， 我会负责保护你的安全。	I’m Hugh Nor. I’ll be responsible for your safety.	ヒュー・ノールだ。   君の安全を守らせてもらう。
+S_1_1_11	派王子來照看我， 不怕他弄髒手嗎？	派王子来照看我， 不怕他弄髒手吗？	Sending a prince to babysit me— not afraid he’ll dirty his hands?	王子を護衛に？   手が汚れるのを恐れないのか？
+S_1_1_12	那我就先謝了， 隊長殿下。	那我就先谢了， 队长殿下。	Well, thanks in advance, Captain Highness.	それじゃあ、ありがたく──   隊長殿。
+S_1_1_13	就這樣，特別調查官與護衛王子的 奇妙同居生活開始了──	就这样，特别调查官与护卫王子的 奇妙同居生活开始了──	And so began the strange cohabitation of a Special Investigator and his royal guard—	こうして、特別調査官と護衛の王子の   奇妙な同居生活が始まった──
+S_1_1_14	嗯…… 至少比總局的辦公室乾淨。	嗯…… 至少比总局的办公室乾淨。	Hm… at least it’s cleaner than the Bureau’s office.	ふん……   少なくとも本部のオフィスよりは清潔だな。
+S_1_1_15	這裡是行動據點， 不是你躲避公文的地方。	这里是行动据点， 不是你躲避公文的地方。	This is a base of operations, not your hideout from paperwork.	ここは作戦拠点だ。   書類逃れの場所じゃない。
+S_1_1_16	行行行。 那你要負責盯著我囉？	行行行。 那你要负责盯着我囉？	Yeah, yeah. So you’ll be keeping me in check?	はいはいはい。   じゃあ君が俺を監視するってわけだ？
+S_1_1_17	這是我的職責。	这是我的职责。	It’s my duty.	それが私の任務だ。
+				
+S_1_2	1-2【印象】	1-2【印象】	1-2 [Impressions]	1-2【印象】
+S_1_2_1	休推開總理辦公室的門。 眼前的景象讓他愣住了。	休推开总理办公室的门。 眼前的景象让他愣住了。	Hugh pushed open the Prime Minister’s office door.	ヒューが総理執務室の扉を開けると、   目の前の光景に思わず立ち止まった。
+S_1_2_2	一個年輕男人懶洋洋地 窩在沙發裡，雙手搭在椅背上， 還哼著不知名的小調。	一个年轻男人懒洋洋地 窝在沙发里，双手搭在椅背上， 还哼着不知名的小调。	The scene before him made him freeze.	若い男がだらしなくソファに寝そべり、   両腕を背もたれにかけ、   知らない小唄を口ずさんでいた。
+S_1_2_3	他的穿著像是剛從工地回來的派報工， 褲腳沾著髒兮兮的泥灰， 讓休忍不住為那張名貴沙發心疼。	他的穿着像是刚从工地回来的派报工， 裤脚沾着髒兮兮的泥灰， 让休忍不住为那张名贵沙发心疼。	A young man lounged lazily on the sofa, arms draped over the back, humming some unknown tune.	服装はまるで工事現場帰りの配達人。   ズボンの裾は泥で汚れ、   高価なソファが気の毒に思えるほどだった。
+S_1_2_4	面對如此胡鬧的景象， 安德烈總理依然神色淡然。	面对如此胡闹的景象， 安德烈总理依然神色淡然。	He looked like a day laborer fresh from a construction site. Mud stained his cuffs, making Hugh wince for the expensive sofa.	そんなふざけた光景を前にしても、   アンドレ総理は涼しい顔をしていた。
+S_1_2_5	休，這位是特別調查官維克。	休，这位是特别调查官维克。	Yet even at this ridiculous sight, Prime Minister Andre’s expression stayed calm.	ヒュー、この方が特別調査官ヴィクだ。
+S_1_2_6	你接下來將負責保護他。	你接下来将负责保护他。	Hugh, this is Special Investigator Vic. From now on, you’ll be responsible for protecting him.	これから君が彼を守るんだ。
+S_1_2_7	休瞇起眼睛。	休眯起眼睛。	Hugh narrowed his eyes.	ヒューは目を細めた。
+S_1_2_8	（……這個人怎麼穿得這麼隨便？）	（……这个人怎麽穿得这麽随便？）	(…Why is this guy dressed so sloppily?)	（……なんでこんなにラフな格好なんだ？）
+S_1_2_9	維克抬起眼， 彷彿看穿了休的疑惑。 他勾起嘴角。	维克抬起眼， 彷彿看穿了休的疑惑。 他勾起嘴角。	Vic lifted his eyes, as if he had read Hugh’s thoughts. He smirked.	ヴィクは顔を上げ、   まるでヒューの疑念を見透かしたように   口元をゆがめた。
+S_1_2_10	嗯？	嗯？	Hm?	ん？
+S_1_2_11	有人規定特別調查官 一定要穿西裝打領帶嗎？	有人规定特别调查官 一定要穿西装打领带吗？	Who says Special Investigators have to wear suits and ties?	特別調査官は   スーツにネクタイ必須って決まりか？
+S_1_2_12	穿得這麼正式， 早就慘死街頭了吧！哈！	穿得这麽正式， 早就惨死街头了吧！哈！	Dress that formal and you’d be dead in an alley by now! Ha!	そんなにカッチリしてたら、   とっくに路地で死んでるだろ！ハハ！
+S_1_2_13	語氣輕佻愉快， 話裡卻帶著刺。	语气轻佻愉快， 话里却带着刺。	His tone was playful, but edged with barbs.	調子は軽く楽しげだが、   言葉にはトゲがあった。
+S_1_2_14	（這個人是安德烈的眼線。 安德烈對我起了疑心。）	（这个人是安德烈的眼线。 安德烈对我起了疑心。）	(This man is Andre’s spy. Andre must be suspicious of me.)	（こいつはアンドレの目だな。   アンドレは俺を疑っている。）
+S_1_2_15	（他身上沒有任何氣味—— 是刻意消除的。）	（他身上没有任何气味—— 是刻意消除的。）	(No scent on him—erased on purpose.)	（体に一切の匂いがない──   意図的に消しているな。）
+S_1_2_16	（過去應該是執行部隊成員。 看起來不好說服...）	（过去应该是执行部队成员。 看起来不好说服...）	(He must have been in the Execution Unit. He won’t be easy to sway…)	（以前は執行部隊の人間か。   簡単には口を割らなそうだ…）
+S_1_2_17	（等等帶他去吃飯， 觀察他的用餐風格， 套些話了解個性。）	（等等带他去吃饭， 观察他的用餐风格， 套些话了解个性。）	(I’ll take him to lunch, watch how he eats, draw out his personality.)	（後で飯に連れて行って、   食事の仕方を観察して、   性格を探るか。）
+S_1_2_18	（梅爾特現在是不是 正在對媽媽抽血實驗...）	（梅尔特现在是不是 正在对妈妈抽血实验...）	(Is Melt experimenting with mother’s blood right now…?)	（メルトは今ごろ   母親の血液実験でもしてるのか…）
+S_1_2_19	（最近手頭上的第13案件真是無聊， 吃完飯順便帶他調查吧。）	（最近手头上的第13案件真是无聊， 吃完饭顺便带他调查吧。）	(That Case 13 is so dull… I’ll drag him along after lunch.)	（最近担当してる第13事件は退屈だ。   飯の後ついでに調査に連れて行くか。）
+S_1_2_20	（現在時間是上午 11 點整。）	（现在时间是上午 11 点整。）	(The time is now exactly 11 a.m.)	（現在時刻は午前11時ちょうど。）
+				
+S_1_3	1-3【換裝】	1-3【换装】	1-3 [Changing Clothes]	1-3【着替え】
+				
+				
+S_1_4	1-4【童年】	1-4【童年】	1-4 [Childhood]	1-4【幼少期】
+				
+				
+S_1_5	1-5【異常】	1-5【异常】	1-5 [Anomaly]	1-5【異常】

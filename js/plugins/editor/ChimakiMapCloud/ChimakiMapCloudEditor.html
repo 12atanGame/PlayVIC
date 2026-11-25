@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title data-i18n="text_fffd884aee"></title>
+    <link rel="stylesheet" href="ChimakiMapCloudEditor.css?v=4.1.52">
+</head>
+<body class="cloud-parameters editor-loading" aria-busy="true">
+<div id="editorLoading" role="status" aria-live="polite"><strong><!--i18n:text_f4efeddc93--><!--/i18n--></strong><p><!--i18n:text_a1e228ccdb--><!--/i18n--></p></div>
+<header><div><h1><!--i18n:text_fffd884aee--><!--/i18n--></h1></div><div class="header-actions" inert><span id="mapLabel"><!--i18n:text_672c133d1d--><!--/i18n--></span><span id="connection"><!--i18n:text_64d23a306a--><!--/i18n--></span><span id="dirty"><!--i18n:text_aa7bd4a75a--><!--/i18n--></span><div class="language-actions"><select id="editorLanguage" data-i18n-aria-label="language.label" aria-label="" data-i18n-title="language.label" title=""></select><button id="clearAllBindings" type="button" disabled data-i18n-title="text_b56eea09d1" title=""><!--i18n:text_0981f8d798--><!--/i18n--></button></div><div class="tools"><button id="modeToggle" aria-pressed="false" data-i18n-title="text_78dc516c2f" title=""><!--i18n:text_de1f235cf1--><!--/i18n--></button><button id="preview" disabled><!--i18n:text_c8a5165064--><!--/i18n--></button><button id="save" class="primary" disabled><!--i18n:text_96d510bbf2--><!--/i18n--></button></div></div></header>
+<nav inert class="effect-tabs" role="tablist" data-i18n-aria-label="text_1dbd8c6f1d" aria-label=""><button id="lightingTab" role="tab" aria-controls="effectParameters" aria-selected="true" class="selected"><!--i18n:text_ca251de3d3--><!--/i18n--></button><button id="occlusionTab" role="tab" aria-controls="effectParameters" aria-selected="false"><!--i18n:text_68b1a8da1d--><!--/i18n--></button><button id="cloudTab" role="tab" aria-controls="effectParameters" aria-selected="false"><!--i18n:text_bb7bfa3a21--><!--/i18n--></button><button id="localTab" role="tab" aria-controls="effectParameters" aria-selected="false" tabindex="-1"><!--i18n:local.tab--><!--/i18n--></button><button id="paletteTab" role="tab" aria-controls="effectParameters" aria-selected="false"><!--i18n:text_ba275cb7c8--><!--/i18n--></button><button id="creditsTab" role="tab" aria-controls="effectParameters" aria-selected="false" tabindex="-1">Credits</button><button id="map3dTab" role="tab" aria-controls="effectParameters" aria-selected="false" hidden><!--i18n:text_9ae2a45796--><!--/i18n--></button><button id="shortcutHelpToggle" class="shortcut-help-toggle" type="button" aria-expanded="false" aria-controls="shortcutHelpPanel"><!--i18n:text_f9b9f348c8--><!--/i18n--></button></nav>
+<section id="shortcutHelpPanel" class="shortcut-help-panel" role="region" aria-labelledby="shortcutHelpTitle" hidden>
+<div class="shortcut-help-heading"><h2 id="shortcutHelpTitle"><!--i18n:text_f9b9f348c8--><!--/i18n--></h2><button id="shortcutHelpClose" type="button" data-i18n-aria-label="text_4d012be26f" aria-label=""><!--i18n:text_c7fdddf79e--><!--/i18n--></button></div>
+<p><!--i18n:text_32ac8b3353--><!--/i18n--><br><!--i18n:text_04351512e9--><!--/i18n--><br><!--i18n:text_0214c6ef4e--><!--/i18n--><br><!--i18n:text_2b05ecdd03--><!--/i18n--><br><!--i18n:text_0701924d4d--><!--/i18n--><br><!--i18n:text_5b651b6a42--><!--/i18n--><br><!--i18n:text_a1fb102fe3--><!--/i18n--><br><!--i18n:text_479d28a0b8--><!--/i18n--><br><!--i18n:text_506b8a05e5--><!--/i18n--></p>
+</section>
+<main inert>
+    <aside id="effectParameters" role="tabpanel" aria-labelledby="cloudTab">
+        <div id="localWorkspace" class="effect-layout" hidden>
+          <fieldset id="localGroupControls" class="effect-library">
+            <legend class="sr-only"><!--i18n:local.tab--><!--/i18n--></legend>
+            <div class="library-heading"><h2><!--i18n:local.groups--><!--/i18n--></h2></div>
+            <label class="search-label"><!--i18n:local.search--><!--/i18n--><input id="localSearch" type="search"></label>
+            <p id="localMapLabel" class="hint"></p>
+            <div id="localCloudGroupRows" class="effect-rows effect-rows-compact"></div>
+          </fieldset>
+          <div id="localDetails" class="effect-details cloud-details">
+            <div class="weather-group-heading">
+              <div id="localWeatherGroupMeta" class="cloud-group-meta">
+                <div class="effect-inspector-heading"><h2 id="localGroupName"></h2><label class="inline"><!--i18n:local.groupEnabled--><!--/i18n--><input id="localGroupEnabled" type="checkbox"></label></div>
+                <div class="tools"><button id="localCopyMap"><!--i18n:local.copyMap--><!--/i18n--></button></div>
+              </div>
+              <fieldset id="localWeatherHeading" class="effect-inspector-heading" hidden></fieldset>
+              <div class="weather-group-actions tools"><button id="localApply"><!--i18n:text_bc1e8391ae--><!--/i18n--></button><button id="localPlay"><!--i18n:text_135a8a7ca5--><!--/i18n--></button><button id="localWeatherAdd"><!--i18n:local.add--><!--/i18n--></button><button id="localWeatherCopy" hidden><!--i18n:text_bb6dad578c--><!--/i18n--></button><button id="localWeatherDelete" class="danger" hidden><!--i18n:text_3c8f5b363a--><!--/i18n--></button></div>
+            </div>
+            <p id="localUnassignedHint" class="hint" hidden><!--i18n:local.unassigned--><!--/i18n--></p>
+            <fieldset id="localWeatherGroupConditions"></fieldset>
+            <p id="localExperimentalHint" class="hint"><!--i18n:local.experimentalHint--><!--/i18n--></p>
+            <p id="localLegacyConditionsHint" class="hint" hidden><!--i18n:local.legacyConditions--><!--/i18n--></p>
+            <section id="localWeatherDetails" hidden><div id="localMaskTools" class="local-mask-tools" hidden><label><input id="localMaskSnap" type="checkbox"><!--i18n:text_503d4d97b6--><!--/i18n--></label><span class="hint" data-i18n="local.maskSnapHint"></span></div><fieldset id="localWeatherFields" class="weather-fields"></fieldset></section>
+            <p id="localEmpty" class="hint"><!--i18n:local.empty--><!--/i18n--></p>
+            <fieldset id="localControls" hidden></fieldset><fieldset id="localBindingControls" hidden></fieldset>
+          </div>
+        </div>
+        <div id="cloudWorkspace" class="effect-layout">
+        <fieldset id="groupControls" disabled class="effect-library">
+            <legend class="sr-only"><!--i18n:text_b1d5837292--><!--/i18n--></legend>
+            <div class="library-heading"><h2><!--i18n:text_9dc0e8bb8e--><!--/i18n--></h2><button id="newGroup"><!--i18n:text_bff9793175--><!--/i18n--></button></div>
+            <label class="search-label"><!--i18n:text_efb411e9db--><!--/i18n--><input id="cloudSearch" type="search" data-i18n-placeholder="text_d71d77e659" placeholder=""></label>
+            <p id="cloudGroupCount" class="hint"></p>
+            <select id="groupSelect" hidden data-i18n-aria-label="text_55a4c519c2" aria-label=""></select>
+            <div id="cloudGroupRows" class="effect-rows effect-rows-compact" data-i18n-aria-label="text_8086725735" aria-label=""></div>
+            <div hidden><button id="copyGroup"><!--i18n:text_e0209833e2--><!--/i18n--></button><button id="deleteGroup"><!--i18n:text_d7a09ec65d--><!--/i18n--></button></div>
+            <p class="hint library-note"><!--i18n:text_36689d44d0--><!--/i18n--></p>
+        </fieldset>
+        <div id="cloudDetails" class="effect-details cloud-details">
+            <div class="weather-group-heading">
+            <div id="weatherGroupMeta" class="cloud-group-meta"><span id="cloudDetailTitle" hidden></span><div class="effect-inspector-heading"><input id="groupName" class="effect-title-input" type="text" maxlength="80" data-i18n-aria-label="text_d76437663f" aria-label=""><button id="applyGroup" class="primary" disabled><!--i18n:text_bc1e8391ae--><!--/i18n--></button></div><p id="groupUsage" class="hint"></p></div>
+            <fieldset id="weatherHeading" class="effect-inspector-heading" hidden></fieldset>
+            <div class="weather-group-actions tools"><button id="weatherPlay" type="button"><!--i18n:text_135a8a7ca5--><!--/i18n--></button><button id="weatherAdd" type="button" hidden disabled><!--i18n:text_dd0c210ae7--><!--/i18n--></button><button id="weatherCopy" hidden type="button"><!--i18n:text_bb6dad578c--><!--/i18n--></button><button id="weatherDelete" hidden type="button" class="danger"><!--i18n:text_3c8f5b363a--><!--/i18n--></button></div>
+            </div>
+        <fieldset id="weatherGroupConditions" hidden></fieldset>
+        <section id="weatherDetails" hidden><h2 class="sr-only"><!--i18n:text_68722e1c60--><!--/i18n--></h2><fieldset id="weatherFields" data-i18n-aria-label="text_83a9e95cda" aria-label="" class="weather-fields"></fieldset></section>
+        <fieldset disabled id="controls" data-i18n-aria-label="text_f200b83c73" aria-label="">
+        <label><!--i18n:effect.layer--><!--/i18n--><select id="brushLightingLayer"><option value="above"><!--i18n:effect.layer.above--><!--/i18n--></option><option value="below" selected><!--i18n:effect.layer.below--><!--/i18n--></option></select></label>
+        <label><!--i18n:effect.binding--><!--/i18n--><select id="brushBindingMode"><option value="map"><!--i18n:effect.binding.map--><!--/i18n--></option><option value="screen"><!--i18n:effect.binding.screen--><!--/i18n--></option></select></label>
+        <div class="cloud-edit-tools tools"><button id="brush" data-i18n-title="text_a975e708b7" title="" class="selected" aria-pressed="true"><!--i18n:text_3f17b2fbcc--><!--/i18n--></button><button id="erase" data-i18n-title="text_8dabadf0bc" title="" aria-pressed="false"><!--i18n:text_05cf56410b--><!--/i18n--></button><button id="clear" class="danger" data-i18n-title="text_586925b64c" title=""><!--i18n:text_5a078b87fc--><!--/i18n--></button><button id="play" hidden><!--i18n:text_135a8a7ca5--><!--/i18n--></button></div>
+            <div class="cloud-brush-settings">
+            <div class="compact-actions"><label><!--i18n:text_c6e7193700--><!--/i18n--><select id="template"></select></label><button id="useBrushImage" type="button" aria-haspopup="dialog" aria-controls="brushImagePicker"><!--i18n:text_dfb8afd2b6--><!--/i18n--></button></div>
+            <canvas id="templatePreview" width="200" height="90" data-i18n-aria-label="text_acaf8da440" aria-label=""></canvas><p id="brushImageHint" class="hint"><!--i18n:text_90038c4870--><!--/i18n--></p>
+            <label><!--i18n:text_50db7447b9--><!--/i18n--> <output id="sizeValue">120 px</output><span class="range-control"><input id="size" type="range" min="1" max="1024" value="120"><input id="sizeNumber" type="number" class="range-number" min="1" max="1024" value="120" data-i18n-aria-label="text_a4f08e96d9" aria-label=""></span></label>
+            <label><!--i18n:text_194a6cba5c--><!--/i18n--> <output id="softnessValue">85%</output><span class="range-control"><input id="softness" type="range" min="0" max="100" value="85"><input id="softnessNumber" type="number" class="range-number" min="0" max="100" value="85" data-i18n-aria-label="text_cc640dbe32" aria-label=""></span></label>
+            <label><!--i18n:text_e9d6c85288--><!--/i18n--> <output id="densityValue">35%</output><span class="range-control"><input id="density" type="range" min="1" max="100" value="35"><input id="densityNumber" type="number" class="range-number" min="1" max="100" value="35" data-i18n-aria-label="text_3717ea3eaa" aria-label=""></span></label>
+            <label class="inline"><!--i18n:text_394ed4a8db--><!--/i18n--><span class="color-choice"><input id="color" type="color" value="#ffffff"><button id="cloudPalettePick" type="button" aria-haspopup="dialog" aria-controls="palettePicker" aria-expanded="false" disabled><!--i18n:text_4b91a95182--><!--/i18n--> <span aria-hidden="true">▾</span></button></span></label>
+            </div>
+            <section class="cloud-motion" aria-labelledby="cloudMotionTitle"><h2 id="cloudMotionTitle" class="light-section-title"><!--i18n:text_165ecb6156--><!--/i18n--></h2>
+                <label><!--i18n:text_88899f519b--><!--/i18n--> <output id="opacityValue">100%</output><span class="range-control"><input id="opacity" type="range" min="0" max="100" value="100"><input id="opacityNumber" type="number" class="range-number" min="0" max="100" value="100" data-i18n-aria-label="text_42024915a7" aria-label=""></span></label>
+                <div class="cloud-direction-row"><label><!--i18n:text_be2bd685a9--><!--/i18n--><select id="directionPreset" data-i18n-aria-label="text_0bef021071" aria-label=""><option value="" disabled><!--i18n:text_4fd452af6a--><!--/i18n--></option><option value="0">→ 0°</option><option value="45">↘ 45°</option><option value="90">↓ 90°</option><option value="135">↙ 135°</option><option value="180">← 180°</option><option value="225">↖ 225°</option><option value="270">↑ 270°</option><option value="315">↗ 315°</option></select></label><label><!--i18n:text_869566b97c--><!--/i18n--><input id="direction" type="number" min="-360" max="360" step="1" value="0"></label><label><!--i18n:text_c7f291db10--><!--/i18n--><input id="speed" type="number" min="0" max="1000" step="0.1" value="10"></label></div>
+                <p class="hint">0° →・45° ↘・90° ↓・135° ↙<br>180° ←・225° ↖・270° ↑・315° ↗</p>
+            </section>
+        </fieldset>
+        <fieldset id="bindingControls" disabled>
+            <legend><!--i18n:text_e36d27322a--><!--/i18n--></legend>
+            <div class="binding-grid"><label class="inline"><!--i18n:text_c789a5384f--><!--/i18n--><input id="mapEnabled" type="checkbox" checked></label><label><!--i18n:text_0fa3b3c65e--><!--/i18n--><input id="mapScale" type="number" min="0.1" max="10" step="0.05" value="1"></label><label><!--i18n:text_2418839284--><!--/i18n--><input id="mapOffsetX" type="number" min="-32768" max="32768" value="0"></label><label><!--i18n:text_45893bcf2e--><!--/i18n--><input id="mapOffsetY" type="number" min="-32768" max="32768" value="0"></label></div>
+            <button id="resetPlacement"><!--i18n:text_f5aeaceebc--><!--/i18n--></button><p id="placementHint" class="hint"><!--i18n:text_709f6a77fd--><!--/i18n--></p>
+        </fieldset>
+        </div></div>
+        <fieldset id="lightingControls" hidden disabled><div class="effect-columns">
+            <legend class="sr-only"><!--i18n:text_feaf1c7a29--><!--/i18n--></legend>
+            <div class="light-library">
+                <div class="library-heading"><h2><!--i18n:text_14946a889c--><!--/i18n--></h2><button id="lightNewGroup"><!--i18n:text_bff9793175--><!--/i18n--></button></div>
+                <label class="search-label"><!--i18n:text_efb411e9db--><!--/i18n--><input id="lightGroupSearch" type="search" data-i18n-placeholder="text_d71d77e659" placeholder=""></label>
+                <p id="lightGroupCount" class="hint"></p><div id="lightGroupRows" class="effect-rows effect-rows-compact" data-i18n-aria-label="text_62161063de" aria-label=""></div>
+                <div hidden><button id="lightCopyGroup"><!--i18n:text_e0209833e2--><!--/i18n--></button><button id="lightDeleteGroup"><!--i18n:text_d7a09ec65d--><!--/i18n--></button></div>
+            </div>
+            <div id="lightDetails" class="light-properties effect-details"><div class="detail-heading light-detail-heading"><h2 id="lightDetailTitle"><!--i18n:text_3c084e713e--><!--/i18n--></h2><input id="lightGroupName" class="light-group-title" type="text" maxlength="80" data-i18n-aria-label="text_d76437663f" aria-label="" hidden><input id="lightName" class="light-group-title" type="text" maxlength="80" data-i18n-aria-label="text_7b02a2e661" aria-label="" hidden><div id="lightHeaderControls" class="light-header-controls" hidden><label class="inline"><!--i18n:text_e65e03bd02--><!--/i18n--><input id="lightEnabled" type="checkbox" checked></label>
+<label class="inline"><!--i18n:text_394ed4a8db--><!--/i18n--><span class="color-choice"><input id="lightColor" type="color" value="#ffe4b5"><button id="lightPalettePick" type="button" aria-haspopup="dialog" aria-controls="palettePicker" aria-expanded="false" disabled><!--i18n:text_4b91a95182--><!--/i18n--> <span aria-hidden="true">▾</span></button></span></label></div><div id="lightMapButtons" class="light-map-buttons"><button id="lightApply" type="button"><!--i18n:lightMaps.applyCurrent--><!--/i18n--></button><button id="lightMapOpen" type="button"><!--i18n:lightMaps.applyMultiple--><!--/i18n--></button></div></div>
+                <section id="lightGroupPanel" class="light-group-panel" data-i18n-aria-label="text_497226697b" aria-label="">
+
+
+                    <select id="lightGroup" hidden data-i18n-aria-label="text_14946a889c" aria-label=""></select>
+                    <h2 class="light-section-title"><!--i18n:text_661a72d123--><!--/i18n--></h2>
+                    <div class="light-condition-primary">
+<label><!--i18n:text_8d55acd966--><!--/i18n--><select id="lightGroupConditionMode"><option value="none"><!--i18n:text_72062c14a5--><!--/i18n--></option><option value="on"><!--i18n:text_312738cb19--><!--/i18n--></option><option value="off"><!--i18n:text_40487fa2d9--><!--/i18n--></option></select></label>
+<div id="lightGroupFadeRow"><label id="lightGroupFadeFramesRow"><!--i18n:text_763c7cd839--><!--/i18n--><input id="lightGroupFadeFrames" type="number" min="0" max="3600" step="1" value="0"></label></div>
+</div>
+<div class="light-condition-fields">
+
+                        <label id="lightGroupConditionIdRow" hidden><!--i18n:text_f08cc4446e--><!--/i18n--><select id="lightGroupConditionId"></select></label>
+                        <label id="lightGroupConditionStateRow" hidden><!--i18n:text_e01b94ddd5--><!--/i18n--><select id="lightGroupConditionState"><option value="true">ON</option><option value="false">OFF</option></select></label>
+                    </div>
+
+                    <p id="lightGroupFadeHint" class="hint"><!--i18n:text_28841c2762--><!--/i18n--></p>
+                    <p id="lightGroupConditionHint" class="hint"><!--i18n:text_34244324a3--><!--/i18n--></p>
+                    <label class="light-events-visibility"><input id="lightEventsRequireLight" type="checkbox" aria-describedby="lightEventsRequireLightHint"><span><!--i18n:light.eventsRequireLight--><!--/i18n--></span></label>
+                    <p id="lightEventsRequireLightHint" class="hint"><!--i18n:light.eventsRequireLightHint--><!--/i18n--></p>
+                    <h2 class="light-section-title"><!--i18n:lightMaps.ambient--><!--/i18n--></h2><div class="light-ambient-row"><label class="light-darkness"><!--i18n:text_61b475654e--><!--/i18n--> <output id="darknessValue">0%</output><span class="range-control"><input id="darkness" type="range" min="0" max="100" value="0"><input id="darknessNumber" type="number" class="range-number" min="0" max="100" value="0" data-i18n-aria-label="text_28de3b3eef" aria-label=""></span></label>
+                    <label><!--i18n:text_5c44579c9c--><!--/i18n--><select id="darknessBlend"><option value="normal"><!--i18n:text_9fbb7d53d6--><!--/i18n--></option><option value="multiply"><!--i18n:text_074645c961--><!--/i18n--></option><option value="screen"><!--i18n:lightBlend.screen--><!--/i18n--></option></select></label>
+                    <label><!--i18n:text_56b0c4e7fb--><!--/i18n--><span class="color-choice"><input id="darknessColor" type="color" value="#000000"><button id="darknessPalettePick" type="button" aria-haspopup="dialog" aria-controls="palettePicker" aria-expanded="false" disabled><!--i18n:text_4b91a95182--><!--/i18n--> <span aria-hidden="true">▾</span></button></span></label></div>
+                    <label><!--i18n:text_0ee8acdb86--><!--/i18n--><select id="lightGroupBlend"><option value="add"><!--i18n:text_4f90824c7c--><!--/i18n--></option><option value="multiply"><!--i18n:text_255bc883ba--><!--/i18n--></option><option value="screen"><!--i18n:lightBlend.screen--><!--/i18n--></option></select></label>
+                    <p class="hint"><!--i18n:text_1891c09434--><!--/i18n--></p>
+
+                </section>
+                <div class="light-create-bar"><button id="lightAdd" class="primary"><!--i18n:text_8e22b81b3d--><!--/i18n--></button><span id="lightCount" class="hint"></span><div class="tools"><button id="lightUndo" title="Ctrl／⌘ + Z"><!--i18n:text_2abdcba8d5--><!--/i18n--></button><button id="lightRedo" title="Ctrl／⌘ + Shift + Z"><!--i18n:text_03717b6f10--><!--/i18n--></button></div></div>
+                <select id="lightList" hidden data-i18n-aria-label="text_ab5cf50a10" aria-label=""></select><p id="lightEmpty" class="hint" hidden></p>
+            <section id="lightInspector" hidden>
+                <section class="light-section">
+                    <h2 class="light-section-title"><!--i18n:text_57a6b57b53--><!--/i18n--></h2>
+                    <div class="light-condition-primary">
+<label><!--i18n:text_8d55acd966--><!--/i18n--><select id="lightConditionMode"><option value="none"><!--i18n:text_a5a07f524c--><!--/i18n--></option><option value="on"><!--i18n:text_312738cb19--><!--/i18n--></option><option value="off"><!--i18n:text_40487fa2d9--><!--/i18n--></option></select></label>
+<div id="lightFadeRow"><label id="lightFadeFramesRow"><!--i18n:text_763c7cd839--><!--/i18n--><input id="lightFadeFrames" type="number" min="0" max="3600" step="1" value="0"></label></div>
+</div>
+<div class="light-condition-fields">
+
+                        <label id="lightConditionKindRow" hidden><!--i18n:text_8c95ab96f7--><!--/i18n--><select id="lightConditionKind"><option value="variable"><!--i18n:text_19b5ded238--><!--/i18n--></option><option value="switch"><!--i18n:text_f08cc4446e--><!--/i18n--></option><option value="self"><!--i18n:text_60e036eac6--><!--/i18n--></option></select></label>
+                        <label id="lightConditionIdRow" hidden><span id="lightConditionIdLabel"><!--i18n:text_19b5ded238--><!--/i18n--></span><select id="lightConditionId"></select></label>
+                        <label id="lightConditionKeyRow" hidden><!--i18n:text_60e036eac6--><!--/i18n--><select id="lightConditionKey"><option>A</option><option>B</option><option>C</option><option>D</option></select></label>
+                        <label id="lightConditionOperatorRow" hidden><!--i18n:text_105829d70c--><!--/i18n--><select id="lightConditionOperator"><option value="gt"><!--i18n:text_a6d4053f27--><!--/i18n--></option><option value="gte"><!--i18n:text_19c5117dcc--><!--/i18n--></option><option value="eq"><!--i18n:text_1e56c3da9e--><!--/i18n--></option><option value="lte"><!--i18n:text_d9b7b02707--><!--/i18n--></option><option value="ne"><!--i18n:text_254e48a968--><!--/i18n--></option></select></label>
+                        <label id="lightConditionValueRow" hidden><!--i18n:text_285f88f300--><!--/i18n--><input id="lightConditionValue" type="number" step="any" min="-9007199254740991" max="9007199254740991" value="0"></label>
+                        <label id="lightConditionStateRow" hidden><!--i18n:text_e01b94ddd5--><!--/i18n--><select id="lightConditionState"><option value="true">ON</option><option value="false">OFF</option></select></label>
+                    </div>
+                    <p class="hint"><!--i18n:text_715f8bd62d--><!--/i18n--></p>
+                    <p id="lightConditionHint" class="hint"></p>
+                </section>
+<div id="lightImageRow" class="weather-image-controls light-section" hidden><button id="lightImagePick" type="button" aria-haspopup="dialog" aria-controls="brushImagePicker"><!--i18n:text_dfb8afd2b6--><!--/i18n--></button><span id="lightImageName" class="hint"></span><p class="hint"><!--i18n:light.image.hint--><!--/i18n--></p></div>
+
+                <section class="light-section">
+                    <h2 class="light-section-title"><!--i18n:text_1fb4d574da--><!--/i18n--></h2>
+                    <div class="light-position-primary">
+<label><!--i18n:text_a9fc8234e5--><!--/i18n--><select id="lightTarget"><option value="map"><!--i18n:text_1e8d19e132--><!--/i18n--></option><option value="player"><!--i18n:text_991e63fe29--><!--/i18n--></option><option value="event"><!--i18n:text_de89785d0a--><!--/i18n--></option></select></label>
+<label id="lightEventRow" hidden><!--i18n:text_c560201b33--><!--/i18n--><select id="lightEvent"></select></label>
+<label id="lightFollowRow" hidden><!--i18n:text_97060df56d--><!--/i18n--><select id="lightFollow"><option value="true"><!--i18n:text_e65e03bd02--><!--/i18n--></option><option value="false"><!--i18n:lighting.optionOff--><!--/i18n--></option></select></label>
+<label class="light-direction-field"><span id="lightDirectionLabel"><!--i18n:text_869566b97c--><!--/i18n--></span><input id="lightDirection" type="number" min="-360" max="360"></label>
+<label id="lightCharacterAboveRow" hidden><!--i18n:text_4d24452188--><!--/i18n--><select id="lightCharacterAbove"><option value="true"><!--i18n:text_e65e03bd02--><!--/i18n--></option><option value="false"><!--i18n:lighting.optionOff--><!--/i18n--></option></select></label>
+                    </div>
+<p id="lightAttachmentHint" class="hint"><!--i18n:text_6ea1476ac8--><!--/i18n--></p>
+                    <h3 id="lightOffsetTitle" class="light-section-title" hidden><!--i18n:lighting.offsetSettings--><!--/i18n--></h3>
+                    <div id="lightOffsetOptions" class="light-position-primary" hidden>
+<label><!--i18n:lighting.offsetEditDirection--><!--/i18n--><select id="lightOffsetDirection"><option value=""><!--i18n:text_9109667945--><!--/i18n--></option><option value="8"><!--i18n:text_2916af38b4--><!--/i18n--></option><option value="2"><!--i18n:text_e608d97199--><!--/i18n--></option><option value="4"><!--i18n:text_b133ee1201--><!--/i18n--></option><option value="6"><!--i18n:text_84b0d791ab--><!--/i18n--></option></select></label>
+<label id="lightOffsetInheritRow" hidden><!--i18n:lighting.offsetSource--><!--/i18n--><select id="lightOffsetInherit"><option value="inherit"><!--i18n:text_2da7d01991--><!--/i18n--></option><option value="custom"><!--i18n:lighting.offsetCustom--><!--/i18n--></option></select></label>
+                    </div>
+                    <div class="light-position-primary light-offset-values">
+<label><span id="lightXLabel">X</span><input id="lightX" type="number" min="-32768" max="32768"></label>
+<label><span id="lightYLabel">Y</span><input id="lightY" type="number" min="-32768" max="32768"></label>
+                    </div>
+<p id="lightOffsetHint" class="hint" hidden><!--i18n:text_8277b003eb--><!--/i18n--></p>
+                </section>
+
+                <section class="light-section">
+                    <h2 class="light-section-title"><!--i18n:text_9c2fa84bb1--><!--/i18n--></h2>
+                    <div class="light-fields"><label><!--i18n:text_5c44579c9c--><!--/i18n--><select id="lightBlend"><option value="inherit"><!--i18n:text_10ffe38125--><!--/i18n--></option><option value="add"><!--i18n:text_f29f2056c0--><!--/i18n--></option><option value="multiply"><!--i18n:text_b0c384b3de--><!--/i18n--></option><option value="screen"><!--i18n:lightBlend.screen--><!--/i18n--></option></select></label><label><!--i18n:text_8e2f643ad1--><!--/i18n--> <output id="lightBrightnessValue"></output><span class="range-control"><input id="lightBrightness" type="range" min="0" max="200" value="100"><input id="lightBrightnessNumber" type="number" class="range-number" min="0" max="200" value="100" data-i18n-aria-label="text_4d622e98a5" aria-label=""></span></label>
+<label><span id="lightRadiusLabel"><!--i18n:text_fa711bfc9a--><!--/i18n--></span><input id="lightRadius" type="number" min="1" max="4096" value="160"></label>
+<label id="lightAspectRow" hidden><!--i18n:text_ed1a7f5f5e--><!--/i18n--><input id="lightAspect" type="number" min="10" max="200" value="50"></label>
+<label id="lightSoftnessRow"><!--i18n:text_194a6cba5c--><!--/i18n--> <output id="lightSoftnessValue"></output><span class="range-control"><input id="lightSoftness" type="range" min="0" max="100" value="80"><input id="lightSoftnessNumber" type="number" class="range-number" min="0" max="100" value="80" data-i18n-aria-label="text_9c2fa4445f" aria-label=""></span></label>
+<label id="lightConeRow"><!--i18n:text_e10254617a--><!--/i18n--><input id="lightCone" type="number" min="1" max="360" value="60"></label>
+<label id="lightStartSpreadRow" data-i18n-title="text_f983e9d686" title=""><!--i18n:text_5126acf27b--><!--/i18n--> <output id="lightStartSpreadValue">25%</output><span class="range-control"><input id="lightStartSpread" type="range" min="0" max="100" value="25"><input id="lightStartSpreadNumber" type="number" class="range-number" min="0" max="100" value="25" data-i18n-aria-label="text_325468a328" aria-label=""></span></label>
+<label id="lightEndSoftnessRow" data-i18n-title="text_acc6b79111" title=""><!--i18n:text_adae740f74--><!--/i18n--> <output id="lightEndSoftnessValue">60%</output><span class="range-control"><input id="lightEndSoftness" type="range" min="0" max="100" value="60"><input id="lightEndSoftnessNumber" type="number" class="range-number" min="0" max="100" value="60" data-i18n-aria-label="text_c96d1b0cb7" aria-label=""></span></label>
+<label id="lightFogRow" data-i18n-title="text_733b6ffdd0" title=""><!--i18n:text_541c77006b--><!--/i18n--> <output id="lightFogValue">0%</output><span class="range-control"><input id="lightFog" type="range" min="0" max="100" value="0"><input id="lightFogNumber" type="number" class="range-number" min="0" max="100" value="0" data-i18n-aria-label="text_a6f10b8dd4" aria-label=""></span></label></div>
+                </section>
+
+                <details open class="light-section light-advanced"><summary><!--i18n:text_698a46edfc--><!--/i18n--></summary>
+                    <div class="light-fields"><label class="inline"><!--i18n:text_fbda9828b0--><!--/i18n--><input id="lightCastsShadows" type="checkbox" checked></label>
+<label><!--i18n:text_9e4d7bbcaf--><!--/i18n--> <output id="lightShadowSoftnessValue">0%</output><span class="range-control"><input id="lightShadowSoftness" type="range" min="0" max="100" value="0"><input id="lightShadowSoftnessNumber" type="number" class="range-number" min="0" max="100" value="0" data-i18n-aria-label="text_761971f9f9" aria-label=""></span></label></div>
+                </details>
+                <details open class="light-section light-advanced"><summary><!--i18n:text_90379462ca--><!--/i18n--></summary>
+                    <div class="light-position"><label><!--i18n:text_90379462ca--><!--/i18n--><select id="lightAnimation"><option value="steady"><!--i18n:text_d4b3f49cd2--><!--/i18n--></option><option value="breathe"><!--i18n:text_280e12a8d2--><!--/i18n--></option><option value="fire"><!--i18n:text_0aded302ed--><!--/i18n--></option></select></label>
+<label><!--i18n:text_7b3657ec71--><!--/i18n--><input id="lightPeriod" type="number" min="0.1" max="60" step="0.1"></label>
+<label><!--i18n:text_6e6ae6229f--><!--/i18n--><input id="lightAmount" type="number" min="0" max="100"></label></div>
+                </details>
+            </section>
+            </div>
+
+        </div></fieldset>
+        <fieldset id="occluderControls" hidden disabled><div class="effect-columns">
+            <legend class="sr-only"><!--i18n:text_e617b137a7--><!--/i18n--></legend>
+            <div class="occ-library">
+                <div class="occ-library-heading"><h2 class="light-section-title"><!--i18n:text_855eb596f1--><!--/i18n--></h2><span id="occMapLabel" class="hint"></span></div>
+                <label class="search-label"><!--i18n:text_0f35e051d9--><!--/i18n--><input id="occSearch" type="search" data-i18n-placeholder="mapGroups.search" placeholder=""></label><p id="occCount" class="hint" hidden></p><select id="occList" hidden data-i18n-aria-label="text_65d62fd98c" aria-label=""></select><div id="occRows" class="effect-rows" data-i18n-aria-label="text_027d180c9f" aria-label=""></div>
+            </div>
+            <div id="occDetails" class="occ-properties effect-details">
+                <div class="tools"><button id="occAdd"><!--i18n:text_090c854490--><!--/i18n--></button><button id="occPolygon"><!--i18n:text_6826036c98--><!--/i18n--></button><button id="csAdd"><!--i18n:text_9a0035922e--><!--/i18n--></button></div>
+                <div class="detail-heading"><div class="effect-inspector-heading occ-title-row">
+                    <h2 id="occDetailTitle"><!--i18n:text_682f0ae68e--><!--/i18n--></h2>
+                    <input id="occName" class="effect-title-input" type="text" maxlength="80" data-i18n-aria-label="text_a5274f3813" aria-label="">
+                    <label id="occEnabledRow" class="inline" hidden><!--i18n:text_1378c9d60f--><!--/i18n--><input id="occEnabled" type="checkbox" checked></label>
+                    <div id="occShapeOptions" class="effect-header-controls" hidden><label class="inline"><!--i18n:text_503d4d97b6--><!--/i18n--><input id="occSnap" type="checkbox" checked></label><button id="occComplete"><!--i18n:text_5d87d613f6--><!--/i18n--></button></div>
+                    <button id="occReset" hidden><!--i18n:text_cb5d682bac--><!--/i18n--></button>
+                </div><p id="occHint" class="hint" hidden></p></div>
+                <section id="csInspector" class="light-section" hidden>
+                    <p class="hint"><!--i18n:text_1fb5809610--><!--/i18n--></p>
+                    <div hidden><select id="csList" data-i18n-aria-label="text_8356019d19" aria-label=""></select><button id="csCopy"><!--i18n:text_bb6dad578c--><!--/i18n--></button><button id="csDelete"><!--i18n:text_3c8f5b363a--><!--/i18n--></button></div>
+                    <div id="csSettings" hidden><div class="effect-inspector-heading"><input id="csName" class="effect-title-input" type="text" maxlength="80" data-i18n-aria-label="text_a5274f3813" aria-label=""><label class="inline"><!--i18n:text_e65e03bd02--><!--/i18n--><input id="csEnabled" type="checkbox"></label></div><div id="csConditions"></div>
+                    <div class="pair"><label><!--i18n:text_a9fc8234e5--><!--/i18n--><select id="csTarget"><option value="event"><!--i18n:text_de89785d0a--><!--/i18n--></option><option value="player"><!--i18n:text_991e63fe29--><!--/i18n--></option><option value="none"><!--i18n:text_6e621d5714--><!--/i18n--></option></select></label><label id="csEventRow"><!--i18n:text_c560201b33--><!--/i18n--><select id="csEvent"></select></label><label id="csFollowersRow" class="inline"><!--i18n:text_52d3b3f46e--><!--/i18n--><input id="csFollowers" type="checkbox"></label></div>
+                    <div class="pair">
+<label><!--i18n:text_5126acf27b--><!--/i18n--> <output id="csWidthValue"></output><input id="csWidth" type="range" min="4" max="256" step="1"></label>
+<label><!--i18n:text_3a76877792--><!--/i18n--> <output id="csEndWidthValue"></output><input id="csEndWidth" type="range" min="0" max="512" step="1"></label>
+<label><!--i18n:text_a11b1f7b14--><!--/i18n--> <output id="csLengthValue"></output><input id="csLength" type="range" min="0" max="1024" step="1"></label>
+<label><!--i18n:text_e9d6c85288--><!--/i18n--> <output id="csOpacityValue"></output><input id="csOpacity" type="range" min="0" max="1" step="0.01"></label>
+<label><!--i18n:text_2c12d695a8--><!--/i18n--> <output id="csSoftnessValue"></output><input id="csSoftness" type="range" min="0" max="32" step="0.5"></label>
+<label><!--i18n:text_d50e6b44e3--><!--/i18n--> <output id="csOffsetXValue"></output><input id="csOffsetX" type="range" min="-2048" max="2048" step="1"></label>
+<label><!--i18n:text_c5d8ab60f4--><!--/i18n--> <output id="csOffsetYValue"></output><input id="csOffsetY" type="range" min="-2048" max="2048" step="1"></label>
+                    </div></div>
+                </section>
+            <fieldset id="occGroupInspector"></fieldset>
+                <section id="occInspector" hidden>
+
+
+                <fieldset><legend><!--i18n:text_57a6b57b53--><!--/i18n--></legend><div class="effect-two-columns"><label><!--i18n:text_e8ccaa17c3--><!--/i18n--><select id="occConditionMode"><option value="none"><!--i18n:text_9feace4f48--><!--/i18n--></option><option value="on"><!--i18n:text_8962bd2198--><!--/i18n--></option><option value="off"><!--i18n:text_e863cd57c1--><!--/i18n--></option></select></label><label><!--i18n:text_763c7cd839--><!--/i18n--><input id="occFadeFrames" type="number" min="0" max="3600" step="1" value="0"></label></div><div class="effect-condition-secondary">
+
+                    <label id="occConditionKindRow"><!--i18n:text_32c421ae4c--><!--/i18n--><select id="occConditionKind"><option value="switch"><!--i18n:text_f08cc4446e--><!--/i18n--></option><option value="variable"><!--i18n:text_19b5ded238--><!--/i18n--></option><option value="self"><!--i18n:text_b57fb16e10--><!--/i18n--></option></select></label>
+                    <label id="occConditionIdRow">ID<input id="occConditionId" type="number" min="1" step="1"></label>
+                    <label id="occConditionKeyRow"><!--i18n:text_60e036eac6--><!--/i18n--><select id="occConditionKey"><option>A</option><option>B</option><option>C</option><option>D</option></select></label>
+                    <label id="occConditionStateRow"><!--i18n:text_e01b94ddd5--><!--/i18n--><select id="occConditionState"><option value="true">ON</option><option value="false">OFF</option></select></label>
+                    <label id="occConditionOperatorRow"><!--i18n:text_2ddd4be2e1--><!--/i18n--><select id="occConditionOperator"><option value="gt"><!--i18n:text_3e169c5bea--><!--/i18n--></option><option value="gte"><!--i18n:text_ff8b23b0fd--><!--/i18n--></option><option value="eq"><!--i18n:text_a95960faf5--><!--/i18n--></option><option value="lte"><!--i18n:text_6f02a13c79--><!--/i18n--></option><option value="ne"><!--i18n:text_74d7c4b6a7--><!--/i18n--></option></select></label>
+                    <label id="occConditionValueRow"><!--i18n:text_b444207314--><!--/i18n--><input id="occConditionValue" type="number" step="any"></label>
+
+                </div><p class="hint"><!--i18n:text_ee22ee2c22--><!--/i18n--></p></fieldset><fieldset><legend><!--i18n:text_9f9e15523a--><!--/i18n--></legend><div class="pair">
+                    <label><!--i18n:text_a9fc8234e5--><!--/i18n--><select id="occTarget"><option value="map"><!--i18n:text_cbdb6113ed--><!--/i18n--></option><option value="player"><!--i18n:text_991e63fe29--><!--/i18n--></option><option value="event"><!--i18n:text_de89785d0a--><!--/i18n--></option></select></label>
+                    <label id="occPlayerScopeRow"><!--i18n:text_0c2192e0a4--><!--/i18n--><select id="occPlayerScope"><option value="player"><!--i18n:text_45c818f3d8--><!--/i18n--></option><option value="followers"><!--i18n:text_52d3b3f46e--><!--/i18n--></option></select></label>
+                    <label id="occCoverageRow"><!--i18n:text_164fdd7040--><!--/i18n--><select id="occCoverage"><option value="belowCharacters"><!--i18n:text_19dbe46213--><!--/i18n--></option><option value="all"><!--i18n:text_840e5bb82e--><!--/i18n--></option></select><small><!--i18n:text_acf362468b--><!--/i18n--></small></label>
+                    <label id="occEventRow"><!--i18n:text_c560201b33--><!--/i18n--><select id="occEvent"></select></label></div>
+                    <div id="occOffsets" class="pair"><label><!--i18n:text_61110ad82b--><!--/i18n--><input id="occOffsetX" type="number" min="-32768" max="32768" step="any"></label><label><!--i18n:text_06f955e194--><!--/i18n--><input id="occOffsetY" type="number" min="-32768" max="32768" step="any"></label></div>
+                    <p id="occAttachmentHint" class="hint"></p>
+                </fieldset><div class="grid">
+                    <label><!--i18n:text_45825ff739--><!--/i18n--> <output id="occProjectionLengthLabel"></output><input id="occProjectionLength" type="range" min="0" max="2048" step="1"><small><!--i18n:text_8c33f0d0c7--><!--/i18n--></small></label>
+                    <label><!--i18n:text_290cabdffb--><!--/i18n--> <output id="occProjectionSoftnessLabel"></output><input id="occProjectionSoftness" type="range" min="0" max="32" step="0.5"><small><!--i18n:text_45be46820b--><!--/i18n--></small></label>
+                </div>
+
+
+                <section id="occWallEditor" hidden>
+                    <div class="pair"><label><!--i18n:text_743713fe1b--><!--/i18n--><input id="wallX" type="number" min="-32768" max="32768" step="any"></label><label><!--i18n:text_b87f25bb22--><!--/i18n--><input id="wallY" type="number" min="-32768" max="32768" step="any"></label></div>
+                    <div class="pair"><label><!--i18n:text_72c340877a--><!--/i18n--><input id="wallWidth" type="number" min="1" max="65536" step="any"></label><label><!--i18n:text_8a336a3ef1--><!--/i18n--><input id="wallDepth" type="number" min="1" max="65536" step="any"></label></div>
+                    <label><!--i18n:text_c2bad9db68--><!--/i18n--> <output id="wallHeightLabel"></output><input id="wallHeightBar" type="range" min="0" max="2048" step="1"></label>
+                    <label><!--i18n:text_a1c3f16dd1--><!--/i18n--><input id="wallHeight" type="number" min="0" max="2048" step="any"></label>
+                    <p class="hint"><!--i18n:text_3f3fe84df5--><!--/i18n--></p>
+                </section>
+                <details id="occVertexEditor" open><summary><!--i18n:text_f46d493483--><!--/i18n--></summary>
+                    <select id="occVertex" data-i18n-aria-label="text_e82a26640e" aria-label=""></select>
+                    <div class="pair"><label>X<input id="occX" type="number" min="-32768" max="32768"></label><label>Y<input id="occY" type="number" min="-32768" max="32768"></label></div>
+                    <div class="tools"><button id="occSetVertex"><!--i18n:text_e8a4d64ff4--><!--/i18n--></button><button id="occInsertVertex" data-i18n-title="text_3d38032d06" title=""><!--i18n:text_d4103c12b4--><!--/i18n--></button><button id="occRemoveVertex" class="danger" data-i18n-title="text_579a150546" title=""><!--i18n:text_3655a31e96--><!--/i18n--></button></div><p class="hint"><!--i18n:text_2a73ded3c0--><!--/i18n--></p>
+                </details>
+            </section>
+            </div>
+
+        </div></fieldset>
+        
+        <section id="creditsWorkspace" hidden>
+            <div class="credits-content">
+                <h2>Credits</h2>
+                <h3><!--i18n:text_7d4146ca08--><!--/i18n--></h3>
+                <p class="credits-author"><!--i18n:text_2905d2d6a8--><!--/i18n--></p>
+                <div class="credits-actions"><a href="https://www.patreon.com/cw/chimakier/membership" target="_blank" rel="noopener noreferrer"><!--i18n:text_850a602099--><!--/i18n--></a><button id="creditsAuthorOpen" type="button" aria-haspopup="dialog" aria-controls="creditsAuthorDialog"><!--i18n:text_6d8e07d993--><!--/i18n--></button></div>
+                <h3><!--i18n:text_e6b90cbe56--><!--/i18n--></h3>
+                <ul class="credits-names"><li><!--i18n:text_206ad54739--><!--/i18n--></li><li>Jima Games</li><li><!--i18n:text_a738e59e5b--><!--/i18n--></li><li>Ak1ra</li><li><!--i18n:text_35560a44de--><!--/i18n--></li><li><!--i18n:text_a973692f38--><!--/i18n--></li><li><!--i18n:text_a14c89217f--><!--/i18n--></li><li><!--i18n:text_0a8c72039c--><!--/i18n--></li><li><!--i18n:text_67530361fb--><!--/i18n--></li><li>MIC</li><li>Sinobu</li><li><!--i18n:text_8bea3b897b--><!--/i18n--></li><li><!--i18n:text_83a7428719--><!--/i18n--></li><li>PINIX Games</li><li>Loni Chou</li><li>EN</li><li>Eagle</li><li>Chung-Ping Cha</li><li><!--i18n:text_74fdbb8434--><!--/i18n--></li><li>Antoine</li><li>Adrian</li><li>Escape</li><li><!--i18n:text_e4779c9272--><!--/i18n--></li><li>OkPinkyDoe</li><li><!--i18n:text_8284e14ddc--><!--/i18n--></li><li>Pensive</li><li>12atanGame</li><li>javierspike</li><li><!--i18n:text_319de712eb--><!--/i18n--></li><li><!--i18n:text_c49f5c60cb--><!--/i18n--></li><li><!--i18n:text_8b20b7b1b9--><!--/i18n--></li><li><!--i18n:text_10b3a49fed--><!--/i18n--></li><li>Kevin Fu</li><li><!--i18n:text_4b128094be--><!--/i18n--></li><li>Riko</li><li>JC</li><li><!--i18n:text_0ede0734dd--><!--/i18n--></li></ul>
+            </div>
+        </section>
+        <div id="paletteWorkspace" class="effect-layout" hidden>
+            <div class="palette-library">
+                <div class="library-heading"><h2><!--i18n:text_437e63a9ea--><!--/i18n--></h2><button id="paletteNew" disabled><!--i18n:text_0ad215ed1a--><!--/i18n--></button></div>
+                <label><!--i18n:text_a5210cc29a--><!--/i18n--><input id="paletteSearch" type="search" data-i18n-placeholder="text_e031c8b329" placeholder=""></label>
+                <p id="paletteCount" class="hint"></p><div id="paletteRows" class="effect-rows effect-rows-compact"></div>
+                <p class="hint"><!--i18n:text_230fb70d46--><!--/i18n--></p>
+            </div>
+            <div class="effect-details palette-details">
+                <div class="palette-save-bar"><span id="paletteState"><!--i18n:text_aa7bd4a75a--><!--/i18n--></span><div class="tools"><button id="paletteReload"><!--i18n:text_70dd895b66--><!--/i18n--></button><button id="paletteSave" class="primary" disabled><!--i18n:text_d2c58fac63--><!--/i18n--></button></div></div>
+                <p id="paletteEmpty" class="list-empty"><!--i18n:text_cfe7162d2d--><!--/i18n--></p>
+                <fieldset id="paletteInspector" hidden>
+                    <legend><!--i18n:text_c62a476d84--><!--/i18n--></legend>
+                    <div class="palette-fields"><label><!--i18n:text_a5274f3813--><!--/i18n--><input id="paletteName" type="text" maxlength="80" data-i18n-placeholder="text_f260e1658c" placeholder=""></label>
+                    <div class="palette-color-fields"><label><!--i18n:text_394ed4a8db--><!--/i18n--><input id="paletteColor" type="color" value="#ffffff"></label><label>HEX<input id="paletteHex" class="palette-hex" type="text" maxlength="7" value="#FFFFFF" placeholder="#AABBCC"></label></div></div>
+                    <p class="hint"><!--i18n:text_2e43167cc9--><!--/i18n--></p>
+                </fieldset>
+            </div>
+        </div>
+        <fieldset id="map3dControls" hidden>
+            <legend><!--i18n:text_9ae2a45796--><!--/i18n--></legend>
+            <label class="map3d-enabled"><!--i18n:text_f739c5b7b8--><!--/i18n--><select id="m3View"><option value="2d"><!--i18n:text_89e51f559b--><!--/i18n--></option><option value="3d"><!--i18n:text_66e9877f22--><!--/i18n--></option></select></label>
+            <label class="map3d-enabled"><input id="m3Enabled" type="checkbox"><!--i18n:text_22c5a76045--><!--/i18n--></label>
+            <p id="m3Reason" role="status"></p>
+            <div class="tools"><button id="m3Select"><!--i18n:text_583a950868--><!--/i18n--></button><button id="m3Rect"><!--i18n:text_81021b70d0--><!--/i18n--></button><button id="m3Raise"><!--i18n:text_0f02e05d9b--><!--/i18n--></button><button id="m3Undo"><!--i18n:text_2abdcba8d5--><!--/i18n--></button><button id="m3Redo"><!--i18n:text_03717b6f10--><!--/i18n--></button></div>
+            <label><!--i18n:text_0422039b9a--><!--/i18n--><select id="m3Display"><option value="trees"><!--i18n:text_3eb0be12d4--><!--/i18n--></option><option value="billboard"><!--i18n:text_7c9b66f57e--><!--/i18n--></option><option value="roof"><!--i18n:text_076aa75809--><!--/i18n--></option><option value="building"><!--i18n:text_a70440f286--><!--/i18n--></option><option value="pillar"><!--i18n:text_59e7813d7e--><!--/i18n--></option></select></label>
+            <p class="hint"><!--i18n:text_a08a1d7cfc--><!--/i18n--></p>
+            <div class="tools"><button id="m3Group"><!--i18n:text_c1b00cf936--><!--/i18n--></button><button id="m3Ungroup"><!--i18n:text_d4fe93113e--><!--/i18n--></button><button id="m3ResetSelection"><!--i18n:text_7331b2d1ae--><!--/i18n--></button></div>
+            <small><!--i18n:text_30f3940c05--><!--/i18n--></small>
+            <p id="m3ResetHint"></p>
+            <p id="m3Selection"><!--i18n:text_ac2b12388e--><!--/i18n--></p>
+            <label><!--i18n:text_f3bf71d4a6--><!--/i18n--><select id="m3Layer"><option value="0"><!--i18n:text_2fb3bdf298--><!--/i18n--></option><option value="1"><!--i18n:text_c1732a13f3--><!--/i18n--></option><option value="2"><!--i18n:text_d12b76ab81--><!--/i18n--></option><option value="3"><!--i18n:text_824fb7e8d1--><!--/i18n--></option></select></label>
+            <label><span id="m3HeightLabel"><!--i18n:text_ab0846ceca--><!--/i18n--></span><input id="m3Height" type="number" min="-32" max="64" step="0.25"></label>
+            <div id="m3PillarControls" hidden>
+            <label><!--i18n:text_5dd120bf27--><!--/i18n--><select id="m3PillarSource"><option value="0"><!--i18n:text_2fb3bdf298--><!--/i18n--></option><option value="1"><!--i18n:text_c1732a13f3--><!--/i18n--></option><option value="2"><!--i18n:text_d12b76ab81--><!--/i18n--></option><option value="3"><!--i18n:text_824fb7e8d1--><!--/i18n--></option></select></label>
+            <label><!--i18n:text_1724aad550--><!--/i18n--><input id="m3PillarHeight" type="number" min="0.25" max="64" step="0.25"></label>
+            <label><!--i18n:text_90d59ef39c--><!--/i18n--><input id="m3PillarWidth" type="number" min="0.25" max="32" step="0.25"></label>
+            <label><!--i18n:text_ae53d814a1--><!--/i18n--><input id="m3PillarDepth" type="number" min="0.25" max="32" step="0.25"></label>
+            <small><!--i18n:text_08b494ffa3--><!--/i18n--></small>
+            </div>
+            <div id="m3BuildingControls" hidden>
+            <label><!--i18n:text_7e4507945e--><!--/i18n--><select id="m3BuildingSource"><option value="0"><!--i18n:text_2fb3bdf298--><!--/i18n--></option><option value="1"><!--i18n:text_c1732a13f3--><!--/i18n--></option><option value="2"><!--i18n:text_d12b76ab81--><!--/i18n--></option><option value="3"><!--i18n:text_824fb7e8d1--><!--/i18n--></option></select></label>
+            <label><!--i18n:text_93a8112122--><!--/i18n--><input id="m3RoofRows" type="number" min="1" max="31" step="1"></label>
+            <label><!--i18n:text_76854bb28c--><!--/i18n--><input id="m3BuildingWall" type="number" min="0.25" max="32" step="0.25"></label>
+            <label><!--i18n:text_8ccaf8043e--><!--/i18n--><input id="m3Ridge" type="number" min="0" max="16" step="0.25"></label>
+            <label><!--i18n:text_4d055f0402--><!--/i18n--><input id="m3BuildingDepth" type="number" min="0.5" max="32" step="0.25"></label>
+            <small><!--i18n:text_c0852458f5--><!--/i18n--></small>
+            </div>
+            <div id="m3RoofControls" hidden>
+            <label><!--i18n:text_db246bec1f--><!--/i18n--><select id="m3RoofSource"><option value=""><!--i18n:text_d128970528--><!--/i18n--></option><option value="0"><!--i18n:text_2fb3bdf298--><!--/i18n--></option><option value="1"><!--i18n:text_c1732a13f3--><!--/i18n--></option><option value="2"><!--i18n:text_d12b76ab81--><!--/i18n--></option><option value="3"><!--i18n:text_824fb7e8d1--><!--/i18n--></option></select></label>
+            <label><!--i18n:text_49d12d3987--><!--/i18n--><input id="m3RoofWallHeight" type="number" min="0" max="64" step="0.25" value="0"></label>
+            <label><!--i18n:text_5db982f333--><!--/i18n--><input id="m3RoofWallTile" type="number" min="0" max="8191" step="1" value="0"></label>
+            <label><!--i18n:text_c921573225--><!--/i18n--><select id="m3RoofPickLayer"><option value="0"><!--i18n:text_2fb3bdf298--><!--/i18n--></option><option value="1"><!--i18n:text_c1732a13f3--><!--/i18n--></option><option value="2"><!--i18n:text_d12b76ab81--><!--/i18n--></option><option value="3"><!--i18n:text_824fb7e8d1--><!--/i18n--></option></select></label>
+            <button id="m3PickRoofWall"><!--i18n:text_f704523bb2--><!--/i18n--></button>
+            <small><!--i18n:text_539a8c65de--><!--/i18n--></small>
+            </div>
+            <label><!--i18n:text_3744dc6ebf--><!--/i18n--><input id="m3Scale" type="number" min="0.25" max="4" step="0.25" disabled></label>
+            <label><!--i18n:text_4d44035fe6--><!--/i18n--><input id="m3Wall" type="number" min="0" max="64" step="0.25"></label>
+            <label><!--i18n:text_f5ebd97258--><!--/i18n--><select id="m3Shape"><option value=""><!--i18n:text_ce37870e57--><!--/i18n--></option><option value="plane"><!--i18n:text_e5af0394e2--><!--/i18n--></option><option value="box"><!--i18n:text_d5ce301284--><!--/i18n--></option><option value="billboard"><!--i18n:text_28eb756112--><!--/i18n--></option><option value="cross"><!--i18n:text_aa0a26c0fb--><!--/i18n--></option></select></label>
+            <label><!--i18n:text_aae93b733f--><!--/i18n--><input id="m3Side" type="number" min="0" max="8191" step="1"></label>
+            <button id="m3PickSide"><!--i18n:text_2d50e83b3d--><!--/i18n--></button>
+            <small><!--i18n:text_f42e40d54b--><!--/i18n--></small>
+            <details open><summary><!--i18n:text_3df0a128bb--><!--/i18n--></summary>
+<label><!--i18n:text_3af018f71e--><!--/i18n--><select id="m3Presentation"><option value="standard"><!--i18n:text_e34b87a9de--><!--/i18n--></option><option value="hd2d"><!--i18n:text_7dfffa8cb9--><!--/i18n--></option></select></label>
+<button id="m3HD2D"><!--i18n:text_b66117e57e--><!--/i18n--></button>
+<label><input id="m3CameraLocked" type="checkbox"><!--i18n:text_c708e3d379--><!--/i18n--></label>
+<small><!--i18n:text_d295e8fd4c--><!--/i18n--></small>
+<label><!--i18n:text_51c27feb62--><!--/i18n--><input id="m3Yaw" type="number" min="-360" max="360" step="1"></label>
+<label><!--i18n:text_9b9be20f6f--><!--/i18n--><input id="m3Pitch" type="number" min="10" max="85" step="1"></label>
+<label><!--i18n:text_00e54ee988--><!--/i18n--><input id="m3Distance" type="number" min="2" max="100" step="0.25"></label>
+<label><!--i18n:text_9eaa7f5462--><!--/i18n--><input id="m3Fov" type="number" min="15" max="90" step="1"></label>
+<label><input id="m3Follow" type="checkbox" checked><!--i18n:text_6dbb18284b--><!--/i18n--></label><p><!--i18n:text_a65133da0b--><!--/i18n--></p></details><details open><summary><!--i18n:text_6a8d0b1f1b--><!--/i18n--></summary><label><!--i18n:text_60d279dc83--><!--/i18n--><input id="m3Ambient" type="number" min="0" max="3" step="0.1"></label>
+<label><!--i18n:text_5f2b1082e9--><!--/i18n--><input id="m3Intensity" type="number" min="0" max="3" step="0.1"></label>
+<label><!--i18n:text_beecc6be89--><!--/i18n--><input id="m3LightYaw" type="number" min="-360" max="360" step="1"></label>
+<label><!--i18n:text_40a8953680--><!--/i18n--><input id="m3LightPitch" type="number" min="5" max="90" step="1"></label>
+</details><details open><summary><!--i18n:text_bbcc84b238--><!--/i18n--></summary>
+<p><!--i18n:text_252b267d65--><!--/i18n--></p>
+<div class="tools"><button id="m3LightAdd"><!--i18n:text_452e66c66d--><!--/i18n--></button><button id="m3LightDelete"><!--i18n:text_7836c572a4--><!--/i18n--></button></div>
+<label><!--i18n:text_ab5cf50a10--><!--/i18n--><select id="m3PointLight"></select></label>
+<label><input id="m3PointEnabled" type="checkbox"><!--i18n:text_85cd4ef4aa--><!--/i18n--></label>
+<label><!--i18n:text_aa8c4cdbd7--><!--/i18n--><input id="m3PointX" type="number" min="0" step="0.25"></label>
+<label><!--i18n:text_bb3d341155--><!--/i18n--><input id="m3PointY" type="number" min="0" step="0.25"></label>
+<button id="m3LightMove"><!--i18n:text_d82436eb62--><!--/i18n--></button>
+<label><!--i18n:text_d728f27502--><!--/i18n--><input id="m3PointHeight" type="number" min="-32" max="64" step="0.25"></label>
+<label><!--i18n:text_394ed4a8db--><!--/i18n--><input id="m3PointColor" type="color"></label>
+<label><!--i18n:text_8e2f643ad1--><!--/i18n--><input id="m3PointIntensity" type="number" min="0" max="200" step="1"></label>
+<label><!--i18n:text_cff23f2135--><!--/i18n--><input id="m3PointRange" type="number" min="0.25" max="64" step="0.25"></label>
+<p><!--i18n:text_47beef5179--><!--/i18n--></p>
+</details></fieldset>
+    </aside>
+    <section class="workspace">
+        <div id="mapPicker" class="map-picker"><label for="mapSelect"><!--i18n:text_f1352de20c--><!--/i18n--></label><select id="mapSelect" disabled></select></div>
+        <p id="mapNotice" class="hint"></p>
+        <div class="workflow-bar"><div><strong id="workflowTitle"><!--i18n:text_e97844c280--><!--/i18n--></strong><p id="workflowHint" class="hint"></p></div><div class="tools"><button id="gameFit" data-i18n-title="text_2c5b0131d5" title=""><!--i18n:text_dd811657ab--><!--/i18n--></button><button id="gameActual">100%</button></div></div>
+        <label hidden><!--i18n:text_3e3435108d--><!--/i18n--><input id="showOccluders" type="checkbox"></label>
+        <p id="shadowStatus" class="hint" hidden role="status"></p>
+
+        <p id="viewHint" class="hint"><!--i18n:text_a341044574--><!--/i18n--></p>
+        <div class="view-tools" hidden><label for="zoom"><!--i18n:text_85910b0a1c--><!--/i18n--> <output id="zoomValue">100%</output></label><input id="zoom" type="range" min="0.1" max="400" step="0.1" value="100"><button id="fit"><!--i18n:text_5fc3206b82--><!--/i18n--></button><button id="actualSize">100%</button></div>
+        <div class="canvas-wrap" hidden id="viewport" tabindex="0" data-i18n-aria-label="text_2665191c86" aria-label=""><div id="canvasStage"><canvas id="canvas" width="1280" height="720" data-i18n-aria-label="text_51cc3280f6" aria-label=""></canvas></div></div>
+        <p class="hint navigation-hint" hidden><!--i18n:text_e33fc26355--><!--/i18n--></p>
+
+    </section>
+</main>
+<footer><div class="save-status"><p id="status" role="status" aria-live="polite"><!--i18n:text_79c52857e6--><!--/i18n--></p><span id="effectsStorageHint"></span><span><!--i18n:text_4ae96fb91a--><!--/i18n--></span></div></footer>
+<dialog id="weatherCreateDialog" aria-labelledby="weatherCreateTitle"><h2 id="weatherCreateTitle"><!--i18n:text_dd0c210ae7--><!--/i18n--></h2><label><!--i18n:text_6d8dae2a30--><!--/i18n--><select id="weatherPreset"></select></label><canvas id="weatherPresetPreview" width="480" height="300" data-i18n-aria-label="text_6c747f7df2" aria-label=""></canvas><p class="hint"><!--i18n:text_54de8281d1--><!--/i18n--></p><div class="tools"><button id="weatherCreateCancel" type="button"><!--i18n:text_2cd0f3be87--><!--/i18n--></button><button id="weatherCreateConfirm" type="button" class="primary"><!--i18n:text_20db9f87b8--><!--/i18n--></button></div></dialog>
+<dialog id="localWeatherCreateDialog" aria-labelledby="localWeatherCreateTitle"><h2 id="localWeatherCreateTitle"><!--i18n:local.add--><!--/i18n--></h2><label><!--i18n:local.template--><!--/i18n--><select id="localWeatherPreset"></select></label><canvas id="localWeatherPresetPreview" width="640" height="400" data-i18n-aria-label="local.preview" aria-label=""></canvas><p class="hint"><!--i18n:local.createHint--><!--/i18n--></p><div class="tools"><button id="localWeatherCreateCancel" type="button"><!--i18n:text_2cd0f3be87--><!--/i18n--></button><button id="localWeatherCreateConfirm" type="button" class="primary"><!--i18n:text_20db9f87b8--><!--/i18n--></button></div></dialog>
+<dialog id="localCopyDialog" aria-labelledby="localCopyTitle"><h2 id="localCopyTitle"><!--i18n:local.copyMap--><!--/i18n--></h2><label><!--i18n:text_efb411e9db--><!--/i18n--><input id="localMapSearch" type="search"></label><label><!--i18n:local.targetMap--><!--/i18n--><select id="localTargetMap" size="8"></select></label><div class="tools"><button id="localCopyCancel"><!--i18n:text_2cd0f3be87--><!--/i18n--></button><button id="localCopyConfirm" class="primary"><!--i18n:text_bb6dad578c--><!--/i18n--></button></div></dialog>
+<dialog id="lightCreateDialog" aria-labelledby="lightCreateTitle"><h2 id="lightCreateTitle"><!--i18n:text_8e22b81b3d--><!--/i18n--></h2>
+<label><!--i18n:text_749a532130--><!--/i18n--><select id="lightPreset"><option value="soft"><!--i18n:text_2eb88a373a--><!--/i18n--></option><option value="ellipse"><!--i18n:text_ff4cd49636--><!--/i18n--></option><option value="spot"><!--i18n:text_91dbd30a87--><!--/i18n--></option><option value="flashlight"><!--i18n:text_af09acacc4--><!--/i18n--></option><option value="fire"><!--i18n:text_a050649590--><!--/i18n--></option><option value="breathe"><!--i18n:text_1639a29756--><!--/i18n--></option><option value="doorGap" id="lightPresetDoorGap"><!--i18n:light.preset.doorGap--><!--/i18n--></option><option value="windowGrid" id="lightPresetWindowGrid"><!--i18n:light.preset.windowGrid--><!--/i18n--></option><option value="fluorescent" id="lightPresetFluorescent"><!--i18n:light.preset.fluorescent--><!--/i18n--></option><option value="brokenWindow" id="lightPresetBrokenWindow"><!--i18n:light.preset.brokenWindow--><!--/i18n--></option><option value="sunShafts" id="lightPresetSunShafts"><!--i18n:light.preset.sunShafts--><!--/i18n--></option><option value="wallSconce" id="lightPresetWallSconce"><!--i18n:light.preset.wallSconce--><!--/i18n--></option><option value="image" id="lightPresetImage"><!--i18n:light.image.template--><!--/i18n--></option></select></label>
+<p id="lightImageCreateHint" class="hint" hidden><!--i18n:light.image.chooseAfter--><!--/i18n--></p><canvas id="lightPresetPreview" width="320" height="200" data-i18n-aria-label="text_a2a35c8d9c" aria-label=""></canvas><p class="hint"><!--i18n:text_c078b51530--><!--/i18n--></p>
+<div class="tools"><button id="lightCreateCancel"><!--i18n:text_2cd0f3be87--><!--/i18n--></button><button id="lightCreateConfirm" class="primary"><!--i18n:text_20db9f87b8--><!--/i18n--></button></div></dialog>
+<dialog id="brushImagePicker" aria-labelledby="brushImageTitle">
+  <div class="brush-image-heading"><h2 id="brushImageTitle"><!--i18n:text_918a06e1e2--><!--/i18n--></h2><button id="brushImageClose" type="button"><!--i18n:text_c7fdddf79e--><!--/i18n--></button></div>
+  <div class="brush-image-heading"><button id="brushImageUp" type="button"><!--i18n:text_59f13357b5--><!--/i18n--></button><span id="brushImageFolder"></span></div>
+  <p id="brushImageStatus" class="hint" role="status"></p>
+  <div class="brush-image-browser">
+    <div id="brushImageFiles" role="group" data-i18n-aria-label="text_fab181e61f" aria-label=""></div>
+    <div class="brush-image-inspector"><div id="brushImagePreview"></div><p id="brushImageName" class="hint" role="status"><!--i18n:text_6a655f8a9b--><!--/i18n--></p><button id="brushImageApply" type="button" class="primary" disabled><!--i18n:text_0909edd431--><!--/i18n--></button></div>
+  </div>
+</dialog>
+<dialog id="palettePicker" data-i18n-aria-label="text_4b91a95182" aria-label="">
+  <input id="palettePickerSearch" type="search" data-i18n-aria-label="text_a5210cc29a" aria-label="" data-i18n-placeholder="text_5c19303f8c" placeholder="" autofocus>
+  <div id="paletteSwatches" role="group" data-i18n-aria-label="text_468fd6810b" aria-label=""></div>
+  <p id="palettePickerEmpty" class="hint"></p>
+</dialog>
+<dialog id="creditsAuthorDialog" aria-labelledby="creditsAuthorTitle">
+<div class="credits-dialog-heading"><h2 id="creditsAuthorTitle"><!--i18n:text_6d8e07d993--><!--/i18n--></h2><button id="creditsAuthorClose" type="button" autofocus><!--i18n:text_c7fdddf79e--><!--/i18n--></button></div>
+<p><!--i18n:text_f9a87ec21b--><!--/i18n--><br><!--i18n:text_f647326ee3--><!--/i18n--></p>
+<h3><!--i18n:text_0bffedfc78--><!--/i18n--></h3>
+<ul><li><!--i18n:text_9f22b1ed1d--><!--/i18n--></li><li><!--i18n:text_28084fa120--><!--/i18n--></li><li><!--i18n:text_6ab82ba9aa--><!--/i18n--></li></ul>
+<p><!--i18n:text_dbe2bda8f1--><!--/i18n--></p>
+<p><a href="https://conviction-srpg.itch.io/rmmzmv-map-light-editor" target="_blank" rel="noopener noreferrer">https://conviction-srpg.itch.io/rmmzmv-map-light-editor</a></p>
+<p>Discord</p>
+<p><a href="https://discord.gg/abnABt5huQ" target="_blank" rel="noopener noreferrer">https://discord.gg/abnABt5huQ</a></p>
+</dialog>
+<dialog id="closeDialog"><h2><!--i18n:text_c85fea89b5--><!--/i18n--></h2><p><!--i18n:text_fc26e298d2--><!--/i18n--></p><div class="tools"><button id="returnEdit"><!--i18n:text_9f2b484bc1--><!--/i18n--></button><button id="discard" class="danger"><!--i18n:text_530ca27a96--><!--/i18n--></button><button id="saveClose" class="primary"><!--i18n:text_ed231619f6--><!--/i18n--></button></div></dialog>
+<dialog id="occCreateDialog" aria-labelledby="occCreateTitle"><h2 id="occCreateTitle"><!--i18n:text_090c854490--><!--/i18n--></h2>
+<label><!--i18n:text_1588dd8c9e--><!--/i18n--><select id="occPreset"><option value="rectangle"><!--i18n:text_88b75a1015--><!--/i18n--></option><option value="wall"><!--i18n:text_e1527cb05a--><!--/i18n--></option><option value="cylinder"><!--i18n:text_f59772aec7--><!--/i18n--></option></select></label>
+<canvas id="occPresetPreview" width="320" height="200" style="max-width:100%;height:auto" data-i18n-aria-label="text_3564b9bdff" aria-label=""></canvas>
+<p class="hint"><!--i18n:text_49a4f4e8ff--><!--/i18n--></p>
+<div class="tools"><button id="occCreateCancel" type="button"><!--i18n:text_2cd0f3be87--><!--/i18n--></button><button id="occCreateConfirm" type="button"><!--i18n:text_0006d696d8--><!--/i18n--></button></div></dialog>
+<dialog id="lightMapDialog" class="map-copy-dialog light-map-dialog" aria-labelledby="lightMapTitle">
+                    <section id="lightMapAssignments" class="light-map-assignments">
+                        <h2 id="lightMapTitle" class="light-section-title"></h2>
+                        <input id="lightMapSearch" type="search" data-i18n-placeholder="lightMaps.search" data-i18n-aria-label="lightMaps.search">
+                        <div class="light-map-tools"><label class="inline"><input id="lightMapSelectedOnly" type="checkbox"><!--i18n:lightMaps.selectedOnly--><!--/i18n--></label><button id="lightMapSelectResults" type="button"><!--i18n:lightMaps.selectResults--><!--/i18n--></button><button id="lightMapClearResults" type="button"><!--i18n:lightMaps.clearResults--><!--/i18n--></button></div>
+                        <div class="light-map-ambient-copy"><label><input id="lightMapCopyAmbient" type="checkbox" aria-describedby="lightMapAmbientSource"><!--i18n:lightMaps.copyAmbient--><!--/i18n--></label><p id="lightMapAmbientSource" class="hint"></p><p class="hint"><!--i18n:lightMaps.ambientOnce--><!--/i18n--></p></div>
+                        <div id="lightMapRows" class="light-map-rows"></div>
+                        <div class="light-map-footer"><span id="lightMapSummary" role="status"></span><button id="lightMapCommit" type="button" class="primary"><!--i18n:lightMaps.commit--><!--/i18n--></button><button id="lightMapReset" type="button"><!--i18n:lightMaps.reset--><!--/i18n--></button><button id="lightMapCancel" type="button"><!--i18n:lightMaps.cancel--><!--/i18n--></button></div>
+                        <p class="hint"><!--i18n:lightMaps.shared--><!--/i18n--></p>
+                    </section>
+</dialog>
+<script src="ChimakiMapEffectsPanel.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

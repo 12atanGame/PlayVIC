@@ -1,0 +1,62 @@
+{
+  "grids": [
+    {
+      "Slots": [
+        {
+          "Name": "Slot 1",
+          "BackgroundImage": "",
+          "Button": "A, GY",
+          "TextOffsetY": "34",
+          "SpecialBehavior": "skill_only"
+        },
+        {
+          "Name": "Slot 2",
+          "BackgroundImage": "",
+          "Button": "S, GY",
+          "TextOffsetY": "34",
+          "SpecialBehavior": "skill_only"
+        },
+        {
+          "Name": "Slot 3",
+          "BackgroundImage": "",
+          "Button": "D, GY",
+          "TextOffsetY": "34",
+          "SpecialBehavior": "skill_only"
+        },
+        {
+          "Name": "MENU",
+          "BackgroundImage": "config",
+          "Button": "C, GY",
+          "TextOffsetY": "0",
+          "SpecialBehavior": "none"
+        }
+      ],
+      "ControllableViaGamepad": "true",
+      "BackgroundImage": "",
+      "RowColumn": "1, 4",
+      "Padding": "10"
+    }
+  ],
+  "positions": {
+    "Slot 1": {
+      "x": 1636,
+      "y": 1018
+    },
+    "Slot 2": {
+      "x": 1710,
+      "y": 1018
+    },
+    "Slot 3": {
+      "x": 1784,
+      "y": 1018
+    },
+    "MENU": {
+      "x": 1858,
+      "y": 1018
+    },
+    "grid_Slot 1": {
+      "x": 1747,
+      "y": 1018
+    }
+  }
+}

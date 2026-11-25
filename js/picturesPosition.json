@@ -1,0 +1,18 @@
+{
+  "maps": {
+    "map_6": {
+      "31_Btn[XX]/config": {
+        "x": 488,
+        "y": 910
+      }
+    }
+  },
+  "commonEvents": {
+    "commonEvent": {
+      "31_Btn[XX]/config_hover": {
+        "scaleX": 100,
+        "scaleY": 100
+      }
+    }
+  }
+}

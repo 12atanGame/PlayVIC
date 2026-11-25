@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "name": {
+            "tw": "番茄炒蛋",
+            "en": "Tomato & Egg"
+        },
+        "description": {
+            "tw": "番茄的酸甜配上嫩蛋～",
+            "en": "Sweet-sour tomato with silky egg."
+        },
+        "difficulty": 2,
+        "ingredients": [
+            {
+                "itemId": 33,
+                "amount": 1
+            },
+            {
+                "itemId": 35,
+                "amount": 1
+            }
+        ],
+        "effects": {
+            "hp": 50,
+            "mp": 0
+        },
+        "successItemId": 56,
+        "failureItemId": 55,
+        "failureDish": {
+            "name": {
+                "tw": "焦味團",
+                "en": "Burnt Lump"
+            },
+            "description": {
+                "tw": "看起來……還是別吃了。",
+                "en": "…Maybe don’t eat this."
+            },
+            "effects": {
+                "hp": -10,
+                "mp": 0
+            }
+        }
+    }
+]

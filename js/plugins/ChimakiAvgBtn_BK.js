@@ -1,0 +1,922 @@
+
+/*:
+ * @target MZ
+ * @plugindesc AVG按妞 1.2.1
+ * @author Maker製造機 Chimaki
+ * @url https://www.patreon.com/cw/chimakier
+ * 
+ * @param hackHideBtnSwitch
+ * @text close all btn switch
+ * @desc close all btn when switch ON
+ * @type switch
+ * @default 1
+ * 
+ * 
+ * @param PosSetting
+ * 
+ * @param posType
+ * @text pos type
+ * @parent PosSetting
+ * @type select
+ * 
+ * @option relative pos(message window pos)
+ * @value 1
+ * @option absolute pos
+ * @value 2
+ * 
+ * 
+ * @param defaultPosX
+ * @parent PosSetting
+ * @text btn default offset x
+ * @desc btn default offset x
+ * @default 0
+ * 
+ * 
+ * @param defaultPosY
+ * @parent PosSetting
+ * @text  btn default offset y
+ * @desc  btn default offset y
+ * @default 0
+ * 
+ * @param btnWidth
+ * @text btn spacing
+ * @parent PosSetting
+ * @desc  avg btn spacing
+ * @default 52
+ * 
+ * 
+ * 
+ * @param AutoPlaySetting
+ * 
+ * @param showAutoPlay
+ * @parent AutoPlaySetting
+ * @text enable auto play btn
+ * @desc enable btn
+ * @type boolean
+ * @default true
+ * 
+ * 
+ * @param autoPlayName
+ * @parent AutoPlaySetting
+ * @text auto play btn image
+ * @type file
+ * @dir img/system
+ * @default hand
+ * 
+ * @param autoPlayHoverName
+ * @parent AutoPlaySetting
+ * @text auto play btn hover image
+ * @type file
+ * @dir img/system
+ * @desc hover image
+ * @default hand1
+ * 
+ * 
+ * @param autoPlayWait
+ * @parent AutoPlaySetting
+ * @text auto play wait time
+ * @desc auto play msg wait time, every 60 = 1 second
+ * @default 240
+ * 
+ * 
+ * @param autoSort
+ * @text this btn sort
+ * @parent AutoPlaySetting
+ * @desc the bigger number, the later position of btn
+ * @type number
+ * @default 0
+ * 
+ * 
+ * @param SpeedPlaySetting
+ * 
+ * @param alsoSpeedEvent
+ * @text  also speed up event execution
+ * @parent SpeedPlaySetting
+ * @desc  also speed up event execution?
+ * @type boolean
+ * @default false
+ * 
+ * 
+ * @param autoCloseSpeedPlay
+ * @text auto close speed play at each event start
+ * @parent SpeedPlaySetting
+ * @desc auto close speed play at each event start
+ * @type boolean
+ * @default false
+ * 
+ * 
+ * @param showSpeedPlay
+ * @text enable speed play btn
+ * @parent SpeedPlaySetting 
+ * @desc enable speed play btn
+ * @type boolean
+ * @default true
+ * 
+ * @param speedPlayImg
+ * @text speed play btn image
+ * @parent SpeedPlaySetting
+ * @desc speed play btn image
+ * @type file
+ * @dir img/system
+ * @default hand
+ * 
+ * @param speedPlayHoverImg
+ * @text speed play btn hover image
+ * @parent SpeedPlaySetting
+ * @desc speed play btn hover image
+ * @type file
+ * @dir img/system
+ * @default hand1
+ * 
+ * 
+ * @param speedSort
+ * @text this btn sort
+ * @parent SpeedPlaySetting
+ * @desc the bigger number, the later position of btn
+ * @type number
+ * @default 1
+ * 
+ * 
+ * 
+ * 
+ * 
+ * @param HideWindowSetting
+ * 
+ * @param showHideWindow
+ * @parent HideWindowSetting
+ * @text enable hide window btn
+ * @desc enable hide window btn
+ * @type boolean
+ * @default true
+ *
+ * @param closeMsgImg
+ * @text hide msg window btn image
+ * @desc hide msg window btn image
+ * @parent HideWindowSetting
+ * @type file
+ * @dir img/system
+ * @default hand
+ * 
+ * 
+ * @param hideSort
+ * @text this btn sort
+ * @parent HideWindowSetting
+ * @desc the bigger number, the later position of btn
+ * @type number
+ * @default 2
+ * 
+ * 
+ * 
+ * @param OptionSetting
+ * 
+ * @param showOption
+ * @text enable system window btn
+ * @desc enable system window btn
+ * @parent OptionSetting
+ * @type boolean
+ * @default true
+ * 
+ * @param pushSystemImg
+ * @text open system menu window btn image
+ * @parent OptionSetting
+ * @desc open system menu window btn image
+ * @type file
+ * @dir img/system
+ * @default hand
+ * 
+ * 
+ * @param pushSystemHoverImg
+ * @parent OptionSetting
+ * @text open system menu window btn hover image
+ * @desc open system menu window btn hover image
+ * @type file
+ * @dir img/system
+ * @default hand1
+ * 
+ * @param optionSort
+ * @text 此按鈕排序
+ * @parent OptionSetting
+ * @desc 數字越大，按鈕位置越後面
+ * @type number
+ * @default 3
+ * 
+ * @param optionEvent
+ * @parent OptionSetting
+ * 
+ * 
+ * 
+ * @param optionCallScript
+ * @text custom script content
+ * @parent optionEvent
+ * @type text[]
+ * @desc input script content
+ * 
+ * 
+ * @param opationCallView
+ * @text built-in view call
+ * @parent optionEvent
+ * @type select
+ * @desc call built-in view when click system btn
+ * @default save
+ * 
+ * @option save
+ * @option load
+ * @option option
+ * 
+ * 
+ * 
+ * 
+ * @param BacckLogSetting
+ * 
+ * @param showbackLog
+ * @text enable backlog btn
+ * @desc enable backlog btn
+ * @parent BacckLogSetting
+ * @type boolean
+ * @default true
+ * 
+ * @param backlogImg
+ * @text backlog btn image
+ * @parent BacckLogSetting
+ * @type file
+ * @dir img/system
+ * @desc backlog btn image
+ * @default hand
+ * 
+ * @param backlogHoverImg
+ * @text backlog btn hover image
+ * @parent BacckLogSetting
+ * @type file
+ * @dir img/system
+ * @default hand1
+ * @desc backlog btn hover image
+ * 
+ * 
+ * @param backlogSort
+ * @text this btn sort
+ * @parent BacckLogSetting
+ * @desc the bigger number, the later position of btn
+ * @type number
+ * @default 4
+ * 
+ * 
+ * @param BACK_LOG_SETTING
+ * 
+ * @param BACK_LOH_BASE_SETTING
+ * @parent BACK_LOG_SETTING
+ * @param enbaleBackLog
+ * @parent BACK_LOH_BASE_SETTING
+ * @text enable backlog function
+ * @type boolean
+ * @default true
+ * 
+ * 
+
+ * 
+ * @param MAX_LOG_NUM
+ * @parent BACK_LOH_BASE_SETTING
+ * @text max backlog record num
+ * @default 100
+ * 
+ * @param BACK_FILL_COLOR
+ * @parent BACK_LOH_BASE_SETTING
+ * @text backlog background fill color
+ * @desc support color code e.g. #aabbaa
+ * @default #000000
+ * 
+ * @param BACK_FILL_OPACITY
+ * @parent BACK_LOH_BASE_SETTING
+ * @text backlog background fill color opacity
+ * @desc 0-255 
+ * @defult 128
+ * 
+ * 
+ * @param BACK_USE_IMAGE
+ * @parent BACK_LOH_BASE_SETTING
+ * @text backlog background use image
+ * @desc if use image then "backlog background fill color" will be ignored
+ * @type file
+ * @dir img/backlog
+ * 
+ * 
+ * @param DONT_SAVE_TO_LOG
+ * @text dont save msg to log switch
+ * @desc when switch on, msg will not be saved to backlog temporarily
+ * @type switch
+ * @parent BACK_LOH_BASE_SETTING
+ * 
+ * @param CONTENT_SETTING
+ * @text base setting
+ * @parent BACK_LOG_SETTING
+ * 
+ * @param BACKLOG2_BASEX
+ * @parent CONTENT_SETTING
+ * @text backlog content text overall offset X
+ * @default 120
+ * 
+ * @param BACKLOG2_BASEY
+ * @parent CONTENT_SETTING
+ * @text backlog content text overall offset Y
+ * @default 110
+ * 
+ * @param MASK_DEBUG_SWITCH
+ * @parent CONTENT_SETTING
+ * @text Debug- text mask range display
+ * @desc turn on to see text mask range
+ * @type boolean
+ * @default false
+ * 
+ * 
+ * @param BACKLOG2_CONTENT_WIDTH
+ * @parent CONTENT_SETTING
+ * @text content visible width
+ * @default 700
+ * 
+ * @param BACKLOG2_CONTENT_HEIGHT
+ * @parent CONTENT_SETTING
+ * @text content visible height
+ * @default 800
+ * 
+ * 
+
+ * 
+ * 
+ * @param BACKLOG2_NAME_X_OFFSET
+ * @parent CONTENT_SETTING
+ * @text character name X offset
+ * @default 0
+ * 
+ * 
+ * @param BACKLOG2_TEXT_BASE_X_OFFSET
+ * @parent CONTENT_SETTING
+ * @text text base X offset
+ * @default 70
+ * 
+ * 
+ * 
+ * 
+ * @param MAIN_BAR_SETTING
+ * @text scroll bar/slider overall setting
+ * @parent BACK_LOG_SETTING
+ * 
+ * @param BACKLOG2_MAIN_BAR_X
+ * @parent MAIN_BAR_SETTING
+ * @text coordinate X
+ * @default 100
+ * 
+ * 
+ * @param BACKLOG2_MAIN_BAR_Y
+ * @parent MAIN_BAR_SETTING
+ * @text coordinate Y
+ * @default 300
+ * 
+ * @param BAR_BACK_IMG
+ * @parent MAIN_BAR_SETTING
+ * @text scroll bar background image
+ * @type file
+ * @dir img/backlog
+ * 
+ * 
+ * @param BAR_BTN_IMG
+ * @parent MAIN_BAR_SETTING
+ * @text slider button image
+ * @type file
+ * @dir img/backlog
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * @param BACK_BTN_SETTING
+ * @text back btn setting
+ * @parent BACK_LOG_SETTING
+ * 
+ * 
+ * @param BACKLOG_BACK_IMG
+ * @parent BACK_BTN_SETTING
+ * @text back btn image
+ * @type file
+ * @dir img/backlog
+ * @default log_back
+ * 
+ * 
+ * @param BACKLOG_BACK_IMG_HOVER
+ * @parent BACK_BTN_SETTING
+ * @text back btn hover image
+ * @type file
+ * @dir img/backlog
+ * @default log_back2
+ * 
+ * 
+ * @param BACKBTN_OFFSET_X
+ * @parent BACK_BTN_SETTING
+ * @text back btn X offset
+ * @default 700
+ * 
+ * 
+ * @param BACKBTN_OFFSET_Y
+ * @parent BACK_BTN_SETTING
+ * @text back btn Y offset
+ * @default 130
+ * 
+ * @param OVER_SE
+ * @text mouse over image sound effect
+ * @type file
+ * @dir audio/se
+ * 
+ * 
+ * 
+ * 
+ * @help:
+ * how to use see:
+ * https://youtu.be/9tGwlaBlaLY
+ * 
+ * v1.2.1
+ * - fix choice list activate will hide choice list bug
+ * v1.2
+ * - spped play btn has new param, can choose also speed up event execution
+ * - btn bar can be set to absolute pos or relative pos(to msg window pos)
+ * - backlog support name color change
+ * - backlog background can use custom image or color
+ * - new switch to set msg will not be saved to backlog temporarily
+ * - btns in function bar can custom sort(param bigger number, btn pos later)
+ * - fix hack close not working
+ * 
+ * v1.1
+ * - add backlog btn hover image setting,
+ * - speed play has new param, auto stop at each new event
+ * 
+ * 
+ * 
+ */
+
+/*:zh_TW
+ * @target MZ
+ * @plugindesc AVG按妞 1.2.1
+ * @author Maker製造機 Chimaki
+ * @url https://www.patreon.com/cw/chimakier
+ * 
+ * @param hackHideBtnSwitch
+ * @text 強制關閉按鈕開關
+ * @desc 開啟此開關時，強制隱藏所有按鈕
+ * @type switch
+ * @default 1
+ * 
+ * 
+ * @param PosSetting
+ * 
+ * 
+ * @param posType
+ * @text 座標類型
+ * @parent PosSetting
+ * @type select 
+ * 
+ * @option 相對座標(message window 位置)
+ * @value 1
+ * @option 絕對座標
+ * @value 2
+ * 
+ * 
+ * @param defaultPosX
+ * @parent PosSetting
+ * @text 按鈕預設偏移x
+ * @desc 按鈕預設偏移x
+ * @default 0
+ * 
+ * 
+ * @param defaultPosY
+ * @parent PosSetting
+ * @text  按鈕預設偏移y
+ * @desc  按鈕預設偏移y
+ * @default 0
+ * 
+ * @param btnWidth
+ * @text 按鈕間距
+ * @parent PosSetting
+ * @desc avg按鈕的間距
+ * @default 52
+ * 
+ * 
+ * 
+ * @param AutoPlaySetting
+ * 
+ * @param showAutoPlay
+ * @parent AutoPlaySetting
+ * @text 啟用自動播放按鈕
+ * @desc 啟用按鈕
+ * @type boolean
+ * @default true
+ * 
+ * 
+ * @param autoPlayName
+ * @parent AutoPlaySetting
+ * @text 自動播放按鈕圖片
+ * @type file
+ * @dir img/system
+ * @default hand
+ * 
+ * @param autoPlayHoverName
+ * @parent AutoPlaySetting
+ * @text 自動播放按鈕啟用圖片
+ * @type file
+ * @dir img/system
+ * @desc 啟用時圖片
+ * @default hand1
+ * 
+ * 
+ * @param autoPlayWait
+ * @parent AutoPlaySetting
+ * @text 自動播放等待時間
+ * @desc 自動播放訊息等待時間, 每60=1秒
+ * @default 240
+ * 
+ * @param autoSort
+ * @text 此按鈕排序
+ * @parent AutoPlaySetting
+ * @desc 數字越大，按鈕位置越後面
+ * @type number
+ * @default 0
+ * 
+ * 
+ * @param SpeedPlaySetting
+ * 
+ * 
+ * @param alsoSpeedEvent 
+ * @parent SpeedPlaySetting
+ * @text 事件執行也一起加速
+ * @desc 事件執行也一起加速？
+ * @type boolean
+ * @default false
+ * 
+ * 
+ * @param autoCloseSpeedPlay
+ * @text 每個事件開始都自動關閉加速播放
+ * @parent SpeedPlaySetting
+ * @desc 每個事件開始都自動關閉加速播放
+ * @type boolean
+ * @default false
+ * 
+ * @param showSpeedPlay
+ * @text 啟用加速對話按鈕
+ * @parent SpeedPlaySetting 
+ * @desc 啟用加速對話按鈕
+ * @type boolean
+ * @default true
+ * 
+ * @param speedPlayImg
+ * @text 加速播放按鈕圖片
+ * @parent SpeedPlaySetting
+ * @desc 加速播放按鈕圖片
+ * @type file
+ * @dir img/system
+ * @default hand
+ * 
+ * @param speedPlayHoverImg
+ * @text 加速播放按鈕啟用圖片
+ * @parent SpeedPlaySetting
+ * @desc 加速播放按鈕啟用圖片
+ * @type file
+ * @dir img/system
+ * @default hand1
+ * 
+ * @param speedSort
+ * @text 此按鈕排序
+ * @parent SpeedPlaySetting
+ * @desc 數字越大，按鈕位置越後面
+ * @type number
+ * @default 1
+ * 
+ * 
+ * 
+ * @param HideWindowSetting
+ * 
+ * @param showHideWindow
+ * @parent HideWindowSetting
+ * @text 啟用隱藏視窗按鈕
+ * @desc 啟用隱藏視窗按鈕
+ * @type boolean
+ * @default true
+ *
+ * @param closeMsgImg
+ * @text 隱藏對話視窗按鈕圖片
+ * @desc 隱藏對話視窗按鈕圖片，用分號隔開
+ * @parent HideWindowSetting
+ * @type file
+ * @dir img/system
+ * @default hand
+ * 
+ * 
+ * @param hideSort
+ * @text 此按鈕排序
+ * @parent HideWindowSetting
+ * @desc 數字越大，按鈕位置越後面
+ * @type number
+ * @default 2
+ * 
+ * 
+ * @param OptionSetting
+ * 
+ * @param showOption
+ * @text 啟用系統視窗按鈕
+ * @desc 啟用系統視窗按鈕
+ * @parent OptionSetting
+ * @type boolean
+ * @default true
+ * 
+ * @param pushSystemImg
+ * @text 開啟系統選單視窗按鈕圖片
+ * @parent OptionSetting
+ * @desc 開啟系統選單視窗按鈕圖片
+ * @type file
+ * @dir img/system
+ * @default hand
+ * 
+ * 
+ * @param pushSystemHoverImg
+ * @parent OptionSetting
+ * @text 開啟系統選單視窗按鈕啟用圖片
+ * @desc 開啟系統選單視窗按鈕啟用圖片
+ * @type file
+ * @dir img/system
+ * @default hand1
+ * 
+ * @param optionSort
+ * @text 此按鈕排序
+ * @parent OptionSetting
+ * @desc 數字越大，按鈕位置越後面
+ * @type number
+ * @default 3
+ * 
+ * @param optionEvent
+ * @parent OptionSetting
+ * 
+ * 
+ * 
+ * @param optionCallScript
+ * @text 自定義腳本內容
+ * @parent optionEvent
+ * @type text[]
+ * @desc 輸出腳本內容
+ * 
+ * 
+ * @param opationCallView
+ * @text 內建視窗呼叫
+ * @parent optionEvent
+ * @type select
+ * @desc 點系統按鈕時呼叫內建視窗
+ * @default save
+ * 
+ * @option save
+ * @option load
+ * @option option
+ * 
+ * 
+
+ * 
+ * @param BacckLogSetting
+ * 
+ * @param showbackLog
+ * @text 啟用對話回顧按鈕
+ * @desc 啟用對話回顧按鈕
+ * @parent BacckLogSetting
+ * @type boolean
+ * @default true
+ * 
+ * @param backlogImg
+ * @text 對話回顧按鈕圖片
+ * @parent BacckLogSetting
+ * @type file
+ * @dir img/system
+ * @desc 對話回顧按鈕圖片
+ * @default hand
+ * 
+ * @param backlogHoverImg
+ * @text 對話回顧按鈕啟用圖片
+ * @parent BacckLogSetting
+ * @type file
+ * @dir img/system
+ * @default hand1
+ * @desc 對話回顧按鈕啟用圖片
+ * 
+ * 
+ * @param backlogSort
+ * @text 此按鈕排序
+ * @parent BacckLogSetting
+ * @desc 數字越大，按鈕位置越後面
+ * @type number
+ * @default 4
+ * 
+ * 
+ * @param BACK_LOG_SETTING
+ * 
+ * @param BACK_LOH_BASE_SETTING
+ * @parent BACK_LOG_SETTING
+ * @param enbaleBackLog
+ * @parent BACK_LOH_BASE_SETTING
+ * @text 啟用對話回顧功能
+ * @type boolean
+ * @default true  
+ * 
+ * 
+
+ * 
+ * @param MAX_LOG_NUM
+ * @parent BACK_LOH_BASE_SETTING
+ * @text 最大對話紀錄數量
+ * @default 100
+ * 
+ * 
+ * 
+ * @param BACK_FILL_COLOR
+ * @parent BACK_LOH_BASE_SETTING
+ * @text 對話回顧背景底色
+ * @desc 支援色碼 例如 #aabbaa
+ * @default #000000
+ * 
+ * @param BACK_FILL_OPACITY
+ * @parent BACK_LOH_BASE_SETTING
+ * @text 對話回顧背景底色透明度
+ * @desc 0-255 
+ * @defult 128
+ * 
+ * 
+ * @param BACK_USE_IMAGE
+ * @parent BACK_LOH_BASE_SETTING
+ * @text 對話回顧背景使用圖片
+ * @desc 使用圖片則"對話回顧背景底色"會被忽略
+ * @type file
+ * @dir img/backlog
+ * 
+ * 
+ * @param DONT_SAVE_TO_LOG
+ * @text 文本不保存開關
+ * @desc 開啟開關後，文本暫時不保存到對話log
+ * @type switch
+ * @parent BACK_LOH_BASE_SETTING
+ * 
+ * 
+ * 
+ * 
+ * 
+ * @param CONTENT_SETTING
+ * @text 基礎設定
+ * @parent BACK_LOG_SETTING
+ * 
+ * 
+ *
+ * 
+ * 
+ * @param BACKLOG2_BASEX
+ * @parent CONTENT_SETTING
+ * @text 回顧內容文本整體偏移X
+ * @default 120
+ * 
+ * @param BACKLOG2_BASEY
+ * @parent CONTENT_SETTING
+ * @text 回顧內容文本整體偏移Y
+ * @default 110
+ * 
+ * @param MASK_DEBUG_SWITCH
+ * @parent CONTENT_SETTING
+ * @text Debug-文本遮罩範圍顯示
+ * @desc 打開可以看到文本遮罩範圍
+ * @type boolean
+ * @default false
+ * 
+ * 
+ * @param BACKLOG2_CONTENT_WIDTH
+ * @parent CONTENT_SETTING
+ * @text 內容可視寬
+ * @default 700
+ * 
+ * @param BACKLOG2_CONTENT_HEIGHT
+ * @parent CONTENT_SETTING
+ * @text 內容可視高
+ * @default 800
+ * 
+ * 
+
+ * 
+ * 
+ * @param BACKLOG2_NAME_X_OFFSET
+ * @parent CONTENT_SETTING
+ * @text 角色名稱X偏移
+ * @default 0
+ * 
+ * 
+ * @param BACKLOG2_TEXT_BASE_X_OFFSET
+ * @parent CONTENT_SETTING
+ * @text 文字基礎X偏移
+ * @default 70
+ * 
+ * 
+ * 
+ * 
+ * @param MAIN_BAR_SETTING
+ * @text 滑軌/滑動按鈕整體設定
+ * @parent BACK_LOG_SETTING
+ * 
+ * @param BACKLOG2_MAIN_BAR_X
+ * @parent MAIN_BAR_SETTING
+ * @text 座標X
+ * @default 100
+ * 
+ * 
+ * @param BACKLOG2_MAIN_BAR_Y
+ * @parent MAIN_BAR_SETTING
+ * @text 座標Y
+ * @default 300
+ * 
+ * @param BAR_BACK_IMG
+ * @parent MAIN_BAR_SETTING
+ * @text 滑軌背景圖片
+ * @type file
+ * @dir img/backlog
+ * 
+ * 
+ * @param BAR_BTN_IMG
+ * @parent MAIN_BAR_SETTING
+ * @text 滑動按鈕圖片
+ * @type file
+ * @dir img/backlog
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * @param BACK_BTN_SETTING
+ * @text 返回按鈕設定
+ * @parent BACK_LOG_SETTING
+ * 
+ * 
+ * @param BACKLOG_BACK_IMG
+ * @parent BACK_BTN_SETTING
+ * @text 返回按鈕圖片
+ * @type file
+ * @dir img/backlog
+ * @default log_back
+ * 
+ * @param BACKLOG_BACK_IMG_HOVER
+ * @parent BACK_BTN_SETTING
+ * @text 返回按鈕hover圖片
+ * @type file
+ * @dir img/backlog
+ * @default log_back
+ * 
+ * 
+ * @param BACKBTN_OFFSET_X
+ * @parent BACK_BTN_SETTING
+ * @text 返回按鈕X偏移
+ * @default 700
+ * 
+ * 
+ * @param BACKBTN_OFFSET_Y
+ * @parent BACK_BTN_SETTING
+ * @text 返回按鈕Y偏移
+ * @default 130
+ * 
+ * @param OVER_SE
+ * @text 滑鼠移動到圖片上音效
+ * @type file
+ * @dir audio/se
+ * 
+ * 
+ * 
+ * 
+ * @help:
+ * how to use see:
+ * https://youtu.be/9tGwlaBlaLY
+ * v1.2.1
+ * - fix 隱藏視窗後，選項無法正常顯示
+ * 
+ * v1.2
+ * - 高速對話按鈕多一個參數，可以選擇事件執行也一起加速
+ * - 按鈕列可以設定成絕對位置或相對位置(相對訊息視窗位置)
+ * - 對話Log人名支援改色
+ * - 對話Log背景可以自定義圖片或是顏色
+ * - 新增開關用來設定暫時不會被儲存的文本
+ * - 功能列按鈕可以自訂排序(參數越大，按鈕位置越後面)
+ * - 修正強制關閉無效
+ * 
+ * v1.1
+ * - 追加對話回顧按鈕hover圖片設定,
+ * - 高速對話多一個參數，每次新事件可以自動暫停
+ * 
+ * 
+ */
+
+const a0_0x326a84=a0_0x37a4;(function(_0x141f9a,_0x3b13ea){const _0x4785e3=a0_0x37a4,_0x1b0303=_0x141f9a();while(!![]){try{const _0x5bbba5=-parseInt(_0x4785e3(0x2c2))/0x1+-parseInt(_0x4785e3(0x142))/0x2+parseInt(_0x4785e3(0x15c))/0x3+-parseInt(_0x4785e3(0x2ba))/0x4*(parseInt(_0x4785e3(0x223))/0x5)+-parseInt(_0x4785e3(0x235))/0x6*(parseInt(_0x4785e3(0x18c))/0x7)+-parseInt(_0x4785e3(0x299))/0x8*(-parseInt(_0x4785e3(0x29a))/0x9)+parseInt(_0x4785e3(0x194))/0xa;if(_0x5bbba5===_0x3b13ea)break;else _0x1b0303['push'](_0x1b0303['shift']());}catch(_0xc7ba74){_0x1b0303['push'](_0x1b0303['shift']());}}}(a0_0x5bb3,0xd11ff));var chimakiAvgBtn=chimakiAvgBtn||{};chimakiAvgBtn['param']=chimakiAvgBtn[a0_0x326a84(0x1a5)]||{},chimakiAvgBtn[a0_0x326a84(0x141)]=chimakiAvgBtn['backLog']||{},((()=>{const _0x1a14ef=a0_0x326a84;var _0x5434e9=_0x1a14ef(0x2d3);let _0x4b0fa0=PluginManager[_0x1a14ef(0x27a)](_0x5434e9);const _0x9a67c5=_0x4b0fa0[_0x1a14ef(0x16c)]?Number(_0x4b0fa0[_0x1a14ef(0x16c)]):null,_0x5e4440=Number(_0x4b0fa0[_0x1a14ef(0x243)])||0x34,_0x505fa6=_0x4b0fa0[_0x1a14ef(0x270)]?Number(_0x4b0fa0[_0x1a14ef(0x270)]):0x0,_0x1ee187=_0x4b0fa0['defaultPosY']?Number(_0x4b0fa0[_0x1a14ef(0x1d6)]):0x0,_0x26540d=_0x4b0fa0['posType']?Number(_0x4b0fa0[_0x1a14ef(0x15f)]):0x1;let _0x2cd46b=_0x4b0fa0[_0x1a14ef(0x20e)]==_0x1a14ef(0x21b)?!![]:![];const _0x3167b5=_0x4b0fa0[_0x1a14ef(0x22d)]||_0x1a14ef(0x293),_0x55bd0e=_0x4b0fa0[_0x1a14ef(0x14a)]||_0x1a14ef(0x195),_0x2e1ebb=Number(_0x4b0fa0['autoPlayWait'])||0xf0;let _0x38604a=_0x4b0fa0[_0x1a14ef(0x285)]==_0x1a14ef(0x21b)?!![]:![];const _0x3e2999=_0x4b0fa0[_0x1a14ef(0x1d7)]||_0x1a14ef(0x293),_0x1b42c8=_0x4b0fa0[_0x1a14ef(0x2dd)]||_0x1a14ef(0x195),_0x2bdd7e=_0x4b0fa0[_0x1a14ef(0x211)]==_0x1a14ef(0x21b)?!![]:![],_0x322b1b=_0x4b0fa0[_0x1a14ef(0x220)]==_0x1a14ef(0x21b)?!![]:![];chimakiAvgBtn[_0x1a14ef(0x1a5)][_0x1a14ef(0x211)]=_0x2bdd7e,chimakiAvgBtn['param'][_0x1a14ef(0x220)]=_0x322b1b;let _0x325200=_0x4b0fa0[_0x1a14ef(0x228)]==_0x1a14ef(0x21b)?!![]:![];const _0x40937a=_0x4b0fa0[_0x1a14ef(0x143)]||_0x1a14ef(0x293);let _0x36266f=_0x4b0fa0['showOption']==_0x1a14ef(0x21b)?!![]:![];const _0x575b48=_0x4b0fa0[_0x1a14ef(0x1b7)]||'hand',_0x448ce6=_0x4b0fa0[_0x1a14ef(0x1eb)]||_0x1a14ef(0x195),_0x425fd4=_0x4b0fa0[_0x1a14ef(0x2d9)],_0x262227=_0x4b0fa0[_0x1a14ef(0x154)]||null;let _0x57b85b=_0x4b0fa0['showbackLog']=='true'?!![]:![];const _0x33c44a=_0x4b0fa0[_0x1a14ef(0x221)]||_0x1a14ef(0x293),_0x1b5d20=_0x4b0fa0['backlogHoverImg']||'hand1';window[_0x1a14ef(0x18a)]=![],chimakiAvgBtn['param'][_0x1a14ef(0x2b4)]=_0x9a67c5;const _0x578784=_0x4b0fa0['enbaleBackLog']=_0x4b0fa0['enbaleBackLog']==_0x1a14ef(0x21b)?!![]:![],_0xe4439c=Number(_0x4b0fa0[_0x1a14ef(0x17b)])||0x64,_0x2c9552=Number(_0x4b0fa0['BACKBTN_OFFSET_X'])||0x2bc,_0xd0eccd=Number(_0x4b0fa0['BACKBTN_OFFSET_Y'])||0x82,_0xcb062f=_0x4b0fa0[_0x1a14ef(0x1e9)]||_0x1a14ef(0x21e),_0x1ed7ad=_0x4b0fa0[_0x1a14ef(0x22a)]||'pack_scroll_back',_0x1ba45b=_0x4b0fa0[_0x1a14ef(0x1a1)]||_0x1a14ef(0x1fc),_0x306fff=_0x4b0fa0[_0x1a14ef(0x19f)]||_0x1a14ef(0x1fc),_0x5bb476=Number(_0x4b0fa0['BACKLOG2_BASEY'])||0x0,_0x343ae0=Number(_0x4b0fa0['BACKLOG2_BASEX'])||0x78,_0x11e4d8=Number(_0x4b0fa0[_0x1a14ef(0x2ee)])||0x2d0,_0x3cb916=Number(_0x4b0fa0[_0x1a14ef(0x184)])||0x2bc,_0x3bdf8b=Number(_0x4b0fa0[_0x1a14ef(0x23a)])||0x0,_0x4a5e56=Number(_0x4b0fa0[_0x1a14ef(0x203)])||0x64,_0x293976=Number(_0x4b0fa0[_0x1a14ef(0x1d1)])||0x32,_0x406648=Number(_0x4b0fa0[_0x1a14ef(0x147)])||0x0,_0x2ca893=Number(_0x4b0fa0[_0x1a14ef(0x279)])||0x190,_0x1fb462=_0x4b0fa0[_0x1a14ef(0x15d)]||null,_0x52dd6b=Number(_0x4b0fa0[_0x1a14ef(0x28b)])||0x12c,_0x5c1c34=Number(_0x4b0fa0[_0x1a14ef(0x1f6)])||0x64,_0x8913f5=_0x4b0fa0['MASK_DEBUG_SWITCH']==_0x1a14ef(0x21b)?!![]:![],_0x3e5360=_0x4b0fa0[_0x1a14ef(0x27b)]?Number(_0x4b0fa0[_0x1a14ef(0x27b)]):null;chimakiAvgBtn[_0x1a14ef(0x1a5)][_0x1a14ef(0x27b)]=_0x3e5360;const _0x3b0d43=Number(_0x4b0fa0[_0x1a14ef(0x1d5)])||0x0,_0x20c061=_0x4b0fa0[_0x1a14ef(0x1bf)]||_0x1a14ef(0x2ed),_0x413bdd=Number(_0x4b0fa0['BACK_FILL_OPACITY'])||0x80,_0x52ed86=_0x4b0fa0['BACK_USE_IMAGE']||null,_0x43e7f4=Number(_0x4b0fa0[_0x1a14ef(0x261)])>=0x0?Number(_0x4b0fa0[_0x1a14ef(0x261)]):0x0,_0x40dc61=Number(_0x4b0fa0['speedSort'])>=0x0?Number(_0x4b0fa0['speedSort']):0x1,_0x72a22a=Number(_0x4b0fa0[_0x1a14ef(0x1e3)])>=0x0?Number(_0x4b0fa0[_0x1a14ef(0x1e3)]):0x2,_0x31a083=Number(_0x4b0fa0[_0x1a14ef(0x20b)])>=0x0?Number(_0x4b0fa0[_0x1a14ef(0x20b)]):0x3,_0x37dc79=Number(_0x4b0fa0[_0x1a14ef(0x25d)])>=0x0?Number(_0x4b0fa0[_0x1a14ef(0x25d)]):0x4,_0x2242fa=[{'type':_0x1a14ef(0x202),'sort':_0x43e7f4},{'type':'speed','sort':_0x40dc61},{'type':_0x1a14ef(0x222),'sort':_0x72a22a},{'type':_0x1a14ef(0x149),'sort':_0x31a083},{'type':_0x1a14ef(0x210),'sort':_0x37dc79}];chimakiAvgBtn[_0x1a14ef(0x141)]={'MAX_LOG_NUM':_0xe4439c,'ENABLE_BACK_LOG':_0x578784,'BACKBTN_OFFSET_X':_0x2c9552,'BACKBTN_OFFSET_Y':_0xd0eccd,'BACK_FILL_COLOR':_0x20c061,'BACK_FILL_OPACITY':_0x413bdd,'BACK_USE_IMAGE':_0x52ed86,'BACKLOG2_BASEY':_0x5bb476,'BACKLOG2_BASEX':_0x343ae0,'BACKLOG2_CONTENT_HEIGHT':_0x11e4d8,'BACKLOG2_CONTENT_WIDTH':_0x3cb916,'BACKLOG2_SCROLL_X':_0x4a5e56,'MASK_DEBUG_SWITCH':_0x8913f5,'BACKLOG2_TEXT_BASE_X_OFFSET':_0x3bdf8b,'BACKLOG2_SMALL_BAR_X':_0x293976,'BACKLOG2_SMALL_BAR_Y':_0x406648,'BACKLOG2_SMALL_BAR_RANGE':_0x2ca893,'BACKLOG2_MAIN_BAR_Y':_0x52dd6b,'BACKLOG2_MAIN_BAR_X':_0x5c1c34,'OVER_SE':_0x1fb462,'BACKLOG2_NAME_X_OFFSET':_0x3b0d43,'BAR_BACK_IMG':_0x1ed7ad,'BACKLOG_BACK_IMG_HOVER':_0x306fff,'BACKLOG_BACK_IMG':_0x1ba45b,'BAR_BTN_IMG':_0xcb062f};class _0x4f3fc7 extends Sprite{constructor(){const _0x44882b=_0x1a14ef;super(...arguments),this[_0x44882b(0x181)]=!![];}get[_0x1a14ef(0x2eb)](){return this['_allBtns'];}[_0x1a14ef(0x1f2)](){const _0x5cd4e8=_0x1a14ef;super[_0x5cd4e8(0x1f2)](...arguments),this['_allBtns']=[],this['createAutoMsg'](),this[_0x5cd4e8(0x2be)](),this[_0x5cd4e8(0x16e)](),this[_0x5cd4e8(0x234)](),this['createBacklogBtn'](),this[_0x5cd4e8(0x2b8)]();}[_0x1a14ef(0x2b8)](){const _0x47709b=_0x1a14ef;let _0x4e18ac=[];this[_0x47709b(0x165)]&&_0x4e18ac[_0x47709b(0x20d)](_0x43e7f4,0x0,this[_0x47709b(0x165)]),this[_0x47709b(0x180)]&&_0x4e18ac[_0x47709b(0x20d)](_0x40dc61,0x0,this[_0x47709b(0x180)]),this['_hideBtn']&&_0x4e18ac['splice'](_0x72a22a,0x0,this[_0x47709b(0x19a)]),this[_0x47709b(0x18e)]&&_0x4e18ac[_0x47709b(0x20d)](_0x31a083,0x0,this[_0x47709b(0x18e)]),this[_0x47709b(0x275)]&&_0x4e18ac[_0x47709b(0x20d)](_0x37dc79,0x0,this[_0x47709b(0x275)]),_0x4e18ac[_0x47709b(0x29f)]((_0x301ffe,_0x55b246)=>{const _0x240dff=_0x47709b;console[_0x240dff(0x158)](_0x240dff(0x2ef)+_0x55b246+'\x20:\x20'+_0x301ffe[_0x240dff(0x2c5)]);}),this[_0x47709b(0x271)]=_0x4e18ac[_0x47709b(0x274)](_0xb84ba1=>_0xb84ba1!=null),this[_0x47709b(0x271)][_0x47709b(0x29f)]((_0x4f1570,_0x126363)=>{const _0x3ffa7f=_0x47709b;_0x4f1570['x']=_0x126363*_0x5e4440,_0x4f1570[_0x3ffa7f(0x2a6)]=![];});}[_0x1a14ef(0x23d)](){const _0x163a5e=_0x1a14ef;let _0x13b41a=SceneManager[_0x163a5e(0x17d)];return _0x13b41a&&_0x13b41a[_0x163a5e(0x2bb)]&&_0x13b41a[_0x163a5e(0x2bb)][_0x163a5e(0x1ea)]();}[_0x1a14ef(0x14b)](){const _0xd53e57=_0x1a14ef;if(_0x26540d==0x2){this['x']=Number(_0x505fa6),this['y']=Number(_0x1ee187);return;}this['x']=SceneManager['_scene'][_0xd53e57(0x2bb)]['x']+SceneManager[_0xd53e57(0x17d)]['_messageWindow'][_0xd53e57(0x1e0)]-0xfa+Number(_0x505fa6),this['y']=SceneManager[_0xd53e57(0x17d)][_0xd53e57(0x2bb)]['y']+SceneManager[_0xd53e57(0x17d)][_0xd53e57(0x2bb)][_0xd53e57(0x1d8)]-0x32+Number(_0x1ee187);}[_0x1a14ef(0x282)](){const _0x2095a4=_0x1a14ef;super[_0x2095a4(0x282)]();if(_0x9a67c5&&$gameSwitches['value'](_0x9a67c5)){this[_0x2095a4(0x290)][_0x2095a4(0x29f)](_0x335def=>{const _0x1244eb=_0x2095a4;_0x335def[_0x1244eb(0x2a6)]=![];}),this[_0x2095a4(0x2a6)]=![];return;}if($gameTemp[_0x2095a4(0x1cd)]()){this[_0x2095a4(0x290)][_0x2095a4(0x29f)](_0x4e64a4=>{const _0x117b24=_0x2095a4;_0x4e64a4[_0x117b24(0x2a6)]=![];}),this[_0x2095a4(0x2a6)]=![];return;}this[_0x2095a4(0x23d)]()&&(_0x9a67c5&&!$gameSwitches['value'](_0x9a67c5))?(this[_0x2095a4(0x14b)](),$gameSystem[_0x2095a4(0x245)]&&!$gameSystem[_0x2095a4(0x245)]()&&(this[_0x2095a4(0x290)][_0x2095a4(0x29f)](_0x27dbee=>{const _0x38e097=_0x2095a4;_0x27dbee[_0x38e097(0x2a6)]=!![];}),this[_0x2095a4(0x2a6)]=!![])):(this['children'][_0x2095a4(0x29f)](_0x1d2b31=>{const _0x558322=_0x2095a4;_0x1d2b31[_0x558322(0x2a6)]=![];}),this['visible']=![]);}[_0x1a14ef(0x2a0)](){const _0x23f15e=_0x1a14ef;if(!_0x57b85b)return;this[_0x23f15e(0x275)]=new _0x191e4e(),this[_0x23f15e(0x275)][_0x23f15e(0x2c5)]=_0x23f15e(0x210),this[_0x23f15e(0x275)][_0x23f15e(0x20a)](_0x33c44a,_0x1b5d20),this[_0x23f15e(0x275)][_0x23f15e(0x16b)](()=>{const _0x491384=_0x23f15e;if(!_0x578784)return;SceneManager[_0x491384(0x17d)]['openBacklog'](),this[_0x491384(0x275)][_0x491384(0x1b6)](![]);}),this['_allBtns'][_0x23f15e(0x244)](this[_0x23f15e(0x275)]),this[_0x23f15e(0x2af)](this[_0x23f15e(0x275)]);}[_0x1a14ef(0x234)](){const _0x31ebe6=_0x1a14ef;if(!_0x36266f)return;this[_0x31ebe6(0x18e)]=new _0x191e4e(),this[_0x31ebe6(0x18e)][_0x31ebe6(0x2c5)]='option',this[_0x31ebe6(0x18e)][_0x31ebe6(0x20a)](_0x575b48,_0x448ce6),this[_0x31ebe6(0x18e)][_0x31ebe6(0x16b)](()=>{const _0x3a9871=_0x31ebe6;if(_0x425fd4){let _0x5a59e5=JSON[_0x3a9871(0x278)](_0x425fd4);_0x5a59e5['forEach'](_0x388237=>{const _0x5b5a1c=_0x3a9871;try{eval(_0x388237+';');}catch(_0x40ca17){console[_0x5b5a1c(0x2cf)](_0x5b5a1c(0x208),_0x388237);}});}else{if(_0x262227==_0x3a9871(0x213))SceneManager[_0x3a9871(0x244)](Scene_Save);else{if(_0x262227==_0x3a9871(0x2cb))SceneManager['push'](Scene_Load);else _0x262227==_0x3a9871(0x149)&&SceneManager[_0x3a9871(0x244)](Scene_Options);}}}),this[_0x31ebe6(0x271)][_0x31ebe6(0x244)](this[_0x31ebe6(0x18e)]),this[_0x31ebe6(0x2af)](this[_0x31ebe6(0x18e)]);}['createHideBtn'](){const _0x43db3d=_0x1a14ef;if(!_0x325200)return;this[_0x43db3d(0x19a)]=new _0x191e4e(),this[_0x43db3d(0x19a)][_0x43db3d(0x2c5)]=_0x43db3d(0x222),this['_hideBtn'][_0x43db3d(0x20a)](_0x40937a,_0x40937a),this['_hideBtn'][_0x43db3d(0x16b)](()=>{const _0x67312f=_0x43db3d;$gameSystem[_0x67312f(0x24b)](),SceneManager[_0x67312f(0x17d)]['_messageWindow']&&($gameSystem['isHideMsgWindow']&&$gameSystem[_0x67312f(0x245)]()?($gameSystem[_0x67312f(0x1fa)](),$gameSystem[_0x67312f(0x22f)]()&&$gameSystem[_0x67312f(0x1a6)](),$gameSystem[_0x67312f(0x266)]()&&$gameSystem[_0x67312f(0x2a3)](),TouchInput[_0x67312f(0x1c9)](),SceneManager[_0x67312f(0x17d)]['_messageWindow'][_0x67312f(0x2a6)]=![],SceneManager[_0x67312f(0x17d)][_0x67312f(0x1a9)]['visible']=![],SceneManager[_0x67312f(0x17d)][_0x67312f(0x1f8)][_0x67312f(0x2a6)]=![],SceneManager[_0x67312f(0x17d)][_0x67312f(0x240)]()):(SceneManager[_0x67312f(0x17d)]['_messageWindow'][_0x67312f(0x2a6)]=!![],SceneManager[_0x67312f(0x17d)]['_nameBoxWindow'][_0x67312f(0x2a6)]=!![],SceneManager['_scene']['_choiceListWindow'][_0x67312f(0x2a6)]=!![],SceneManager[_0x67312f(0x17d)]['setAVGBtnPos']()));}),this[_0x43db3d(0x271)][_0x43db3d(0x244)](this[_0x43db3d(0x19a)]),this[_0x43db3d(0x2af)](this['_hideBtn']);}['onClickSpeed'](){const _0x4517c3=_0x1a14ef;$gameSystem[_0x4517c3(0x2a3)]();if($gameSystem[_0x4517c3(0x266)]()){if($gameSystem[_0x4517c3(0x22f)]()&&_0x2cd46b){$gameSystem[_0x4517c3(0x1a6)]();if(this[_0x4517c3(0x165)]){}}this[_0x4517c3(0x29e)]();}this[_0x4517c3(0x165)]?.[_0x4517c3(0x1b6)]($gameSystem[_0x4517c3(0x22f)]()),this[_0x4517c3(0x180)]?.[_0x4517c3(0x1b6)]($gameSystem[_0x4517c3(0x266)]());}[_0x1a14ef(0x1b8)](){const _0x95bf8f=_0x1a14ef;this[_0x95bf8f(0x165)]?.['setActivate']($gameSystem[_0x95bf8f(0x22f)]()),this[_0x95bf8f(0x180)]?.[_0x95bf8f(0x1b6)]($gameSystem['isSpeedMsg']());}['onClickAutoPlay'](){}[_0x1a14ef(0x1c2)](){const _0x5a251d=_0x1a14ef;$gameSystem[_0x5a251d(0x1a6)](),$gameSystem[_0x5a251d(0x22f)]()&&this[_0x5a251d(0x29e)](),this[_0x5a251d(0x165)]?.[_0x5a251d(0x1b6)]($gameSystem['isAutoMsg']()),this[_0x5a251d(0x180)]?.[_0x5a251d(0x1b6)]($gameSystem[_0x5a251d(0x266)]());}['createAutoMsg'](){const _0xf7e531=_0x1a14ef;if(!_0x2cd46b)return;this[_0xf7e531(0x165)]=new _0x191e4e(),this[_0xf7e531(0x165)][_0xf7e531(0x20a)](_0x3167b5,_0x55bd0e),this['_autoPlayBtn'][_0xf7e531(0x1b6)]($gameSystem[_0xf7e531(0x22f)]()),this[_0xf7e531(0x165)][_0xf7e531(0x16b)](()=>{this['clickAutoBefore']();}),this['_autoPlayBtn'][_0xf7e531(0x2c5)]=_0xf7e531(0x202),this[_0xf7e531(0x271)][_0xf7e531(0x244)](this[_0xf7e531(0x165)]),this[_0xf7e531(0x2af)](this[_0xf7e531(0x165)]);}[_0x1a14ef(0x2be)](){const _0x10f941=_0x1a14ef;if(!_0x38604a)return;this['_speedMsgBtn']=new _0x191e4e(),this[_0x10f941(0x180)][_0x10f941(0x1b6)]($gameSystem[_0x10f941(0x266)]()),this['_speedMsgBtn'][_0x10f941(0x20a)](_0x3e2999,_0x1b42c8),this[_0x10f941(0x180)]['name']='speed',this[_0x10f941(0x180)]['setClickCb'](()=>{const _0xce900=_0x10f941;this[_0xce900(0x2bf)]();}),this[_0x10f941(0x271)][_0x10f941(0x244)](this[_0x10f941(0x180)]),this[_0x10f941(0x2af)](this[_0x10f941(0x180)]);}}class _0x40a787 extends Sprite{constructor(){super(...arguments);}[_0x1a14ef(0x282)](){const _0x37d544=_0x1a14ef;super['update']();if(!this[_0x37d544(0x19e)]&&this['_defaultBitmap']&&this[_0x37d544(0x27d)]!=this[_0x37d544(0x163)])this[_0x37d544(0x27d)]=this[_0x37d544(0x163)];else this[_0x37d544(0x19e)]&&this[_0x37d544(0x273)]&&this[_0x37d544(0x27d)]!=this[_0x37d544(0x273)]&&(this[_0x37d544(0x27d)]=this['_activateBitmap']);}['initialize'](){const _0x1cd625=_0x1a14ef;super['initialize'](...arguments),this[_0x1cd625(0x255)]=!![],this[_0x1cd625(0x19e)]=![],this['_blockEnable']=![],this[_0x1cd625(0x1e7)][_0x1cd625(0x264)](0.5),this[_0x1cd625(0x21a)]();}[_0x1a14ef(0x20a)](_0x2348be,_0x18e902){const _0x3d1994=_0x1a14ef;this['_defaultBitmap']=ImageManager[_0x3d1994(0x18d)](_0x2348be),this[_0x3d1994(0x273)]=ImageManager['loadSystem'](_0x18e902);}['setBlockActive'](_0x444522){this['_blockEnable']=_0x444522;}[_0x1a14ef(0x1b6)](_0x21b8f0){const _0x317082=_0x1a14ef;if(this[_0x317082(0x1e2)])return;this[_0x317082(0x19e)]=_0x21b8f0;}['initHandler'](){const _0x1b4e74=_0x1a14ef;this['on'](_0x1b4e74(0x219),this[_0x1b4e74(0x140)][_0x1b4e74(0x1ef)](this)),this['on'](_0x1b4e74(0x1ca),this['onClick'][_0x1b4e74(0x1ef)](this)),this['on'](_0x1b4e74(0x1ba),this[_0x1b4e74(0x1a3)][_0x1b4e74(0x1ef)](this)),this['on'](_0x1b4e74(0x2a4),this[_0x1b4e74(0x246)]['bind'](this));}[_0x1a14ef(0x16b)](_0xb41cfa){const _0x213c53=_0x1a14ef;this[_0x213c53(0x190)]=_0xb41cfa;}[_0x1a14ef(0x140)](){}['onOver'](){const _0x574fc2=_0x1a14ef;controller_trigger=!![],this['scale'][_0x574fc2(0x264)](1.05);}[_0x1a14ef(0x246)](){const _0x55c7fd=_0x1a14ef;controller_trigger=![],this[_0x55c7fd(0x2aa)]['set'](0x1);}['onClick'](){const _0x174814=_0x1a14ef;this['setActivate'](!this[_0x174814(0x19e)]),this[_0x174814(0x190)]&&this[_0x174814(0x190)]();}}class _0x191e4e extends _0x40a787{constructor(){super(...arguments);}}Scene_Base[_0x1a14ef(0x159)]['addAvgBtnContainer']=function(){const _0x2d3355=_0x1a14ef;this[_0x2d3355(0x295)]=new _0x4f3fc7(),this[_0x2d3355(0x295)][_0x2d3355(0x2a6)]=![],this[_0x2d3355(0x295)]['x']=this[_0x2d3355(0x2bb)]['x']+Number(_0x505fa6),this[_0x2d3355(0x295)]['y']=this['_messageWindow']['y']+Number(_0x1ee187),controller_trigger=![],this[_0x2d3355(0x2af)](this[_0x2d3355(0x295)]);};let _0x32d1b4=Window_Message[_0x1a14ef(0x159)][_0x1a14ef(0x1f2)];Window_Message[_0x1a14ef(0x159)][_0x1a14ef(0x1f2)]=function(){const _0x5d8f08=_0x1a14ef;_0x32d1b4[_0x5d8f08(0x1f9)](this,...arguments),this['_whenAtuoWait']=0x0,this[_0x5d8f08(0x267)](![]);},Window_Message[_0x1a14ef(0x159)]['setAutoCountStart']=function(_0x4275e5){const _0x5a4c1a=_0x1a14ef;this[_0x5a4c1a(0x29d)]=_0x4275e5;},Window_Message[_0x1a14ef(0x159)][_0x1a14ef(0x1a8)]=function(){const _0x1c80d3=_0x1a14ef;return this[_0x1c80d3(0x1c4)]=_0x2e1ebb;};let _0x3a277d=Window_Message['prototype'][_0x1a14ef(0x1bb)];Window_Message[_0x1a14ef(0x159)]['startMessage']=function(){const _0x7099c8=_0x1a14ef;let _0x257a90=SceneManager[_0x7099c8(0x17d)];_0x257a90['getAVGContainer']&&_0x257a90[_0x7099c8(0x218)]()?.['updateBtnStates'](),this[_0x7099c8(0x1a8)](),_0x3a277d[_0x7099c8(0x1f9)](this,...arguments);};let _0x54a1d2=Window_Message[_0x1a14ef(0x159)][_0x1a14ef(0x282)];Window_Message['prototype'][_0x1a14ef(0x282)]=function(){const _0x5a9206=_0x1a14ef;$gameSystem['isHideMsgWindow']&&$gameSystem[_0x5a9206(0x245)]()&&(this['visible']=![]),$gameSystem[_0x5a9206(0x22f)]()&&this[_0x5a9206(0x2d8)]()&&(this[_0x5a9206(0x1c4)]>0x0&&this['_whenAtuoWait']--),_0x54a1d2[_0x5a9206(0x1f9)](this);},Window_Message['prototype'][_0x1a14ef(0x2d8)]=function(){const _0x5c0216=_0x1a14ef;return this[_0x5c0216(0x29d)];},Window_Message[_0x1a14ef(0x159)][_0x1a14ef(0x1cc)]=function(_0x5f3928){};let _0x4ce885=Window_Message[_0x1a14ef(0x159)][_0x1a14ef(0x2e7)];Window_Message['prototype'][_0x1a14ef(0x2e7)]=function(){const _0x1d5a65=_0x1a14ef;let _0x4f9ca7=_0x4ce885[_0x1d5a65(0x1f9)](this);if($gameSystem[_0x1d5a65(0x266)]()){this['_showFast']=!![],this['_pauseSkip']=!![];if(this[_0x1d5a65(0x1bc)])return this['pause']=![],!this['_textState']&&this[_0x1d5a65(0x1d9)](),!![];}if($gameSystem['isAutoMsg']()){if(this[_0x1d5a65(0x1c4)]>0x0)this[_0x1d5a65(0x1c4)]--;else{if(this[_0x1d5a65(0x1c4)]<=0x0)return this['resetAutoWait'](),this['pause']=![],!this[_0x1d5a65(0x298)]&&this[_0x1d5a65(0x1d9)](),!![];}}return _0x4f9ca7;};let _0x4bad78=Window_Message['prototype'][_0x1a14ef(0x2b9)];Window_Message[_0x1a14ef(0x159)][_0x1a14ef(0x2b9)]=function(){let _0x16cc7a=_0x4bad78['call'](this);return _0x16cc7a&&!controller_trigger;};let _0x5b88a6=Window_ChoiceList[_0x1a14ef(0x159)][_0x1a14ef(0x2b3)];Window_ChoiceList['prototype']['activate']=function(){const _0x4631a0=_0x1a14ef;_0x5b88a6['call'](this,...arguments),this[_0x4631a0(0x2a6)]=!![];},window[_0x1a14ef(0x1c0)]=_0x191e4e,window[_0x1a14ef(0x206)]=_0x4f3fc7;})());var a;((()=>{const _0x2fccc8=a0_0x326a84;let _0x1907bf=Game_System[_0x2fccc8(0x159)][_0x2fccc8(0x160)];Game_System[_0x2fccc8(0x159)][_0x2fccc8(0x160)]=function(){const _0x42ee94=_0x2fccc8;_0x1907bf[_0x42ee94(0x1f9)](this);let _0x4e31ed=getCurrentInterpreter();if(_0x4e31ed){let _0x16962a;while(_0x4e31ed&&(_0x4e31ed['beforeEventCode']()==0x66||_0x4e31ed[_0x42ee94(0x233)]()==0x191)){_0x16962a=!![],_0x4e31ed['_index']-=0x1;}_0x16962a&&_0x4e31ed['_index']>0x0&&_0x4e31ed[_0x42ee94(0x192)]--;}else console[_0x42ee94(0x158)](_0x42ee94(0x262));},Game_Interpreter['prototype'][_0x2fccc8(0x233)]=function(){const _0x4b1620=_0x2fccc8,_0x4b76c7=this[_0x4b1620(0x2c0)][this[_0x4b1620(0x192)]-0x1];return _0x4b76c7?_0x4b76c7[_0x4b1620(0x28a)]:0x0;},Game_Interpreter[_0x2fccc8(0x159)][_0x2fccc8(0x151)]=function(_0x3b75e0){const _0x1aa682=_0x2fccc8;if($gameMessage['isBusy']())return![];$gameMessage[_0x1aa682(0x1e6)](_0x3b75e0[0x0],_0x3b75e0[0x1]),$gameMessage[_0x1aa682(0x212)](_0x3b75e0[0x2]),$gameMessage[_0x1aa682(0x173)](_0x3b75e0[0x3]),$gameMessage['setSpeakerName'](_0x3b75e0[0x4]);while(this[_0x1aa682(0x2e1)]()===0x191){this[_0x1aa682(0x192)]++,$gameMessage[_0x1aa682(0x2a1)](this[_0x1aa682(0x185)]()['parameters'][0x0]);}switch(this[_0x1aa682(0x2e1)]()){case 0x66:this['_index']++,this[_0x1aa682(0x231)](this[_0x1aa682(0x185)]()[_0x1aa682(0x27a)]);break;case 0x67:this[_0x1aa682(0x192)]++,this['setupNumInput'](this[_0x1aa682(0x185)]()[_0x1aa682(0x27a)]);break;case 0x68:this[_0x1aa682(0x192)]++,this[_0x1aa682(0x18f)](this[_0x1aa682(0x185)]()[_0x1aa682(0x27a)]);break;}return this[_0x1aa682(0x2e8)](_0x1aa682(0x224)),!![];};const _0x1e8bf6=Game_Temp['prototype'][_0x2fccc8(0x1f2)],_0xb6cf75=Game_Temp[_0x2fccc8(0x159)][_0x2fccc8(0x186)],_0x2e6eb1=Game_Temp[_0x2fccc8(0x159)][_0x2fccc8(0x281)],_0x1d0694=Game_Interpreter[_0x2fccc8(0x159)]['setupReservedCommonEvent'],_0x4a6570=Game_Interpreter[_0x2fccc8(0x159)][_0x2fccc8(0x1c9)];Game_Temp['prototype'][_0x2fccc8(0x1f2)]=function(){const _0x1a72a6=_0x2fccc8;_0x1e8bf6[_0x1a72a6(0x1f9)](this),this[_0x1a72a6(0x229)]=[],this['_currentCommonEventIds']=[];},Game_Temp[_0x2fccc8(0x159)][_0x2fccc8(0x186)]=function(_0xd250d3){const _0x52318e=_0x2fccc8;_0xb6cf75[_0x52318e(0x1f9)](this,_0xd250d3),this[_0x52318e(0x229)][_0x52318e(0x244)](_0xd250d3);},Game_Temp[_0x2fccc8(0x159)][_0x2fccc8(0x281)]=function(){const _0x26d42b=_0x2fccc8,_0x497c26=_0x2e6eb1[_0x26d42b(0x1f9)](this),_0x527347=this[_0x26d42b(0x229)]['shift']()||0x0;return _0x497c26&&_0x527347>0x0&&(!this[_0x26d42b(0x25a)][_0x26d42b(0x19c)](_0x527347)&&this['_currentCommonEventIds']['push'](_0x527347)),{'event':_0x497c26,'id':_0x527347};},Game_Temp[_0x2fccc8(0x159)][_0x2fccc8(0x1e4)]=function(){return[...this['_currentCommonEventIds']];},Game_Temp[_0x2fccc8(0x159)][_0x2fccc8(0x1f0)]=function(_0x5a1ce9){const _0x284664=_0x2fccc8;_0x5a1ce9>0x0&&!this[_0x284664(0x25a)][_0x284664(0x19c)](_0x5a1ce9)&&this[_0x284664(0x25a)][_0x284664(0x244)](_0x5a1ce9);},Game_Temp[_0x2fccc8(0x159)][_0x2fccc8(0x2e0)]=function(_0x35125d){const _0x6ee7c1=_0x2fccc8,_0x47a6f7=this[_0x6ee7c1(0x25a)][_0x6ee7c1(0x1fb)](_0x35125d);_0x47a6f7>=0x0&&this[_0x6ee7c1(0x25a)]['splice'](_0x47a6f7,0x1);},Game_Interpreter[_0x2fccc8(0x159)]['setupReservedCommonEvent']=function(){const _0x5e8e93=_0x2fccc8;if($gameTemp[_0x5e8e93(0x259)]()){const _0x988078=$gameTemp['retrieveCommonEvent']();if(_0x988078&&_0x988078[_0x5e8e93(0x175)])return this[_0x5e8e93(0x201)]=_0x988078['id'],this[_0x5e8e93(0x2ce)](_0x988078[_0x5e8e93(0x175)][_0x5e8e93(0x193)],_0x988078['id']),$gameTemp[_0x5e8e93(0x1f0)](_0x988078['id']),!![];}return![];};const _0x2b2fcb=Game_Interpreter[_0x2fccc8(0x159)][_0x2fccc8(0x276)];Game_Interpreter[_0x2fccc8(0x159)]['setupChild']=function(_0x3374d7,_0x1a529c){const _0x4ce638=_0x2fccc8;_0x2b2fcb['call'](this,_0x3374d7,_0x1a529c);const _0x5cdc38=this[_0x4ce638(0x185)]();if(_0x5cdc38&&_0x5cdc38[_0x4ce638(0x28a)]===0x75){const _0x45d2fc=_0x5cdc38[_0x4ce638(0x27a)][0x0];_0x45d2fc&&this['_childInterpreter']&&(this[_0x4ce638(0x230)][_0x4ce638(0x201)]=_0x45d2fc,this[_0x4ce638(0x230)][_0x4ce638(0x1f3)]=this[_0x4ce638(0x2ac)],$gameTemp[_0x4ce638(0x1f0)](_0x45d2fc));}},Game_Interpreter[_0x2fccc8(0x159)]['clear']=function(){const _0x7fa587=_0x2fccc8;this[_0x7fa587(0x201)]>0x0&&($gameTemp[_0x7fa587(0x2e0)](this[_0x7fa587(0x201)]),this[_0x7fa587(0x201)]=0x0),this[_0x7fa587(0x1f3)]=0x0,_0x4a6570[_0x7fa587(0x1f9)](this);},Game_Interpreter[_0x2fccc8(0x159)][_0x2fccc8(0x2a9)]=function(){const _0x4ec547=_0x2fccc8;return this[_0x4ec547(0x201)]||0x0;},Game_Interpreter[_0x2fccc8(0x159)][_0x2fccc8(0x2b5)]=function(){return this['_parentEventId']||0x0;},window[_0x2fccc8(0x1ac)]=function(){const _0x683a8a=_0x2fccc8;function _0x756410(_0x399c55){const _0x599f38=a0_0x37a4;if(!_0x399c55||!_0x399c55[_0x599f38(0x2c7)]())return null;if(_0x399c55[_0x599f38(0x230)]&&_0x399c55[_0x599f38(0x230)][_0x599f38(0x2c7)]())return _0x756410(_0x399c55[_0x599f38(0x230)]);return _0x399c55;}const _0x75711c=$gameMap[_0x683a8a(0x2ad)],_0x40b373=_0x756410(_0x75711c);if(_0x40b373)return _0x40b373;for(const _0x286930 of $gameMap[_0x683a8a(0x15e)]()){if(_0x286930[_0x683a8a(0x2ad)]){const _0x283986=_0x756410(_0x286930['_interpreter']);if(_0x283986)return _0x283986;}}if($dataCommonEvents&&$gameMap[_0x683a8a(0x2b0)])for(const _0x433683 of $gameMap[_0x683a8a(0x2b0)]){if(_0x433683&&_0x433683[_0x683a8a(0x2ad)]){const _0x649bf7=_0x756410(_0x433683[_0x683a8a(0x2ad)]);if(_0x649bf7)return _0x649bf7;}}if($gameParty[_0x683a8a(0x1c7)]()&&$gameTroop[_0x683a8a(0x2ad)]){const _0x3c918e=_0x756410($gameTroop[_0x683a8a(0x2ad)]);if(_0x3c918e)return _0x3c918e;}return null;},window[_0x2fccc8(0x1e8)]=function(_0xb491c6){const _0x1e6012=_0x2fccc8;if(!_0xb491c6)return 0x0;if(_0xb491c6[_0x1e6012(0x201)]>0x0)return _0xb491c6[_0x1e6012(0x201)];return 0x0;},window[_0x2fccc8(0x2a7)]=function(_0x398b1f){const _0x4021f1=_0x2fccc8;if(!_0x398b1f)return{'eventId':0x0,'commonEventId':0x0,'parentEventId':0x0};return{'eventId':_0x398b1f[_0x4021f1(0x1d4)](),'commonEventId':getInterpreterCommonEventId(_0x398b1f),'parentEventId':_0x398b1f[_0x4021f1(0x1f3)]||0x0,'isChildInterpreter':!!_0x398b1f[_0x4021f1(0x199)]&&_0x398b1f['_depth']>0x0};},window[_0x2fccc8(0x2c9)]=function(){const _0x4f2bd8=_0x2fccc8,_0x352490=[];function _0x2c73a6(_0x203efb,_0x3aeb04,_0x54c001,_0x2acbc7){const _0x41ddf1=a0_0x37a4;if(!_0x203efb||!_0x203efb['isRunning']())return;const _0x34b452=getInterpreterEventInfo(_0x203efb),_0x1e06e4={'type':_0x3aeb04,'interpreter':_0x203efb,'eventId':_0x34b452['eventId'],'commonEventId':_0x34b452[_0x41ddf1(0x2a9)],'parentEventId':_0x34b452[_0x41ddf1(0x2b5)],'depth':_0x203efb[_0x41ddf1(0x199)]||0x0,'isChild':_0x34b452[_0x41ddf1(0x14e)]};_0x3aeb04===_0x41ddf1(0x257)&&(_0x1e06e4[_0x41ddf1(0x1b1)]=_0x203efb[_0x41ddf1(0x2ac)]||0x0);_0x352490[_0x41ddf1(0x244)](_0x1e06e4);if(_0x203efb['_childInterpreter']&&_0x203efb[_0x41ddf1(0x230)][_0x41ddf1(0x2c7)]()){const _0x3729cb=_0x34b452[_0x41ddf1(0x2a9)]>0x0?_0x41ddf1(0x156):_0x3aeb04+_0x41ddf1(0x253);_0x2c73a6(_0x203efb[_0x41ddf1(0x230)],_0x3729cb,_0x34b452[_0x41ddf1(0x1d4)],_0x34b452[_0x41ddf1(0x2a9)]>0x0?_0x34b452[_0x41ddf1(0x2a9)]:_0x2acbc7);}}const _0x3351f6=$gameMap['_interpreter'];_0x3351f6&&_0x2c73a6(_0x3351f6,'map',_0x3351f6[_0x4f2bd8(0x1d4)]());for(const _0x31743b of $gameMap[_0x4f2bd8(0x15e)]()){_0x31743b[_0x4f2bd8(0x2ad)]&&_0x2c73a6(_0x31743b[_0x4f2bd8(0x2ad)],_0x4f2bd8(0x2bd),_0x31743b[_0x4f2bd8(0x1d4)]());}if($dataCommonEvents&&$gameMap[_0x4f2bd8(0x2b0)])for(let _0x244468=0x0;_0x244468<$gameMap[_0x4f2bd8(0x2b0)][_0x4f2bd8(0x187)];_0x244468++){const _0x8d5884=$gameMap[_0x4f2bd8(0x2b0)][_0x244468];_0x8d5884&&_0x8d5884[_0x4f2bd8(0x2ad)]&&_0x2c73a6(_0x8d5884[_0x4f2bd8(0x2ad)],'common_parallel',_0x244468+0x1,_0x244468+0x1);}return $gameParty[_0x4f2bd8(0x1c7)]()&&$gameTroop[_0x4f2bd8(0x2ad)]&&_0x2c73a6($gameTroop[_0x4f2bd8(0x2ad)],_0x4f2bd8(0x257),0x0),_0x352490;},window[_0x2fccc8(0x1da)]=function(){const _0x182d54=_0x2fccc8,_0x5b39dc=getCurrentInterpreter();if(!_0x5b39dc)return null;const _0x4a537b=_0x5b39dc[_0x182d54(0x185)](),_0x29ad42=getInterpreterEventInfo(_0x5b39dc);return{'interpreter':_0x5b39dc,'command':_0x4a537b,'eventId':_0x29ad42[_0x182d54(0x1d4)],'commonEventId':_0x29ad42[_0x182d54(0x2a9)],'parentEventId':_0x29ad42['parentEventId'],'mapId':_0x5b39dc[_0x182d54(0x209)],'index':_0x5b39dc[_0x182d54(0x192)],'isChildInterpreter':_0x29ad42[_0x182d54(0x14e)],'commandCode':_0x4a537b?_0x4a537b[_0x182d54(0x28a)]:null,'commandParameters':_0x4a537b?_0x4a537b[_0x182d54(0x27a)]:null};},window['isEventRunning']=function(_0x546bbe){const _0xd47bf9=_0x2fccc8,_0x42c775=getAllActiveInterpreters();return _0x42c775[_0xd47bf9(0x217)](_0x3dab17=>_0x3dab17[_0xd47bf9(0x1d4)]===_0x546bbe&&_0x3dab17['interpreter'][_0xd47bf9(0x2c7)]());},window[_0x2fccc8(0x1b4)]=function(_0x16183e,_0x5c142a=0x64){const _0x2b6ae7=()=>{const _0x46d918=getCurrentInterpreter();!_0x46d918?_0x16183e():setTimeout(_0x2b6ae7,_0x5c142a);};_0x2b6ae7();},window[_0x2fccc8(0x2ea)]=function(){const _0x168d67=_0x2fccc8,_0x16d4c0=getAllActiveInterpreters(),_0x57cf34=getCurrentInterpreter(),_0x216cd5=_0x16d4c0[_0x168d67(0x274)](_0x54f65f=>_0x54f65f['type']===_0x168d67(0x21c)||_0x54f65f[_0x168d67(0x1ee)]===_0x168d67(0x182)),_0x1843cf=_0x16d4c0[_0x168d67(0x274)](_0x164b3c=>_0x164b3c[_0x168d67(0x1ee)]==='map'||_0x164b3c[_0x168d67(0x1ee)]==='parallel'),_0x49ddd6=_0x16d4c0[_0x168d67(0x274)](_0x3873ad=>_0x3873ad[_0x168d67(0x1ee)]==='battle');return{'hasActiveInterpreter':!!_0x57cf34,'activeCount':_0x16d4c0[_0x168d67(0x187)],'currentEventId':_0x57cf34?_0x57cf34[_0x168d67(0x1d4)]():null,'currentMapId':_0x57cf34?_0x57cf34[_0x168d67(0x209)]:null,'activeTypes':_0x16d4c0[_0x168d67(0x1a0)](_0x9865a=>_0x9865a[_0x168d67(0x1ee)]),'activeEventIds':_0x16d4c0[_0x168d67(0x1a0)](_0x59e26d=>_0x59e26d['eventId'])[_0x168d67(0x274)](_0x32e7cc=>_0x32e7cc>0x0),'commonEventIds':_0x216cd5[_0x168d67(0x1a0)](_0x28806d=>_0x28806d[_0x168d67(0x2a9)]),'mapEventIds':_0x1843cf[_0x168d67(0x1a0)](_0x5116b=>_0x5116b[_0x168d67(0x1d4)])[_0x168d67(0x274)](_0x531a75=>_0x531a75>0x0),'battleEventIds':_0x49ddd6[_0x168d67(0x1a0)](_0x438d20=>_0x438d20[_0x168d67(0x1b1)])[_0x168d67(0x274)](_0x1b44f7=>_0x1b44f7>0x0)};},window['forceStopAllInterpreters']=function(){const _0x3a1f3a=_0x2fccc8,_0x1e4bb8=getAllActiveInterpreters();for(const _0x375911 of _0x1e4bb8){_0x375911[_0x3a1f3a(0x28d)]&&_0x375911['interpreter'][_0x3a1f3a(0x2bc)]&&_0x375911[_0x3a1f3a(0x28d)]['terminate']();}console[_0x3a1f3a(0x2e2)](_0x3a1f3a(0x22e)+_0x1e4bb8['length']+'\x20個解釋器');},window[_0x2fccc8(0x1e4)]=function(){const _0xb77acf=_0x2fccc8,_0x3716cb=$gameTemp[_0xb77acf(0x1e4)]();if(_0x3716cb[_0xb77acf(0x187)]>0x0)return _0x3716cb;const _0x27e173=getAllActiveInterpreters();return _0x27e173[_0xb77acf(0x274)](_0x4ec1f5=>_0x4ec1f5[_0xb77acf(0x1ee)]===_0xb77acf(0x21c)||_0x4ec1f5[_0xb77acf(0x1ee)]==='common_parallel')['map'](_0x240c7b=>_0x240c7b['commonEventId']);},window[_0x2fccc8(0x1aa)]=function(){const _0x319bd9=_0x2fccc8,_0x4f3931=$gameTemp[_0x319bd9(0x1e4)](),_0x70070d=getAllActiveInterpreters(),_0x3f3c85=_0x70070d['filter'](_0x2c4863=>_0x2c4863['type']==='common'||_0x2c4863['type']===_0x319bd9(0x182));return{'trackedIds':_0x4f3931,'activeCount':_0x3f3c85[_0x319bd9(0x187)],'executionDetails':_0x3f3c85[_0x319bd9(0x1a0)](_0x7efd0a=>({'id':_0x7efd0a['commonEventId'],'type':_0x7efd0a[_0x319bd9(0x1ee)],'interpreter':_0x7efd0a[_0x319bd9(0x28d)],'isRunning':_0x7efd0a['interpreter'][_0x319bd9(0x2c7)]()}))};},window[_0x2fccc8(0x1e1)]=function(_0x21ed16){const _0x212138=_0x2fccc8,_0x383f5e=getCurrentCommonEventIds();return _0x383f5e[_0x212138(0x19c)](_0x21ed16);},window[_0x2fccc8(0x28f)]=function(){const _0x3d953f=_0x2fccc8,_0x286ee1=getInterpreterStatus(),_0x3092e5=getCurrentCommandInfo(),_0x1979ab=getCommonEventExecutionInfo();console[_0x3d953f(0x158)](_0x3d953f(0x1be)),console[_0x3d953f(0x158)](_0x3d953f(0x145),_0x286ee1[_0x3d953f(0x2dc)]),console['log'](_0x3d953f(0x1ff),_0x286ee1[_0x3d953f(0x1dd)]),console[_0x3d953f(0x158)](_0x3d953f(0x24a),_0x286ee1[_0x3d953f(0x177)]),console[_0x3d953f(0x158)]('當前地圖ID:',_0x286ee1[_0x3d953f(0x164)]),console[_0x3d953f(0x158)]('活動類型:',_0x286ee1[_0x3d953f(0x2da)]),console['log'](_0x3d953f(0x19b),_0x286ee1[_0x3d953f(0x1f7)]),console[_0x3d953f(0x158)](_0x3d953f(0x155)),console[_0x3d953f(0x158)](_0x3d953f(0x225),_0x286ee1['commonEventIds']),console[_0x3d953f(0x158)](_0x3d953f(0x1df),_0x286ee1[_0x3d953f(0x1fd)]),console['log'](_0x3d953f(0x157),_0x286ee1['battleEventIds']),console[_0x3d953f(0x158)](_0x3d953f(0x2b6)),console[_0x3d953f(0x158)]('追蹤的公共事件IDs:',_0x1979ab[_0x3d953f(0x16f)]),console[_0x3d953f(0x158)]('活動公共事件數量:',_0x1979ab[_0x3d953f(0x1dd)]),console['log'](_0x3d953f(0x2b2),_0x1979ab[_0x3d953f(0x272)]);if(_0x3092e5){console['log'](_0x3d953f(0x17c)),console[_0x3d953f(0x158)]('指令代碼:',_0x3092e5['commandCode']),console[_0x3d953f(0x158)](_0x3d953f(0x287),_0x3092e5[_0x3d953f(0x176)]),console[_0x3d953f(0x158)](_0x3d953f(0x2d0),_0x3092e5[_0x3d953f(0x1ab)]),console[_0x3d953f(0x158)](_0x3d953f(0x2ab),_0x3092e5[_0x3d953f(0x1d4)]),console[_0x3d953f(0x158)](_0x3d953f(0x144),_0x3092e5[_0x3d953f(0x2a9)]),console[_0x3d953f(0x158)](_0x3d953f(0x188),_0x3092e5[_0x3d953f(0x2b5)]),console[_0x3d953f(0x158)](_0x3d953f(0x239),_0x3092e5[_0x3d953f(0x14e)]);const _0x99028b=getAllActiveInterpreters();console[_0x3d953f(0x158)](_0x3d953f(0x1c6)),_0x99028b['forEach']((_0x4ff6ec,_0x8cb13c)=>{const _0x5f3708=_0x3d953f;console[_0x5f3708(0x158)]('解釋器\x20'+(_0x8cb13c+0x1)+':',{'type':_0x4ff6ec[_0x5f3708(0x1ee)],'eventId':_0x4ff6ec[_0x5f3708(0x1d4)],'commonEventId':_0x4ff6ec[_0x5f3708(0x2a9)],'parentEventId':_0x4ff6ec[_0x5f3708(0x2b5)],'depth':_0x4ff6ec[_0x5f3708(0x2d2)],'isChild':_0x4ff6ec['isChild']});});}},Game_Interpreter['prototype']['command242']=function(_0x283e94){const _0x130a01=_0x2fccc8;return AudioManager[_0x130a01(0x226)](Number(_0x283e94[0x0])),!![];};})());var a,chimakiAvgBtn=chimakiAvgBtn||{};chimakiAvgBtn[a0_0x326a84(0x1a5)]=chimakiAvgBtn[a0_0x326a84(0x1a5)]||{},((()=>{const _0x4a59f9=a0_0x326a84;let _0x383aed=Graphics['_updateCanvas'];Graphics[_0x4a59f9(0x2a5)]=function(){const _0x2b71d2=_0x4a59f9;_0x383aed[_0x2b71d2(0x1f9)](this),this['_canvas']&&this['_canvas']['style']&&(this[_0x2b71d2(0x17a)][_0x2b71d2(0x2d7)][_0x2b71d2(0x292)]=0x9);};let {HIDE_ALL_BTN_SWITCH:_0x354e81}=chimakiAvgBtn[_0x4a59f9(0x1a5)];Game_Temp['prototype']['isMessageBacklogOpened']=function(){return![];};let _0x276ae1=Game_System[_0x4a59f9(0x159)]['initialize'];Game_System['prototype']['initialize']=function(){const _0x2501f9=_0x4a59f9;_0x276ae1[_0x2501f9(0x1f9)](this,...arguments),this[_0x2501f9(0x227)]=![],this['_speedMsg']=![],this[_0x2501f9(0x22c)]=![],this['_showAVGBtn']=!![];},Game_System[_0x4a59f9(0x159)][_0x4a59f9(0x245)]=function(){const _0x3481dd=_0x4a59f9;return this[_0x3481dd(0x22c)];},Game_System['prototype'][_0x4a59f9(0x24b)]=function(){const _0x1fcecb=_0x4a59f9;this[_0x1fcecb(0x22c)]=!this[_0x1fcecb(0x22c)];},Game_System[_0x4a59f9(0x159)][_0x4a59f9(0x2cc)]=function(){const _0x4187d4=_0x4a59f9;return this[_0x4187d4(0x2de)]==undefined?!![]:this[_0x4187d4(0x2de)];},Game_System[_0x4a59f9(0x159)]['isAutoMsg']=function(){const _0x3d8537=_0x4a59f9;return this[_0x3d8537(0x227)];},Game_System[_0x4a59f9(0x159)]['switchAuto']=function(){const _0x480523=_0x4a59f9;this[_0x480523(0x227)]=!this[_0x480523(0x227)];},Game_System[_0x4a59f9(0x159)]['isSpeedMsg']=function(){const _0x5d26c3=_0x4a59f9;return this[_0x5d26c3(0x26e)];},Game_System[_0x4a59f9(0x159)]['switchSpeedMsg']=function(){const _0x495565=_0x4a59f9;this[_0x495565(0x26e)]=!this[_0x495565(0x26e)];},Game_System['prototype']['stopSpeedMsg']=function(){const _0x2cbfd0=_0x4a59f9;this[_0x2cbfd0(0x26e)]=![];},Game_System[_0x4a59f9(0x159)][_0x4a59f9(0x169)]=function(){const _0xe1f834=_0x4a59f9;let _0x50ca9d={'auto':this[_0xe1f834(0x161)],'speed':this['_tempSpeedMsg']};return this['_tempAutoMsg']=null,this['_tempSpeedMsg']=null,_0x50ca9d;},Game_System['prototype'][_0x4a59f9(0x1fa)]=function(){const _0x50607f=_0x4a59f9;this[_0x50607f(0x161)]=this[_0x50607f(0x227)],this['_tempSpeedMsg']=this['_speedMsg'];};let _0x2f2165=Game_Switches['prototype']['setValue'];Game_Switches[_0x4a59f9(0x159)][_0x4a59f9(0x17f)]=function(_0x2ab494,_0x4ba137){const _0x40f5e4=_0x4a59f9;_0x2f2165[_0x40f5e4(0x1f9)](this,_0x2ab494,_0x4ba137);if(_0x354e81&&_0x2ab494==_0x354e81&&_0x4ba137==!![]){let _0x4d595a=SceneManager['_scene'];_0x4d595a&&_0x4d595a['hideAVGBtn']&&_0x4d595a[_0x40f5e4(0x240)]();}};let _0x1e75e4=SceneManager[_0x4a59f9(0x15b)];SceneManager[_0x4a59f9(0x15b)]=function(_0x175c40){const _0xa17256=_0x4a59f9;_0x1e75e4[_0xa17256(0x1f9)](this,...arguments),SceneManager[_0xa17256(0x17d)]&&SceneManager['_scene'][_0xa17256(0x248)]()&&$gameSystem&&$gameSystem[_0xa17256(0x245)]&&$gameSystem[_0xa17256(0x245)]()&&(SceneManager[_0xa17256(0x17d)][_0xa17256(0x252)]&&SceneManager[_0xa17256(0x17d)]['onkeydown']());};let _0x4f8eb3=Scene_Base['prototype'][_0x4a59f9(0x282)];Scene_Base[_0x4a59f9(0x159)][_0x4a59f9(0x282)]=function(){const _0x515f01=_0x4a59f9;_0x4f8eb3[_0x515f01(0x1f9)](this),this['updateAVGBtn']();},Scene_Base[_0x4a59f9(0x159)][_0x4a59f9(0x216)]=function(){const _0xd8626d=_0x4a59f9;$gameSystem[_0xd8626d(0x245)]&&$gameSystem[_0xd8626d(0x245)]()&&(TouchInput[_0xd8626d(0x2b9)]()&&this[_0xd8626d(0x252)]());if(!this[_0xd8626d(0x295)])return;if($gameSystem['showAVG']()&&!this[_0xd8626d(0x295)][_0xd8626d(0x2a6)])this[_0xd8626d(0x295)][_0xd8626d(0x2a6)]=!![];else!$gameSystem[_0xd8626d(0x2cc)]()&&this[_0xd8626d(0x295)][_0xd8626d(0x2a6)]&&(this[_0xd8626d(0x295)]['visible']=![]);},Scene_Base[_0x4a59f9(0x159)][_0x4a59f9(0x252)]=function(){const _0x41b4ab=_0x4a59f9;if(!this[_0x41b4ab(0x295)])return;if($gameSystem['isHideMsgWindow']&&$gameSystem[_0x41b4ab(0x245)]()){this['setAVGBtnPos'](),this[_0x41b4ab(0x295)][_0x41b4ab(0x19a)]['setActivate'](![]);this[_0x41b4ab(0x2bb)]&&this[_0x41b4ab(0x2bb)][_0x41b4ab(0x1ea)]()&&(this['_messageWindow'][_0x41b4ab(0x2a6)]=!![],this[_0x41b4ab(0x1a9)]&&(this[_0x41b4ab(0x1a9)][_0x41b4ab(0x2a6)]=!![]),$gameMessage[_0x41b4ab(0x207)][_0x41b4ab(0x187)]>0x0&&(this[_0x41b4ab(0x1f8)][_0x41b4ab(0x2a6)]=!![]));$gameSystem[_0x41b4ab(0x24b)]();let _0x681fbc=$gameSystem[_0x41b4ab(0x169)](),{auto:_0xe87475,speed:_0x406319}={..._0x681fbc};_0xe87475&&this[_0x41b4ab(0x295)]['onClickAutoPlay']();_0x406319&&this[_0x41b4ab(0x295)][_0x41b4ab(0x2bf)]();return;};},Scene_Base['prototype'][_0x4a59f9(0x240)]=function(){const _0x44f7eb=_0x4a59f9;this[_0x44f7eb(0x295)]&&(this[_0x44f7eb(0x295)][_0x44f7eb(0x2a6)]=![],this[_0x44f7eb(0x295)][_0x44f7eb(0x2eb)][_0x44f7eb(0x29f)](_0x293cb3=>{const _0x361fef=_0x44f7eb;_0x293cb3[_0x361fef(0x2a6)]=![];}));},Scene_Base[_0x4a59f9(0x159)][_0x4a59f9(0x218)]=function(){const _0x225285=_0x4a59f9;return this[_0x225285(0x295)];},Scene_Base[_0x4a59f9(0x159)]['setAVGBtnPos']=function(_0x307f92,_0x47434e){};let _0x41b6e9=Scene_Map['prototype'][_0x4a59f9(0x2d1)];Scene_Map['prototype'][_0x4a59f9(0x2d1)]=function(){const _0x21f3c4=_0x4a59f9;_0x41b6e9[_0x21f3c4(0x1f9)](this),this[_0x21f3c4(0x166)]();},Scene_Base[_0x4a59f9(0x159)][_0x4a59f9(0x171)]=function(_0xc1e5d4,_0x333e57){const _0xd8fb99=_0x4a59f9;this[_0xd8fb99(0x295)]['x']=_0xc1e5d4,this[_0xd8fb99(0x295)]['y']=_0x333e57;},Scene_Base[_0x4a59f9(0x159)][_0x4a59f9(0x1a2)]=function(){const _0x29602c=_0x4a59f9;this[_0x29602c(0x295)]['clickAutoBefore']();},Scene_Base[_0x4a59f9(0x159)][_0x4a59f9(0x25c)]=function(){const _0xe85f87=_0x4a59f9;this[_0xe85f87(0x295)][_0xe85f87(0x2bf)]();};let _0x42860a=Game_Player[_0x4a59f9(0x159)][_0x4a59f9(0x1dc)];Game_Player[_0x4a59f9(0x159)]['triggerButtonAction']=function(){const _0xc36ca5=_0x4a59f9;chimakiAvgBtn[_0xc36ca5(0x1a5)][_0xc36ca5(0x211)]&&$gameSystem[_0xc36ca5(0x29b)]();let _0xe96d67=_0x42860a[_0xc36ca5(0x1f9)](this,...arguments);return _0xe96d67;};let _0x2bead2=Game_Player['prototype'][_0x4a59f9(0x14d)];Game_Player[_0x4a59f9(0x159)]['triggerTouchAction']=function(){const _0x5f3282=_0x4a59f9;chimakiAvgBtn[_0x5f3282(0x1a5)][_0x5f3282(0x211)]&&$gameSystem[_0x5f3282(0x29b)]();let _0x2128e6=_0x2bead2['call'](this);return _0x2128e6;};let _0x482b78=Scene_Map[_0x4a59f9(0x159)][_0x4a59f9(0x284)];Scene_Map[_0x4a59f9(0x159)]['updateMainMultiply']=function(){const _0x28df2c=_0x4a59f9;_0x482b78[_0x28df2c(0x1f9)](this,...arguments),$gameSystem[_0x28df2c(0x266)]()&&chimakiAvgBtn[_0x28df2c(0x1a5)]['alsoSpeedEvent']&&(this[_0x28df2c(0x1fe)](),this[_0x28df2c(0x1fe)]());};})());var chimakiAvgBtn=chimakiAvgBtn||{};chimakiAvgBtn[a0_0x326a84(0x1a5)]=chimakiAvgBtn[a0_0x326a84(0x1a5)]||{},chimakiAvgBtn[a0_0x326a84(0x141)]=chimakiAvgBtn['backLog']||{};function replaceString(_0x363061){const _0x2be943=a0_0x326a84;if(!_0x363061)return _0x363061;return _0x363061[_0x2be943(0x1ce)](/\\[{}|]|\\c\[(\d+)\]/g,'');}function a0_0x5bb3(){const _0x586acf=['pointerdown','執行詳情:','activate','HIDE_ALL_BTN_SWITCH','parentEventId','===\x20公共事件詳細信息\x20===','_speakerName','sortBtnChildren','isTriggered','180BENgay','_messageWindow','terminate','parallel','createSpeedMsg','onClickSpeed','_list','_inertiaEnabled','540600AiSCdF','_customMask','_friction','name','clampBarPosition','isRunning','fontSize','getAllActiveInterpreters','active','load','showAVG','refresh','setup','error','指令索引:','createDisplayObjects','depth','ChimakiAvgBtn','Container','processEscapeCharacter','defaultColor','style','isAutoMsgCountStart','optionCallScript','activeTypes','_totalHeight','hasActiveInterpreter','speedPlayHoverImg','_showAVGBtn','textSizeEx','removeCurrentCommonEventId','nextEventCode','warn','color','match','setupInteraction','addLoadListener','updateInput','setWaitMode','_barBtn','getInterpreterStatus','allBtns','isTempHide','#000000','BACKLOG2_CONTENT_HEIGHT','btn\x20pos\x20','onDragStart','onDown','backLog','2326762GEKpyR','closeMsgImg','公共事件ID:','是否有活動解釋器:','createMessageBacklogWindow','BACKLOG2_SMALL_BAR_Y','_barStartY','option','autoPlayHoverName','updateBasePos','_active','triggerTouchAction','isChildInterpreter','loadBitmap','_msgBacklog','command101','_velocity','setInertiaParams','opationCallView','---','common_child','戰鬥事件IDs:','log','prototype','onDragMove','onKeyDown','1460136dDWiar','OVER_SE','events','posType','onAfterLoad','_tempAutoMsg','_backBtn','_defaultBitmap','currentMapId','_autoPlayBtn','addAvgBtnContainer','onContainerDragStart','value','loadTempSwitch','_lastContainerY','setClickCb','hackHideBtnSwitch','onScrollChange','createHideBtn','trackedIds','_testMask','setAVGPos','updateBacklogInput','setPositionType','getMessageBacklog','event','commandParameters','currentEventId','wheelY','removeChildren','_canvas','MAX_LOG_NUM','===\x20當前指令信息\x20===','_scene','addMessageBacklog','setValue','_speedMsgBtn','interactiveChildren','common_parallel','deltaY','BACKLOG2_CONTENT_WIDTH','currentCommand','reserveCommonEvent','length','父事件ID:','showFreeUI','controller_trigger','getNeddSize','8939CBwCXo','loadSystem','_gotoOption','setupItemChoice','_clickHandler','_msgBacklogEnable','_index','list','17530410KAezmV','hand1','_baseWindow','_maxScollHeight','createBackBtn','_depth','_hideBtn','活動事件IDs:','includes','exec','_activate','BACKLOG_BACK_IMG_HOVER','map','BACKLOG_BACK_IMG','closeAutoMsg','onOver','openBacklog','param','switchAuto','onContainerDragMove','resetAutoWait','_nameBoxWindow','getCommonEventExecutionInfo','index','getCurrentInterpreter','onContainerDragEnd','_lastY','setScrollCallback','loadBackLog','battleEventId','_velocityThreshold','isMessageKeyEnable','waitForInterpreterFinish','_barback','setActivate','pushSystemImg','updateBtnStates','isOpenAndActive','pointerover','startMessage','pause','obtainEscapeParam','===\x20解釋器狀態\x20===','BACK_FILL_COLOR','SpriteBtn','wordWrap','clickAutoBefore','textColor','_whenAtuoWait','updateMaxHeight','===\x20所有活動解釋器\x20===','inBattle','fill','clear','click','_lastDragTime','setEndVoice','isMessageBacklogOpened','replace','white','getMsgName','BACKLOG2_SMALL_BAR_X','max','mainFontFace','eventId','BACKLOG2_NAME_X_OFFSET','defaultPosY','speedPlayImg','height','terminateMessage','getCurrentCommandInfo','mainFontSize','triggerButtonAction','activeCount','pointerupoutside','地圖事件IDs:','width','isCommonEventRunning','_blockEnable','hideSort','getCurrentCommonEventIds','updateScrollBarFromContainer','setFaceImage','anchor','getInterpreterCommonEventId','BAR_BTN_IMG','isOpen','pushSystemHoverImg','initMsgbackLog','_msgKeyEnable','type','bind','addCurrentCommonEventId','_dragStartY','initialize','_parentEventId','_isDragging','updateContainerScroll','BACKLOG2_MAIN_BAR_X','activeEventIds','_choiceListWindow','call','saveTempSwitch','indexOf','log_back','mapEventIds','updateMain','活動解釋器數量:','processColorChange','_commonEventId','auto','BACKLOG2_SCROLL_X','_containerStartY','show','BtnContainer','_choices','執行腳本錯誤','_mapId','setBitmapName','optionSort','setReturnWindow','splice','showAutoPlay','createSubWindows','backlog','autoCloseSpeedPlay','setBackground','save','updateHieight','setBackgroundType','updateAVGBtn','some','getAVGContainer','pointerup','initHandler','true','common','padding','pack_scroll_bar','min','alsoSpeedEvent','backlogImg','hide','39665IVnVBQ','message','公共事件IDs:','fadeOutBgm','_autoMsg','showHideWindow','_commonEventIdQueue','BAR_BACK_IMG','setText','_hideWindow','autoPlayName','已強制停止\x20','isAutoMsg','_childInterpreter','setupChoices','wordWrapWidth','beforeEventCode','createPushOption','1044uSaifZ','img/backlog/','openBacklogWindow','onDragEnd','是否為子解釋器:','BACKLOG2_TEXT_BASE_X_OFFSET','contents','resetTextColor','checkCanOpen','destroy','options','hideAVGBtn','_lastUpdateTime','Text','btnWidth','push','isHideMsgWindow','onOut','buttonMode','isReady','now','當前事件ID:','switchMsgWindow','lastIndex','detail','_backBlack','_containerVelocity','_text','mask','onkeydown','_child','playSe','interactive','isEventRunning','battle','renderText','isCommonEventReserved','_currentCommonEventIds','getLocalPosition','closeSpeedMsg','backlogSort','fullActivate','_scrollBar','_containerFriction','autoSort','沒有找到當前解釋器','opacity','set','processDrawIcon','isSpeedMsg','setAutoCountStart','setMsglogEnable','_containerVelocityThreshold','_msgName','abs','onWheel','_wheelHandler','_speedMsg','updateScrollPosition','defaultPosX','_allBtns','executionDetails','_activateBitmap','filter','_backlogBtn','setupChild','split','parse','BACKLOG2_SMALL_BAR_RANGE','parameters','DONT_SAVE_TO_LOG','fontFace','bitmap','drawTextEx','closeBacklog','parsedLines','retrieveCommonEvent','update','fullDeactivate','updateMainMultiply','showSpeedPlay','resetFontSettings','指令參數:','wheelDelta','fillAll','code','BACKLOG2_MAIN_BAR_Y','data','interpreter','isMessageLogEnable','debugInterpreterStatus','children','canMove','zIndex','hand','pointermove','_btnContainer','setupDragEvents','isAnySubWindowActive','_textState','472jkGKpM','137286EPGIYs','stopSpeedMsg','text','_startAutoCount','onClickAutoPlay','forEach','createBacklogBtn','add','_backlogWindow','switchSpeedMsg','pointerout','_updateCanvas','visible','getInterpreterEventInfo','_mainLogContainer','commonEventId','scale','事件ID:','_eventId','_interpreter','resetBarPosition','addChild','_commonEvents'];a0_0x5bb3=function(){return _0x586acf;};return a0_0x5bb3();}function processMutilLang(_0x7a098c){try{_0x7a098c=LangManager['text'](_0x7a098c);}catch(_0x5e2ff6){console['log'](_0x7a098c+'\x20沒有多語系');}return _0x7a098c;}ImageManager[a0_0x326a84(0x1b0)]=function(_0x2ea524){const _0x173867=a0_0x326a84;return this[_0x173867(0x14f)](_0x173867(0x236),_0x2ea524);};function a0_0x37a4(_0x3b47a2,_0x148222){const _0x5bb3c5=a0_0x5bb3();return a0_0x37a4=function(_0x37a499,_0x110a5a){_0x37a499=_0x37a499-0x13f;let _0x38532c=_0x5bb3c5[_0x37a499];return _0x38532c;},a0_0x37a4(_0x3b47a2,_0x148222);}var a;window['playSystemCancel']=null,((()=>{const _0x23860c=a0_0x326a84;let {ENABLE_BACK_LOG:_0x90f747,BACKLOG2_BASEY:_0x52897c,BACKLOG2_BASEX:_0x394b13,BACKLOG2_CONTENT_HEIGHT:_0x1f1814,BACKLOG2_CONTENT_WIDTH:_0x3698c4,BACKLOG2_TEXT_BASE_X_OFFSET:_0x4f66cc,BACKLOG2_MAIN_BAR_Y:_0x3117df,BACKLOG2_MAIN_BAR_X:_0x223197,BACKBTN_OFFSET_X:_0x4dd875,MASK_DEBUG_SWITCH:_0xd2539c,BACKBTN_OFFSET_Y:_0x4eda82,BACKLOG2_NAME_X_OFFSET:_0x29922a,MAX_LOG_NUM:_0x2c10d6,BAR_BACK_IMG:_0x10473e,BACKLOG_BACK_IMG:_0x5cefc3,BACKLOG_BACK_IMG_HOVER:_0x167bb5,BAR_BTN_IMG:_0x37876c,OVER_SE:_0x15069d,BACK_FILL_COLOR:_0x2f6ed2,BACK_FILL_OPACITY:_0x103624,BACK_USE_IMAGE:_0x52299d}=chimakiAvgBtn[_0x23860c(0x141)],_0x251626=_0x2c10d6||0x64;if(_0x90f747){class _0x2447be extends Sprite{get[_0x23860c(0x2ca)](){const _0x1432f8=_0x23860c;return this[_0x1432f8(0x14c)];}[_0x23860c(0x222)](){const _0x3354e9=_0x23860c;this['visible']=![],this[_0x3354e9(0x14c)]=![];}[_0x23860c(0x205)](){const _0x2ab2d8=_0x23860c;this['visible']=!![],this[_0x2ab2d8(0x14c)]=!![];}[_0x23860c(0x1f2)](){const _0x1a7703=_0x23860c;window['BS']=this,super[_0x1a7703(0x1f2)](...arguments),this[_0x1a7703(0x24e)]=new Sprite();if(_0x52299d){let _0x16a904=ImageManager[_0x1a7703(0x1b0)](_0x52299d);_0x16a904['addLoadListener'](()=>{const _0x5927bb=_0x1a7703;this['_backBlack'][_0x5927bb(0x27d)]=_0x16a904;});}else this['_backBlack'][_0x1a7703(0x27d)]=new Bitmap(Graphics['width'],Graphics[_0x1a7703(0x1d8)]),this[_0x1a7703(0x24e)][_0x1a7703(0x27d)][_0x1a7703(0x289)](_0x2f6ed2),this[_0x1a7703(0x24e)][_0x1a7703(0x263)]=_0x103624;this['_backBlack'][_0x1a7703(0x255)]=!![],this['addChild'](this[_0x1a7703(0x24e)]),this['_totalHeight']=0x0,this['_isDragging']=![],this['_dragStartY']=0x0,this[_0x1a7703(0x204)]=0x0,this['_containerVelocity']=0x0,this['_containerFriction']=0.92,this[_0x1a7703(0x269)]=0.1,this['_lastContainerY']=0x0,this[_0x1a7703(0x1cb)]=0x0,this[_0x1a7703(0x2a8)]=new Sprite(),this[_0x1a7703(0x196)]=new Window_Help(new Rectangle(0x0,0x0,0x1,0x1)),this[_0x1a7703(0x2c3)]=new Sprite(new Bitmap(_0x3698c4,_0x1f1814)),this[_0x1a7703(0x2c3)]['bitmap'][_0x1a7703(0x289)](_0x1a7703(0x1cf)),this['_customMask']['x']=Graphics[_0x1a7703(0x1e0)]/0x2-_0x3698c4/0x2,this[_0x1a7703(0x2a8)]['x']=this[_0x1a7703(0x2c3)]['x']=_0x394b13,this['_mainLogContainer']['y']=this[_0x1a7703(0x2c3)]['y']=_0x52897c,this['addChild'](this[_0x1a7703(0x2c3)]),this['_mainLogContainer'][_0x1a7703(0x251)]=this[_0x1a7703(0x2c3)],this[_0x1a7703(0x2af)](this[_0x1a7703(0x2a8)]),this[_0x1a7703(0x2a8)]['y']=this['_customMask']['y'],this[_0x1a7703(0x170)]=new Sprite(new Bitmap(_0x3698c4,_0x1f1814)),this[_0x1a7703(0x170)][_0x1a7703(0x27d)][_0x1a7703(0x289)]('white'),this[_0x1a7703(0x170)][_0x1a7703(0x263)]=0x64,_0xd2539c&&this['addChild'](this[_0x1a7703(0x170)]),this[_0x1a7703(0x25f)]=new _0x4a8344(),this[_0x1a7703(0x25f)]['x']=_0x223197,this[_0x1a7703(0x25f)]['y']=_0x3117df,window['BAR']=this[_0x1a7703(0x25f)],this[_0x1a7703(0x2af)](this['_scrollBar']),this[_0x1a7703(0x296)](),this['_scrollBar']['setScrollCallback'](_0xb183d4=>{const _0x1678a4=_0x1a7703;this[_0x1678a4(0x1f5)](_0xb183d4);}),this['createBackBtn']();}['update'](){const _0x299358=_0x23860c;super['update'](...arguments),this[_0x299358(0x170)]['x']=this[_0x299358(0x2c3)]['x'],this[_0x299358(0x170)]['y']=this[_0x299358(0x2c3)]['y'];if(!this[_0x299358(0x1f4)]&&Math[_0x299358(0x26b)](this['_containerVelocity'])>this['_containerVelocityThreshold']){let _0x2bdf88=this[_0x299358(0x2a8)]['y']+this[_0x299358(0x24f)];const _0x458ff5=Math['max'](0x0,this[_0x299358(0x2db)]-_0x1f1814),_0xb1b334=_0x52897c-_0x458ff5,_0x5b1879=_0x52897c;_0x2bdf88=Math[_0x299358(0x1d2)](_0xb1b334,Math[_0x299358(0x21f)](_0x5b1879,_0x2bdf88)),this[_0x299358(0x2a8)]['y']=_0x2bdf88,this[_0x299358(0x24f)]*=this[_0x299358(0x260)],(_0x2bdf88===_0xb1b334||_0x2bdf88===_0x5b1879)&&(this[_0x299358(0x24f)]=0x0),this[_0x299358(0x1e5)]();}}[_0x23860c(0x198)](){const _0x14cbe4=_0x23860c;this[_0x14cbe4(0x162)]=new Sprite();let _0x50f9f5=ImageManager[_0x14cbe4(0x1b0)](_0x5cefc3),_0xbf8dd5=ImageManager[_0x14cbe4(0x1b0)](_0x167bb5);_0x50f9f5[_0x14cbe4(0x2e6)](()=>{const _0x3911dc=_0x14cbe4;this[_0x3911dc(0x162)][_0x3911dc(0x27d)]=_0x50f9f5;}),this[_0x14cbe4(0x162)][_0x14cbe4(0x1e7)]['set'](0.5),this['_backBtn']['x']=_0x4dd875,this['_backBtn']['y']=_0x4eda82,this[_0x14cbe4(0x162)]['interactive']=!![],this['_backBtn']['on'](_0x14cbe4(0x2b1),()=>{const _0x4a3a3a=_0x14cbe4;_0x50f9f5[_0x4a3a3a(0x248)]()&&(this['_backBtn'][_0x4a3a3a(0x27d)]=_0x50f9f5),this[_0x4a3a3a(0x283)]();}),this['_backBtn']['on']('pointerover',()=>{const _0xc39ab0=_0x14cbe4;playSystemCancel?playSystemCancel():_0x15069d&&AudioManager[_0xc39ab0(0x254)]({'name':_0x15069d,'pan':0x0,'pitch':0x64,'volume':0x64}),_0xbf8dd5[_0xc39ab0(0x248)]()&&(this[_0xc39ab0(0x162)][_0xc39ab0(0x27d)]=_0xbf8dd5);}),this['_backBtn']['on'](_0x14cbe4(0x2a4),()=>{const _0x39a471=_0x14cbe4;_0x50f9f5[_0x39a471(0x248)]()&&(this[_0x39a471(0x162)][_0x39a471(0x27d)]=_0x50f9f5);}),this[_0x14cbe4(0x2af)](this[_0x14cbe4(0x162)]);}['setupDragEvents'](){const _0x570dd4=_0x23860c;this[_0x570dd4(0x24e)]['on'](_0x570dd4(0x2b1),this['onContainerDragStart'][_0x570dd4(0x1ef)](this)),this[_0x570dd4(0x24e)]['on']('pointermove',this[_0x570dd4(0x1a7)][_0x570dd4(0x1ef)](this)),this['_backBlack']['on'](_0x570dd4(0x219),this['onContainerDragEnd'][_0x570dd4(0x1ef)](this)),this[_0x570dd4(0x24e)]['on'](_0x570dd4(0x1de),this[_0x570dd4(0x1ad)][_0x570dd4(0x1ef)](this));}[_0x23860c(0x167)](_0x3e7d49){const _0x5ad2fd=_0x23860c;this[_0x5ad2fd(0x1f4)]=!![],this['_containerVelocity']=0x0;const _0x360ea7=_0x3e7d49[_0x5ad2fd(0x28c)][_0x5ad2fd(0x25b)](this);this[_0x5ad2fd(0x1f1)]=_0x360ea7['y'],this[_0x5ad2fd(0x204)]=this[_0x5ad2fd(0x2a8)]['y'],this['_lastContainerY']=this[_0x5ad2fd(0x2a8)]['y'],this['_lastDragTime']=Date[_0x5ad2fd(0x249)]();}[_0x23860c(0x1a7)](_0x4f6745){const _0x4ae7b0=_0x23860c;if(!this['_isDragging'])return;const _0x4aff74=_0x4f6745['data'][_0x4ae7b0(0x25b)](this),_0x53297a=_0x4aff74['y']-this[_0x4ae7b0(0x1f1)];let _0x501903=this[_0x4ae7b0(0x204)]+_0x53297a;const _0x1ed10a=Date['now'](),_0x2fb98f=_0x1ed10a-this[_0x4ae7b0(0x1cb)];_0x2fb98f>0x0&&(this[_0x4ae7b0(0x24f)]=(_0x501903-this[_0x4ae7b0(0x16a)])/_0x2fb98f*0x10);this[_0x4ae7b0(0x16a)]=_0x501903,this['_lastDragTime']=_0x1ed10a;const _0x8d9b71=Math[_0x4ae7b0(0x1d2)](0x0,this['_totalHeight']-_0x1f1814),_0x32f00a=_0x52897c-_0x8d9b71,_0x21c98c=_0x52897c;_0x501903=Math['max'](_0x32f00a,Math[_0x4ae7b0(0x21f)](_0x21c98c,_0x501903)),this[_0x4ae7b0(0x2a8)]['y']=_0x501903,this[_0x4ae7b0(0x1e5)]();}[_0x23860c(0x1ad)](_0x35fe5f){const _0x590b64=_0x23860c;this[_0x590b64(0x1f4)]=![];}[_0x23860c(0x1e5)](){const _0x169e78=_0x23860c,_0x5fee19=Math[_0x169e78(0x1d2)](0x0,this['_totalHeight']-_0x1f1814);if(_0x5fee19===0x0)return;const _0x5b1c66=_0x52897c-this[_0x169e78(0x2a8)]['y'],_0x11c6fa=_0x5b1c66/_0x5fee19;if(this[_0x169e78(0x25f)]&&this['_scrollBar']['_maxScollHeight']){const _0x176895=this[_0x169e78(0x25f)][_0x169e78(0x197)]/0x2,_0x5f251b=this[_0x169e78(0x25f)][_0x169e78(0x1b5)]['y']-_0x176895,_0x3eb9e2=this[_0x169e78(0x25f)][_0x169e78(0x1b5)]['y']+_0x176895;this[_0x169e78(0x25f)][_0x169e78(0x2e9)]['y']=_0x5f251b+(_0x3eb9e2-_0x5f251b)*_0x11c6fa;}}[_0x23860c(0x1f5)](_0x2ab0f1){const _0x25f54a=_0x23860c;if(this[_0x25f54a(0x1f4)])return;const _0x51e2e5=Math[_0x25f54a(0x1d2)](0x0,this[_0x25f54a(0x2db)]-_0x1f1814);this[_0x25f54a(0x2a8)]['y']=_0x52897c-_0x51e2e5*_0x2ab0f1;}[_0x23860c(0x283)](){const _0x5b5b06=_0x23860c;this[_0x5b5b06(0x14c)]=![],this[_0x5b5b06(0x2a6)]=![],this[_0x5b5b06(0x2a8)][_0x5b5b06(0x179)](),SceneManager[_0x5b5b06(0x17d)][_0x5b5b06(0x27f)](),(!$gameMap[_0x5b5b06(0x256)]()||$gameSystem[_0x5b5b06(0x2ec)]&&$gameSystem[_0x5b5b06(0x2ec)]())&&(SceneManager[_0x5b5b06(0x17d)]&&SceneManager['_scene']['showFreeUI']&&SceneManager[_0x5b5b06(0x17d)][_0x5b5b06(0x189)]());}[_0x23860c(0x25e)](){const _0x5981c2=_0x23860c;var _0x5a63c3=$gameSystem[_0x5981c2(0x174)](),_0x33b12e=_0x5a63c3[_0x5981c2(0x187)];let _0xdb6bb2=$gameSystem[_0x5981c2(0x1d0)](),_0x4506e4=0x0,_0x15a472=0x64;for(let _0x532c20=0x0;_0x532c20<_0x33b12e;_0x532c20++){let _0x28cb97=_0xdb6bb2[_0x532c20],_0x3f9931=_0x5a63c3[_0x532c20];if(_0x28cb97){try{_0x28cb97=LangManager[_0x5981c2(0x29c)](_0x28cb97);}catch(_0x557b1d){}let _0x103b62=this[_0x5981c2(0x18b)](_0x28cb97),_0x33c01f=new _0x3dbd6b(new Rectangle(_0x29922a,0x0,_0x103b62[_0x5981c2(0x1e0)],_0x103b62['height']));_0x33c01f[_0x5981c2(0x22b)](_0x28cb97,0x0,0x0),_0x33c01f['y']=_0x4506e4,_0x4506e4+=_0x103b62[_0x5981c2(0x1d8)],this[_0x5981c2(0x2a8)][_0x5981c2(0x2af)](_0x33c01f);}try{_0x3f9931=LangManager[_0x5981c2(0x29c)](_0x3f9931);}catch(_0x4cc861){}let _0x29451a=this['getNeddSize'](_0x3f9931),_0x479154=new _0x3dbd6b(new Rectangle(_0x4f66cc,0x0,_0x29451a[_0x5981c2(0x1e0)],_0x29451a[_0x5981c2(0x1d8)]));_0x479154['y']=_0x4506e4,_0x479154[_0x5981c2(0x22b)](_0x3f9931,0x0,0x0),_0x4506e4+=_0x29451a[_0x5981c2(0x1d8)],this[_0x5981c2(0x2a8)][_0x5981c2(0x2af)](_0x479154);}this[_0x5981c2(0x214)](_0x4506e4),this['show']();if(this[_0x5981c2(0x25f)]&&this[_0x5981c2(0x25f)][_0x5981c2(0x1af)]){this[_0x5981c2(0x1f5)](0x1);if(this[_0x5981c2(0x25f)][_0x5981c2(0x197)]){const _0x1756dd=this[_0x5981c2(0x25f)][_0x5981c2(0x197)]/0x2,_0x24b402=this['_scrollBar'][_0x5981c2(0x1b5)]['y']-_0x1756dd,_0x470843=this[_0x5981c2(0x25f)][_0x5981c2(0x1b5)]['y']+_0x1756dd;this[_0x5981c2(0x25f)][_0x5981c2(0x2e9)]['y']=_0x470843;}}}['updateHieight'](_0x4c689f){const _0x5427da=_0x23860c;this[_0x5427da(0x2db)]=_0x4c689f;}[_0x23860c(0x18b)](_0x495ba9){const _0x3e4a30=_0x23860c;let _0x8514a=_0x495ba9;try{_0x8514a=LangManager['text'](_0x495ba9);}catch(_0x332b99){}const _0x90e8c=this[_0x3e4a30(0x196)][_0x3e4a30(0x2df)](_0x8514a),_0x186436=_0x3698c4,_0x29f444=_0x90e8c['height']+this[_0x3e4a30(0x196)][_0x3e4a30(0x21d)]*0x2;return{'width':_0x186436,'height':_0x29f444};}['isOpenAndActive'](){const _0x45cda2=_0x23860c;return this[_0x45cda2(0x2a6)]&&this['active'];}}class _0x3dbd6b extends Window_Base{[_0x23860c(0x1f2)](_0x183353){const _0x4f98c1=_0x23860c;super[_0x4f98c1(0x1f2)](_0x183353),this[_0x4f98c1(0x215)](0x2);}[_0x23860c(0x22b)](_0x2e6760,_0xdfa7a8,_0x20380e){const _0x59aa70=_0x23860c;this[_0x59aa70(0x250)]=_0x2e6760,this[_0x59aa70(0x286)](),this[_0x59aa70(0x2cd)]();}['refresh'](){const _0x4c4c6d=_0x23860c,_0x25f0e3=this['baseTextRect']();this['contents'][_0x4c4c6d(0x1c9)](),this[_0x4c4c6d(0x27e)](this[_0x4c4c6d(0x250)],_0x25f0e3['x'],_0x25f0e3['y'],_0x25f0e3[_0x4c4c6d(0x1e0)]);}[_0x23860c(0x286)](){const _0x41b45e=_0x23860c;this['contents'][_0x41b45e(0x27c)]=$gameSystem[_0x41b45e(0x1d3)](),this['contents']['fontSize']=$gameSystem[_0x41b45e(0x1db)](),this[_0x41b45e(0x23c)]();}[_0x23860c(0x2d5)]=function(_0x423fd5,_0x26e005){const _0x409304=_0x23860c;switch(_0x423fd5){case'C':this[_0x409304(0x200)](this[_0x409304(0x1bd)](_0x26e005));break;case'I':this[_0x409304(0x265)](this[_0x409304(0x1bd)](_0x26e005),_0x26e005);break;case'PX':_0x26e005['x']=this[_0x409304(0x1bd)](_0x26e005);break;case'PY':_0x26e005['y']=this[_0x409304(0x1bd)](_0x26e005);break;case'FS':this[_0x409304(0x23b)]['fontSize']=this[_0x409304(0x1bd)](_0x26e005);break;}};}class _0x4a8344 extends Sprite{['initialize'](){const _0x56b648=_0x23860c;super['initialize'](...arguments),this[_0x56b648(0x197)]=0x0,this[_0x56b648(0x1f4)]=![],this[_0x56b648(0x1f1)]=0x0,this[_0x56b648(0x148)]=0x0,this['_inertiaEnabled']=!![],this[_0x56b648(0x152)]=0x0,this['_friction']=0.92,this[_0x56b648(0x1b2)]=0.1,this[_0x56b648(0x1ae)]=0x0,this[_0x56b648(0x241)]=0x0,this['createBarBack'](),this['createBarBtn'](),this['setupInteraction']();}['createBarBtn'](){const _0x239a1c=_0x23860c;this[_0x239a1c(0x2e9)]=new Sprite(),this[_0x239a1c(0x2e9)][_0x239a1c(0x1e7)]['set'](0.5);let _0x4986d1=ImageManager[_0x239a1c(0x1b0)](_0x37876c);_0x4986d1[_0x239a1c(0x2e6)](()=>{const _0x5a1c22=_0x239a1c;this[_0x5a1c22(0x2e9)][_0x5a1c22(0x27d)]=_0x4986d1,this['resetBarPosition']();}),this[_0x239a1c(0x2e9)]['x']=this[_0x239a1c(0x1b5)]['x'],this[_0x239a1c(0x2e9)]['y']=this[_0x239a1c(0x1b5)]['y'],this['_barBtn'][_0x239a1c(0x255)]=!![],this[_0x239a1c(0x2e9)][_0x239a1c(0x247)]=!![],this[_0x239a1c(0x2af)](this['_barBtn']);}['createBarBack'](){const _0x54b68a=_0x23860c;this[_0x54b68a(0x1b5)]=new Sprite(),this['_barback']['anchor'][_0x54b68a(0x264)](0.5);let _0xb135aa=ImageManager[_0x54b68a(0x1b0)](_0x10473e);_0xb135aa[_0x54b68a(0x2e6)](()=>{const _0x3d40a6=_0x54b68a;this[_0x3d40a6(0x1b5)][_0x3d40a6(0x27d)]=_0xb135aa,this['updateMaxHeight'](_0xb135aa[_0x3d40a6(0x1d8)]);}),this[_0x54b68a(0x2af)](this['_barback']);}[_0x23860c(0x2e5)](){const _0x26f880=_0x23860c;this[_0x26f880(0x2e9)]['on'](_0x26f880(0x2b1),this[_0x26f880(0x13f)][_0x26f880(0x1ef)](this)),this[_0x26f880(0x2e9)]['on'](_0x26f880(0x294),this[_0x26f880(0x15a)][_0x26f880(0x1ef)](this)),this[_0x26f880(0x2e9)]['on'](_0x26f880(0x219),this[_0x26f880(0x238)]['bind'](this)),this[_0x26f880(0x2e9)]['on'](_0x26f880(0x1de),this[_0x26f880(0x238)][_0x26f880(0x1ef)](this)),this['interactive']=!![],this[_0x26f880(0x26d)]=this[_0x26f880(0x26c)]['bind'](this);}[_0x23860c(0x13f)](_0x1f802f){const _0x1d8406=_0x23860c;this[_0x1d8406(0x1f4)]=!![],this['_velocity']=0x0;const _0x28c730=_0x1f802f[_0x1d8406(0x28c)][_0x1d8406(0x25b)](this);this[_0x1d8406(0x1f1)]=_0x28c730['y'],this[_0x1d8406(0x148)]=this['_barBtn']['y'],this[_0x1d8406(0x1ae)]=this['_barBtn']['y'],this['_lastUpdateTime']=Date[_0x1d8406(0x249)]();}[_0x23860c(0x15a)](_0x5c24d4){const _0x2cb3a5=_0x23860c;if(!this[_0x2cb3a5(0x1f4)])return;const _0x7ba153=_0x5c24d4[_0x2cb3a5(0x28c)][_0x2cb3a5(0x25b)](this),_0x482396=_0x7ba153['y']-this[_0x2cb3a5(0x1f1)];let _0x291173=this['_barStartY']+_0x482396;const _0x23e6fd=Date['now'](),_0xe1c0b3=_0x23e6fd-this[_0x2cb3a5(0x241)];_0xe1c0b3>0x0&&(this[_0x2cb3a5(0x152)]=(_0x291173-this[_0x2cb3a5(0x1ae)])/_0xe1c0b3*0x10),this[_0x2cb3a5(0x1ae)]=_0x291173,this[_0x2cb3a5(0x241)]=_0x23e6fd,_0x291173=this[_0x2cb3a5(0x2c6)](_0x291173),this[_0x2cb3a5(0x2e9)]['y']=_0x291173,this[_0x2cb3a5(0x26f)]();}[_0x23860c(0x238)](_0xb316e6){const _0x939154=_0x23860c;if(!this[_0x939154(0x1f4)])return;this[_0x939154(0x1f4)]=![],!this[_0x939154(0x2c1)]&&(this[_0x939154(0x152)]=0x0);}[_0x23860c(0x26c)](_0x5b10a4){const _0x2f9f9d=_0x23860c,_0x51ce1b=_0x5b10a4[_0x2f9f9d(0x183)]||_0x5b10a4[_0x2f9f9d(0x24d)]||_0x5b10a4[_0x2f9f9d(0x288)],_0xd2d5b0=_0x51ce1b>0x0?0x14:-0x14;let _0x4fff09=this[_0x2f9f9d(0x2e9)]['y']+_0xd2d5b0;_0x4fff09=this[_0x2f9f9d(0x2c6)](_0x4fff09),this[_0x2f9f9d(0x2e9)]['y']=_0x4fff09,this[_0x2f9f9d(0x152)]=0x0,this[_0x2f9f9d(0x26f)]();}['clampBarPosition'](_0x1a442c){const _0x2f1373=_0x23860c;if(!this['_maxScollHeight'])return _0x1a442c;const _0x29c86f=this[_0x2f1373(0x197)]/0x2,_0x5bf0ad=this[_0x2f1373(0x1b5)]['y']-_0x29c86f,_0x2682c6=this[_0x2f1373(0x1b5)]['y']+_0x29c86f;return Math['max'](_0x5bf0ad,Math[_0x2f1373(0x21f)](_0x2682c6,_0x1a442c));}[_0x23860c(0x26f)](){const _0x38969b=_0x23860c;if(this[_0x38969b(0x197)]&&this['onScrollChange']){const _0x1cebc8=this[_0x38969b(0x197)]/0x2,_0x5ea91b=this[_0x38969b(0x1b5)]['y']-_0x1cebc8,_0x37b299=this[_0x38969b(0x1b5)]['y']+_0x1cebc8,_0x7381f6=(this[_0x38969b(0x2e9)]['y']-_0x5ea91b)/(_0x37b299-_0x5ea91b);this['onScrollChange'](_0x7381f6);}}['update'](){const _0x114e32=_0x23860c;super[_0x114e32(0x282)](...arguments),this['processWheelInput']();if(!this[_0x114e32(0x1f4)]&&this[_0x114e32(0x2c1)]&&Math['abs'](this[_0x114e32(0x152)])>this[_0x114e32(0x1b2)]){let _0x4dba0d=this[_0x114e32(0x2e9)]['y']+this['_velocity'];_0x4dba0d=this['clampBarPosition'](_0x4dba0d),this[_0x114e32(0x2e9)]['y']=_0x4dba0d,this[_0x114e32(0x152)]*=this['_friction'],_0x4dba0d===this[_0x114e32(0x2c6)](_0x4dba0d+this['_velocity'])&&(this['_velocity']=0x0),this['updateScrollPosition']();}}['processWheelInput'](){const _0x3f0a78=_0x23860c;if(!this['visible'])return;if(TouchInput[_0x3f0a78(0x178)]!==0x0){const _0x518dba=TouchInput[_0x3f0a78(0x178)]>0x0?0x14:-0x14;let _0x2b2e92=this[_0x3f0a78(0x2e9)]['y']+_0x518dba;_0x2b2e92=this[_0x3f0a78(0x2c6)](_0x2b2e92),this[_0x3f0a78(0x2e9)]['y']=_0x2b2e92,this[_0x3f0a78(0x152)]+=_0x518dba*0.25,this['updateScrollPosition']();}}[_0x23860c(0x1c5)](_0x23779a){const _0xe3e55d=_0x23860c;this['_maxScollHeight']=_0x23779a,this[_0xe3e55d(0x2ae)]();}[_0x23860c(0x2ae)](){const _0x279f1d=_0x23860c;if(!this[_0x279f1d(0x197)]||!this[_0x279f1d(0x2e9)])return;const _0x494a18=this['_maxScollHeight']/0x2,_0x114e39=this[_0x279f1d(0x1b5)]['y']-_0x494a18;this['_barBtn']['y']=_0x114e39,this[_0x279f1d(0x152)]=0x0,this[_0x279f1d(0x26f)]();}[_0x23860c(0x153)](_0x167bf4,_0x347555,_0x3d89a4){const _0x2fc9b0=_0x23860c;this[_0x2fc9b0(0x2c1)]=_0x167bf4!==undefined?_0x167bf4:this[_0x2fc9b0(0x2c1)],this[_0x2fc9b0(0x2c4)]=_0x347555!==undefined?_0x347555:this['_friction'],this[_0x2fc9b0(0x1b2)]=_0x3d89a4!==undefined?_0x3d89a4:this[_0x2fc9b0(0x1b2)];}['setScrollCallback'](_0x24400f){const _0x21f660=_0x23860c;this[_0x21f660(0x16d)]=_0x24400f;}}let _0x225f0a=Game_System[_0x23860c(0x159)][_0x23860c(0x1f2)];Game_System['prototype'][_0x23860c(0x1f2)]=function(){const _0x24dc64=_0x23860c;_0x225f0a[_0x24dc64(0x1f9)](this,...arguments),this['initMsgbackLog']();},Game_System['prototype']['initMsgbackLog']=function(){const _0x1736c9=_0x23860c;this[_0x1736c9(0x26a)]=[],this[_0x1736c9(0x150)]=[],this[_0x1736c9(0x1ed)]=![],this[_0x1736c9(0x191)]=!![];},Game_System['prototype'][_0x23860c(0x1d0)]=function(_0x51459a){const _0x537256=_0x23860c;if(this[_0x537256(0x26a)]===undefined)this[_0x537256(0x1ec)]();return this['_msgName'];},Game_System[_0x23860c(0x159)][_0x23860c(0x17e)]=function(_0x866f7b){const _0x34db1f=_0x23860c;if(!this[_0x34db1f(0x28e)]())return;if($gameSwitches[_0x34db1f(0x168)](chimakiAvgBtn[_0x34db1f(0x1a5)][_0x34db1f(0x27b)]))return![];if($gameMessage[_0x34db1f(0x2b7)]){let _0x3cff45=$gameMessage['_speakerName'];this['_msgName'][_0x34db1f(0x244)](_0x3cff45);}else this[_0x34db1f(0x26a)]['push'](null);this[_0x34db1f(0x150)][_0x34db1f(0x244)](_0x866f7b);while(this[_0x34db1f(0x150)][_0x34db1f(0x187)]>_0x251626){this[_0x34db1f(0x150)]['shift'](),this[_0x34db1f(0x26a)]['shift']();}},Game_System[_0x23860c(0x159)][_0x23860c(0x174)]=function(){const _0x499a75=_0x23860c;if(this[_0x499a75(0x150)]===undefined)this['initMsgbackLog']();return this[_0x499a75(0x150)];},Game_System['prototype'][_0x23860c(0x268)]=function(_0x264d68){this['_msgBacklogEnable']=_0x264d68;},Game_System['prototype'][_0x23860c(0x28e)]=function(){const _0x43d78c=_0x23860c;if(this[_0x43d78c(0x191)]===undefined)this[_0x43d78c(0x1ec)]();return this[_0x43d78c(0x191)];},Game_System[_0x23860c(0x159)][_0x23860c(0x1b3)]=function(){const _0x394754=_0x23860c;if(this[_0x394754(0x1ed)]===undefined)this[_0x394754(0x1ec)]();return this['_msgKeyEnable'];};let _0x1d7a74=Game_Player[_0x23860c(0x159)][_0x23860c(0x291)];Game_Player[_0x23860c(0x159)]['canMove']=function(){const _0x4fdf1d=_0x23860c;if($gameTemp[_0x4fdf1d(0x1cd)]())return![];return _0x1d7a74[_0x4fdf1d(0x1f9)](this);},Game_Temp[_0x23860c(0x159)][_0x23860c(0x1cd)]=function(){const _0xa112c0=_0x23860c;if(SceneManager['_scene']&&SceneManager[_0xa112c0(0x17d)][_0xa112c0(0x2bb)]){var _0x23c531=SceneManager[_0xa112c0(0x17d)][_0xa112c0(0x2bb)];if(_0x23c531[_0xa112c0(0x2a2)]&&_0x23c531[_0xa112c0(0x2a2)][_0xa112c0(0x1b9)]())return!![];}return![];};let _0x3fdade=Scene_Map['prototype']['isMenuEnabled'];Scene_Map['prototype']['isMenuEnabled']=function(){const _0xd1006c=_0x23860c;if($gameTemp[_0xd1006c(0x1cd)]())return![];return _0x3fdade[_0xd1006c(0x1f9)](this);},Scene_Map[_0x23860c(0x159)][_0x23860c(0x1a4)]=function(){const _0x5f41c5=_0x23860c;if(!_0x90f747)return;this[_0x5f41c5(0x1a9)][_0x5f41c5(0x222)](),this[_0x5f41c5(0x2bb)][_0x5f41c5(0x222)]();if(this[_0x5f41c5(0x1f8)][_0x5f41c5(0x1ea)]())this[_0x5f41c5(0x1f8)][_0x5f41c5(0x222)]();this[_0x5f41c5(0x2bb)][_0x5f41c5(0x2a2)][_0x5f41c5(0x25e)]();;},Scene_Map[_0x23860c(0x159)][_0x23860c(0x27f)]=function(){const _0x15057e=_0x23860c;this[_0x15057e(0x1a9)][_0x15057e(0x205)](),this[_0x15057e(0x2bb)]['show']();if(this[_0x15057e(0x1f8)][_0x15057e(0x1ea)]())this[_0x15057e(0x1f8)][_0x15057e(0x205)]();};let _0x4f286d=Window_Message[_0x23860c(0x159)][_0x23860c(0x1f2)];Window_Message[_0x23860c(0x159)]['initialize']=function(_0x4ba9f2){const _0x48a7e3=_0x23860c;_0x4f286d[_0x48a7e3(0x1f9)](this,_0x4ba9f2),this[_0x48a7e3(0x146)]();};let _0x166b9a=Window_Message[_0x23860c(0x159)][_0x23860c(0x20f)];Window_Message[_0x23860c(0x159)][_0x23860c(0x20f)]=function(){const _0x4dbf36=_0x23860c;_0x166b9a['call'](this),this[_0x4dbf36(0x146)]();},Window_Message['prototype'][_0x23860c(0x146)]=function(){const _0x389947=_0x23860c;this['_backlogWindow']=new _0x2447be(),this[_0x389947(0x2a2)][_0x389947(0x222)](),SceneManager[_0x389947(0x17d)][_0x389947(0x2af)](this['_backlogWindow']);};let _0x34e8ad=Window_Message[_0x23860c(0x159)][_0x23860c(0x297)];Window_Message['prototype'][_0x23860c(0x297)]=function(){const _0x5b2eb1=_0x23860c;if(this[_0x5b2eb1(0x2a2)]&&this[_0x5b2eb1(0x2a2)]['active'])return!![];return _0x34e8ad[_0x5b2eb1(0x1f9)](this);};let _0x441c19=Window_Message[_0x23860c(0x159)][_0x23860c(0x1bb)];Window_Message[_0x23860c(0x159)][_0x23860c(0x1bb)]=function(){const _0x5a6bf7=_0x23860c;_0x441c19['call'](this),$gameSystem[_0x5a6bf7(0x17e)]($gameMessage['allText']());};let _0x56e1b1=Window_Message['prototype'][_0x23860c(0x2e7)];Window_Message[_0x23860c(0x159)][_0x23860c(0x2e7)]=function(){const _0x1da5a7=_0x23860c;if(this[_0x1da5a7(0x297)]())return!![];return this[_0x1da5a7(0x172)](),_0x56e1b1[_0x1da5a7(0x1f9)](this);},Window_Message['prototype'][_0x23860c(0x172)]=function(){const _0x477ef4=_0x23860c;if(!this[_0x477ef4(0x1bc)])return;if(!$gameSystem[_0x477ef4(0x1b3)]())return;},Window_Message[_0x23860c(0x159)][_0x23860c(0x237)]=function(){const _0x238417=_0x23860c;this['_backlogWindow'][_0x238417(0x25e)]();},Window_Message[_0x23860c(0x159)][_0x23860c(0x20c)]=function(_0x2b6701){const _0x22c526=_0x23860c;this[_0x22c526(0x2a2)]['setReturnWindow'](_0x2b6701);};}})());const COLOR_MAP={'0':0xffffff,'6':0x93ff93};class ColoredText extends PIXI[a0_0x326a84(0x2d4)]{constructor(_0x5a819c,_0x179338={},_0x223a61=COLOR_MAP){const _0x181cea=a0_0x326a84;super(),this[_0x181cea(0x29c)]=_0x5a819c,this[_0x181cea(0x23f)]=_0x179338,this['colorMap']=_0x223a61,this[_0x181cea(0x2d6)]=_0x179338[_0x181cea(0x1c8)]!==undefined?_0x179338[_0x181cea(0x1c8)]:0x0,this[_0x181cea(0x280)]=this['parseText'](_0x5a819c),this[_0x181cea(0x258)]();}['parseText'](_0x1a2d0f){const _0x38ffea=a0_0x326a84;console['error'](_0x38ffea(0x29c),_0x1a2d0f);const _0x484755=_0x1a2d0f[_0x38ffea(0x277)]('\x0a'),_0x4ad0ea=_0x484755[_0x38ffea(0x1a0)](_0x1dc7b7=>{const _0x297c2d=_0x38ffea,_0x23f366=[],_0x32b223=/\\C\[(\d*)\]/gi;let _0x5fbbb5=0x0,_0x5b95f0,_0x2e429e=ColorManager[_0x297c2d(0x1c3)](0x0);while((_0x5b95f0=_0x32b223[_0x297c2d(0x19d)](_0x1dc7b7))!==null){console[_0x297c2d(0x2cf)](_0x297c2d(0x2e4),_0x5b95f0);if(_0x5b95f0['index']>_0x5fbbb5){const _0xacc348=_0x1dc7b7['substring'](_0x5fbbb5,_0x5b95f0[_0x297c2d(0x1ab)]);_0xacc348[_0x297c2d(0x187)]>0x0&&_0x23f366[_0x297c2d(0x244)]({'text':_0xacc348,'color':_0x2e429e});}const _0x305b64=_0x5b95f0[0x1];_0x2e429e=ColorManager[_0x297c2d(0x1c3)](_0x305b64),_0x5fbbb5=_0x32b223[_0x297c2d(0x24c)];}if(_0x5fbbb5<_0x1dc7b7[_0x297c2d(0x187)]){const _0x386aa0=_0x1dc7b7['substring'](_0x5fbbb5);_0x386aa0[_0x297c2d(0x187)]>0x0&&_0x23f366[_0x297c2d(0x244)]({'text':_0x386aa0,'color':_0x2e429e});}return _0x23f366;});return _0x4ad0ea;}[a0_0x326a84(0x258)](){const _0x3ac637=a0_0x326a84;let _0x4065b8=0x0;const _0x5615a6=this[_0x3ac637(0x23f)][_0x3ac637(0x2c8)]?this[_0x3ac637(0x23f)]['fontSize']*1.4:0x24*1.4,_0x909874=this[_0x3ac637(0x23f)][_0x3ac637(0x232)]||Infinity;this[_0x3ac637(0x280)][_0x3ac637(0x29f)](_0x25c47a=>{let _0x409618=0x0;_0x25c47a['forEach'](_0x135204=>{const _0x309e11=a0_0x37a4,_0x534202={...this[_0x309e11(0x23f)],'fill':_0x135204[_0x309e11(0x2e3)],'wordWrap':![],'breakWords':![]};if(this[_0x309e11(0x23f)][_0x309e11(0x1c1)]&&_0x909874!==Infinity){const _0x4c45c8=_0x135204['text'][_0x309e11(0x277)]('');let _0x5736eb='';_0x4c45c8[_0x309e11(0x29f)](_0x219eed=>{const _0xc5fe8=_0x309e11,_0x2f9ac1=_0x5736eb+_0x219eed,_0x162cbf=new PIXI[(_0xc5fe8(0x242))](_0x2f9ac1,_0x534202),_0x1c0333=_0x162cbf[_0xc5fe8(0x1e0)];if(_0x409618+_0x1c0333>_0x909874&&_0x5736eb['length']>0x0){const _0x3f86c2=new PIXI[(_0xc5fe8(0x242))](_0x5736eb,_0x534202);_0x3f86c2['x']=_0x409618,_0x3f86c2['y']=_0x4065b8,this['addChild'](_0x3f86c2),_0x4065b8+=_0x5615a6,_0x409618=0x0,_0x5736eb=_0x219eed;}else _0x5736eb=_0x2f9ac1;_0x162cbf[_0xc5fe8(0x23e)]();});if(_0x5736eb['length']>0x0){const _0x2c4d0c=new PIXI[(_0x309e11(0x242))](_0x5736eb,_0x534202);_0x2c4d0c['x']=_0x409618,_0x2c4d0c['y']=_0x4065b8,this[_0x309e11(0x2af)](_0x2c4d0c),_0x409618+=_0x2c4d0c[_0x309e11(0x1e0)];}}else{const _0x100800=new PIXI[(_0x309e11(0x242))](_0x135204[_0x309e11(0x29c)],_0x534202);_0x100800['x']=_0x409618,_0x100800['y']=_0x4065b8,this[_0x309e11(0x2af)](_0x100800),_0x409618+=_0x100800[_0x309e11(0x1e0)];}}),_0x4065b8+=_0x5615a6;});}}

@@ -1,0 +1,316 @@
+[
+    null,
+    {
+        "id": 1,
+        "battlerName": "",
+        "characterIndex": 0,
+        "characterName": "$V1",
+        "classId": 1,
+        "equips": [
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "faceIndex": 0,
+        "faceName": "$V1",
+        "traits": [
+            {
+                "code": 21,
+                "dataId": 1,
+                "value": 1
+            },
+            {
+                "code": 22,
+                "dataId": 7,
+                "value": 0.1
+            },
+            {
+                "code": 22,
+                "dataId": 8,
+                "value": 0.2
+            },
+            {
+                "code": 41,
+                "dataId": 1,
+                "value": 1
+            },
+            {
+                "code": 42,
+                "dataId": 2,
+                "value": 1
+            },
+            {
+                "code": 43,
+                "dataId": 15,
+                "value": 1
+            },
+            {
+                "code": 43,
+                "dataId": 16,
+                "value": 1
+            },
+            {
+                "code": 43,
+                "dataId": 21,
+                "value": 1
+            }
+        ],
+        "initialLevel": 1,
+        "maxLevel": 99,
+        "name": "\\T[NAME_VIC]",
+        "nickname": "NAME_VICSYKES",
+        "note": "",
+        "profile": ""
+    },
+    {
+        "id": 2,
+        "battlerName": "",
+        "characterIndex": 1,
+        "characterName": "$H1",
+        "classId": 2,
+        "equips": [
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "faceIndex": 0,
+        "faceName": "$H1",
+        "traits": [
+            {
+                "code": 22,
+                "dataId": 8,
+                "value": 0.2
+            },
+            {
+                "code": 41,
+                "dataId": 2,
+                "value": 1
+            },
+            {
+                "code": 42,
+                "dataId": 1,
+                "value": 1
+            },
+            {
+                "code": 43,
+                "dataId": 13,
+                "value": 1
+            },
+            {
+                "code": 43,
+                "dataId": 14,
+                "value": 1
+            },
+            {
+                "code": 43,
+                "dataId": 22,
+                "value": 1
+            }
+        ],
+        "initialLevel": 1,
+        "maxLevel": 99,
+        "name": "\\T[NAME_HUGH]",
+        "nickname": "NAME_HUGHNOR",
+        "note": "",
+        "profile": ""
+    },
+    {
+        "id": 3,
+        "battlerName": "",
+        "characterIndex": 1,
+        "characterName": "Nature",
+        "classId": 3,
+        "equips": [
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "faceIndex": 0,
+        "faceName": "",
+        "traits": [
+            {
+                "code": 22,
+                "dataId": 7,
+                "value": 0.1
+            },
+            {
+                "code": 22,
+                "dataId": 8,
+                "value": 0.2
+            }
+        ],
+        "initialLevel": 1,
+        "maxLevel": 99,
+        "name": "\\V[108]",
+        "nickname": "",
+        "note": "玩家",
+        "profile": ""
+    },
+    {
+        "id": 4,
+        "battlerName": "",
+        "characterIndex": 0,
+        "characterName": "",
+        "classId": 1,
+        "equips": [
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "faceIndex": 0,
+        "faceName": "",
+        "traits": [],
+        "initialLevel": 1,
+        "maxLevel": 99,
+        "name": "\\T[NAME_ANDRE]",
+        "nickname": "",
+        "note": "",
+        "profile": ""
+    },
+    {
+        "id": 5,
+        "battlerName": "",
+        "characterIndex": 0,
+        "characterName": "",
+        "classId": 1,
+        "equips": [
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "faceIndex": 0,
+        "faceName": "",
+        "traits": [],
+        "initialLevel": 1,
+        "maxLevel": 99,
+        "name": "\\T[NAME_MARET]",
+        "nickname": "",
+        "note": "",
+        "profile": ""
+    },
+    {
+        "id": 6,
+        "battlerName": "",
+        "characterIndex": 0,
+        "characterName": "",
+        "classId": 1,
+        "equips": [
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "faceIndex": 0,
+        "faceName": "",
+        "traits": [],
+        "initialLevel": 1,
+        "maxLevel": 99,
+        "name": "\\T[NAME_CRE]",
+        "nickname": "",
+        "note": "",
+        "profile": ""
+    },
+    {
+        "id": 7,
+        "battlerName": "",
+        "characterIndex": 0,
+        "characterName": "",
+        "classId": 1,
+        "equips": [
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "faceIndex": 0,
+        "faceName": "",
+        "traits": [],
+        "initialLevel": 1,
+        "maxLevel": 99,
+        "name": "\\T[NAME_CHAI]",
+        "nickname": "",
+        "note": "",
+        "profile": ""
+    },
+    {
+        "id": 8,
+        "battlerName": "",
+        "characterIndex": 0,
+        "characterName": "",
+        "classId": 1,
+        "equips": [
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "faceIndex": 0,
+        "faceName": "",
+        "traits": [],
+        "initialLevel": 1,
+        "maxLevel": 99,
+        "name": "雷歐",
+        "nickname": "",
+        "note": "",
+        "profile": ""
+    },
+    {
+        "id": 9,
+        "battlerName": "",
+        "characterIndex": 0,
+        "characterName": "",
+        "classId": 1,
+        "equips": [
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "faceIndex": 0,
+        "faceName": "",
+        "traits": [],
+        "initialLevel": 1,
+        "maxLevel": 99,
+        "name": "緋狐",
+        "nickname": "",
+        "note": "",
+        "profile": ""
+    },
+    {
+        "id": 10,
+        "battlerName": "",
+        "characterIndex": 0,
+        "characterName": "",
+        "classId": 1,
+        "equips": [
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "faceIndex": 0,
+        "faceName": "",
+        "traits": [],
+        "initialLevel": 1,
+        "maxLevel": 99,
+        "name": "",
+        "nickname": "",
+        "note": "",
+        "profile": ""
+    }
+]
